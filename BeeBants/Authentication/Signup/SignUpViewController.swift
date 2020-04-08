@@ -7,11 +7,17 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 struct UserData {
     var name = ""
     var email = ""
+    var date = ""
+    var nation = ""
+    var news = false
+    var password = ""
 }
 
 class SignUpViewController: UIViewController {
@@ -21,10 +27,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var userData : UserData = UserData()
+    var signUpController : SignUpPageViewController? = nil
+    
+    @IBOutlet weak var c1: UIImageView!
+    @IBOutlet weak var c2: UIImageView!
+    @IBOutlet weak var c3: UIImageView!
+    @IBOutlet weak var c4: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
         setUpBackground()
         setUpElements()
     }
@@ -62,12 +75,56 @@ class SignUpViewController: UIViewController {
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if  let vc = segue.destination as? SignUpPageViewController {
         vc.signUp = self
+        self.signUpController = vc
        }
     }
     
     func setNameAndEmail(name: String, email: String) {
         self.userData.name = name
         self.userData.email = email
+    }
+    
+    func setDateAndNation(date: String, nation: String) {
+        self.userData.date = date
+        self.userData.nation = nation
+    }
+    
+    func setPassNews(password: String, news: Bool) {
+        self.userData.password = password
+        self.userData.news = news
+    }
+    
+    func register() {
+        
+        Auth.auth().createUser(withEmail: self.userData.email, password: self.userData.password) {
+            authResult, error in
+            
+            if error != nil {
+                let alert = UIAlertController(title: "Bad Sign Up", message: error?.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Start again", style: .destructive, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                self.signUpController?.forward(index: 0)
+
+            } else {
+                let db = Firestore.firestore()
+                db.collection("users").addDocument(data: ["name":self.userData.name,"dateofbirth":self.userData.date, "nation":self.userData.nation, "newsletter":self.userData.news, "uid":authResult!.user.uid]) {
+                    
+                    (error) in
+                    if error != nil {
+                        let alert = UIAlertController(title: "Bad Sign Up", message: error?.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Start again", style: .destructive, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        self.signUpController?.forward(index: 0)
+
+                    } else {
+                        // Everythint went fine
+                        
+                        self.signUpController?.forward(index: 3)
+                    }
+                }
+            }
+            
+        }
     }
 }
 

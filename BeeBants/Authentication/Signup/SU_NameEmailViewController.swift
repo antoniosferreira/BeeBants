@@ -9,19 +9,19 @@
 import UIKit
 
 class SU_NameEmailViewController: UIViewController {
-
+    
     @IBOutlet weak var nameTextField: RoundTextField!
     @IBOutlet weak var nameErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: RoundTextField!
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
-            
+    
     var signUp: SignUpViewController!
     var pageController : SignUpPageViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpElements()
         hideKeyboardWhenTappedAround()
         setUpGesturesAndAnimations()
@@ -36,8 +36,8 @@ class SU_NameEmailViewController: UIViewController {
         emailErrorLabel.alpha = 0
     }
     
-   
-
+    
+    
     
     @IBAction func nameFieldEditEnd(_ sender: Any) {
         if !(Validation.isValidName(nameTextField.text ?? "")) {
@@ -57,9 +57,13 @@ class SU_NameEmailViewController: UIViewController {
         }
     }
     
+    @IBAction func emailFieldEditChanged(_ sender: Any) {
+        emailTextField.text = emailTextField.text?.trimmingCharacters(in: .whitespaces)
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         self.view.endEditing(true)
-
+        
         if !(Validation.isValidName(nameTextField.text ?? "")) {
             nameTextField.shake()
         }
@@ -76,14 +80,14 @@ class SU_NameEmailViewController: UIViewController {
     
     
     func hideKeyboardWhenTappedAround() {
-           let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-           tap.cancelsTouchesInView = false
-           view.addGestureRecognizer(tap)
-       }
-       
-       @objc func dismissKeyboard() {
-           view.endEditing(true)
-       }
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     func setUpGesturesAndAnimations() {
         NotificationCenter.default.addObserver(self,selector:#selector(self.keyboardWillShow),name:UIResponder.keyboardDidShowNotification, object: nil)
@@ -95,7 +99,7 @@ class SU_NameEmailViewController: UIViewController {
             signUp.keyboardWillShow(notification: notification)
         }
     }
-
+    
     @objc func keyboardWillHide(notification: Notification) {
         signUp.keyboardWillHide(notification: notification)
     }

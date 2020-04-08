@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		641062F024363B1700406B2B /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641062ED24363B1700406B2B /* DateTextField.swift */; };
+		640C0A77243B5E0F006413B8 /* SU_PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640C0A76243B5E0F006413B8 /* SU_PassViewController.swift */; };
+		640C0A79243BA3B2006413B8 /* TCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640C0A78243BA3B2006413B8 /* TCViewController.swift */; };
+		641204D3243CBE2E00818054 /* SU_FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641204D2243CBE2E00818054 /* SU_FinalViewController.swift */; };
+		641204D6243CC3D400818054 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641204D5243CC3D400818054 /* Login.storyboard */; };
+		641204D8243CC46F00818054 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641204D7243CC46F00818054 /* LoginViewController.swift */; };
 		6450060A2432765C00F7444C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645006092432765C00F7444C /* AppDelegate.swift */; };
 		6450060C2432765C00F7444C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6450060B2432765C00F7444C /* SceneDelegate.swift */; };
 		645006112432765C00F7444C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6450060F2432765C00F7444C /* Main.storyboard */; };
@@ -15,13 +19,17 @@
 		645006162432765D00F7444C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645006152432765D00F7444C /* Assets.xcassets */; };
 		645006192432765D00F7444C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645006172432765D00F7444C /* LaunchScreen.storyboard */; };
 		64500623243285BA00F7444C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64500622243285BA00F7444C /* MainViewController.swift */; };
+		64627C922439EB04008F9DF0 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64627C912439EB04008F9DF0 /* DateTextField.swift */; };
 		64766250243612A300ED9CE1 /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476624F243612A300ED9CE1 /* Auxiliary.swift */; };
 		64766252243625D700ED9CE1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64766251243625D700ED9CE1 /* Validation.swift */; };
 		6476625424362FB300ED9CE1 /* SU_DateNationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476625324362FB300ED9CE1 /* SU_DateNationViewController.swift */; };
+		647BFDF9243D661E00322397 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 647BFDF8243D661E00322397 /* GoogleService-Info.plist */; };
+		647BFDFB243E0CFF00322397 /* RecoveryPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647BFDFA243E0CFF00322397 /* RecoveryPasswordViewController.swift */; };
 		64AE578724349ED2003AC66A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AE578624349ED2003AC66A /* SignUpViewController.swift */; };
 		64AE578924349EDE003AC66A /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AE578824349EDE003AC66A /* SignUpPageViewController.swift */; };
 		64AE578B2434FB28003AC66A /* SU_NameEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AE578A2434FB28003AC66A /* SU_NameEmailViewController.swift */; };
 		64AEB00124349C7A009D70BB /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64AEB00024349C7A009D70BB /* Signup.storyboard */; };
+		64C72008243CEFB20057E84C /* LostPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C72007243CEFB20057E84C /* LostPasswordViewController.swift */; };
 		64F4276E24328F1D00E4FB3B /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6450062A243289A300F7444C /* Poppins-Black.ttf */; };
 		64F4276F24328F2000E4FB3B /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64500629243289A300F7444C /* Poppins-BlackItalic.ttf */; };
 		64F4277024328F2000E4FB3B /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64500631243289A300F7444C /* Poppins-Bold.ttf */; };
@@ -47,7 +55,11 @@
 /* Begin PBXFileReference section */
 		1368BBAE759620045F5E7913 /* Pods-BeeBants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBants.release.xcconfig"; path = "Target Support Files/Pods-BeeBants/Pods-BeeBants.release.xcconfig"; sourceTree = "<group>"; };
 		27930CB0B6C7BFB528FBE278 /* Pods-BeeBants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBants.debug.xcconfig"; path = "Target Support Files/Pods-BeeBants/Pods-BeeBants.debug.xcconfig"; sourceTree = "<group>"; };
-		641062ED24363B1700406B2B /* DateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
+		640C0A76243B5E0F006413B8 /* SU_PassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SU_PassViewController.swift; sourceTree = "<group>"; };
+		640C0A78243BA3B2006413B8 /* TCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCViewController.swift; sourceTree = "<group>"; };
+		641204D2243CBE2E00818054 /* SU_FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SU_FinalViewController.swift; sourceTree = "<group>"; };
+		641204D5243CC3D400818054 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		641204D7243CC46F00818054 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		645006062432765C00F7444C /* BeeBants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeBants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645006092432765C00F7444C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6450060B2432765C00F7444C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,13 +87,17 @@
 		64500635243289A300F7444C /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		64500636243289A400F7444C /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		64500637243289A400F7444C /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		64627C912439EB04008F9DF0 /* DateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		6476624F243612A300ED9CE1 /* Auxiliary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auxiliary.swift; sourceTree = "<group>"; };
 		64766251243625D700ED9CE1 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		6476625324362FB300ED9CE1 /* SU_DateNationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SU_DateNationViewController.swift; sourceTree = "<group>"; };
+		647BFDF8243D661E00322397 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		647BFDFA243E0CFF00322397 /* RecoveryPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordViewController.swift; sourceTree = "<group>"; };
 		64AE578624349ED2003AC66A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		64AE578824349EDE003AC66A /* SignUpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
 		64AE578A2434FB28003AC66A /* SU_NameEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SU_NameEmailViewController.swift; sourceTree = "<group>"; };
 		64AEB00024349C7A009D70BB /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		64C72007243CEFB20057E84C /* LostPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostPasswordViewController.swift; sourceTree = "<group>"; };
 		64F4278124328FAD00E4FB3B /* MainStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyling.swift; sourceTree = "<group>"; };
 		6E09F48DF8907519EEBD8671 /* Pods_BeeBants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeBants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,13 +123,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		641062E924363B1700406B2B /* DateTextField */ = {
+		641204D4243CC3C000818054 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				641062ED24363B1700406B2B /* DateTextField.swift */,
+				641204D5243CC3D400818054 /* Login.storyboard */,
+				641204D7243CC46F00818054 /* LoginViewController.swift */,
+				64C72007243CEFB20057E84C /* LostPasswordViewController.swift */,
+				647BFDFA243E0CFF00322397 /* RecoveryPasswordViewController.swift */,
 			);
-			name = DateTextField;
-			path = "../../../../Desktop/untitled folder 2/DateTextField";
+			path = Login;
 			sourceTree = "<group>";
 		};
 		645005FD2432765C00F7444C = {
@@ -143,9 +161,10 @@
 				64500622243285BA00F7444C /* MainViewController.swift */,
 				645006092432765C00F7444C /* AppDelegate.swift */,
 				6450060B2432765C00F7444C /* SceneDelegate.swift */,
-				645006152432765D00F7444C /* Assets.xcassets */,
 				6450061A2432765D00F7444C /* Info.plist */,
+				647BFDF8243D661E00322397 /* GoogleService-Info.plist */,
 				645006122432765C00F7444C /* BeeBants.xcdatamodeld */,
+				645006152432765D00F7444C /* Assets.xcassets */,
 				64F4278024328F9000E4FB3B /* Styling */,
 				645006242432897000F7444C /* Support Files */,
 			);
@@ -155,8 +174,9 @@
 		645006242432897000F7444C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				641062E924363B1700406B2B /* DateTextField */,
+				64E457F7243A892000AC892A /* PickerViewKeyboard */,
 				6476624F243612A300ED9CE1 /* Auxiliary.swift */,
+				64627C902439EAF8008F9DF0 /* DateTextField */,
 				645006252432897900F7444C /* Fonts */,
 			);
 			path = "Support Files";
@@ -187,9 +207,18 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		64627C902439EAF8008F9DF0 /* DateTextField */ = {
+			isa = PBXGroup;
+			children = (
+				64627C912439EB04008F9DF0 /* DateTextField.swift */,
+			);
+			path = DateTextField;
+			sourceTree = "<group>";
+		};
 		64AEAFFE24349C64009D70BB /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				641204D4243CC3C000818054 /* Login */,
 				64AEAFFF24349C6B009D70BB /* Signup */,
 			);
 			path = Authentication;
@@ -203,9 +232,19 @@
 				64AE578824349EDE003AC66A /* SignUpPageViewController.swift */,
 				64AE578A2434FB28003AC66A /* SU_NameEmailViewController.swift */,
 				6476625324362FB300ED9CE1 /* SU_DateNationViewController.swift */,
+				640C0A76243B5E0F006413B8 /* SU_PassViewController.swift */,
+				641204D2243CBE2E00818054 /* SU_FinalViewController.swift */,
+				640C0A78243BA3B2006413B8 /* TCViewController.swift */,
 				64766251243625D700ED9CE1 /* Validation.swift */,
 			);
 			path = Signup;
+			sourceTree = "<group>";
+		};
+		64E457F7243A892000AC892A /* PickerViewKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PickerViewKeyboard;
 			sourceTree = "<group>";
 		};
 		64F4278024328F9000E4FB3B /* Styling */ = {
@@ -235,6 +274,7 @@
 				645006022432765C00F7444C /* Sources */,
 				645006032432765C00F7444C /* Frameworks */,
 				645006042432765C00F7444C /* Resources */,
+				9414B784990B9DB8A70846AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,6 +297,7 @@
 				TargetAttributes = {
 					645006052432765C00F7444C = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -300,10 +341,12 @@
 				64F4277924328F2000E4FB3B /* Poppins-Medium.ttf in Resources */,
 				64F4277824328F2000E4FB3B /* Poppins-LightItalic.ttf in Resources */,
 				64AEB00124349C7A009D70BB /* Signup.storyboard in Resources */,
+				647BFDF9243D661E00322397 /* GoogleService-Info.plist in Resources */,
 				64F4277224328F2000E4FB3B /* Poppins-ExtraBold.ttf in Resources */,
 				64F4276F24328F2000E4FB3B /* Poppins-BlackItalic.ttf in Resources */,
 				64F4277C24328F2000E4FB3B /* Poppins-SemiBold.ttf in Resources */,
 				645006162432765D00F7444C /* Assets.xcassets in Resources */,
+				641204D6243CC3D400818054 /* Login.storyboard in Resources */,
 				645006112432765C00F7444C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +376,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9414B784990B9DB8A70846AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBants/Pods-BeeBants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBants/Pods-BeeBants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBants/Pods-BeeBants-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -341,16 +401,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				64AE578724349ED2003AC66A /* SignUpViewController.swift in Sources */,
-				641062F024363B1700406B2B /* DateTextField.swift in Sources */,
+				64627C922439EB04008F9DF0 /* DateTextField.swift in Sources */,
 				6476625424362FB300ED9CE1 /* SU_DateNationViewController.swift in Sources */,
+				640C0A79243BA3B2006413B8 /* TCViewController.swift in Sources */,
 				64AE578924349EDE003AC66A /* SignUpPageViewController.swift in Sources */,
 				645006142432765C00F7444C /* BeeBants.xcdatamodeld in Sources */,
 				6450060A2432765C00F7444C /* AppDelegate.swift in Sources */,
 				64AE578B2434FB28003AC66A /* SU_NameEmailViewController.swift in Sources */,
 				64F4278224328FAD00E4FB3B /* MainStyling.swift in Sources */,
 				6450060C2432765C00F7444C /* SceneDelegate.swift in Sources */,
+				64C72008243CEFB20057E84C /* LostPasswordViewController.swift in Sources */,
+				641204D3243CBE2E00818054 /* SU_FinalViewController.swift in Sources */,
 				64500623243285BA00F7444C /* MainViewController.swift in Sources */,
+				641204D8243CC46F00818054 /* LoginViewController.swift in Sources */,
 				64766252243625D700ED9CE1 /* Validation.swift in Sources */,
+				640C0A77243B5E0F006413B8 /* SU_PassViewController.swift in Sources */,
+				647BFDFB243E0CFF00322397 /* RecoveryPasswordViewController.swift in Sources */,
 				64766250243612A300ED9CE1 /* Auxiliary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +562,7 @@
 			baseConfigurationReference = 27930CB0B6C7BFB528FBE278 /* Pods-BeeBants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 36W374R25V;
 				INFOPLIST_FILE = BeeBants/Info.plist;
@@ -505,8 +572,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = BeeBants.BeeBants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,6 +583,7 @@
 			baseConfigurationReference = 1368BBAE759620045F5E7913 /* Pods-BeeBants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 36W374R25V;
 				INFOPLIST_FILE = BeeBants/Info.plist;
@@ -525,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = BeeBants.BeeBants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -6,6 +6,9 @@ target 'BeeBants' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for BeeBants
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'FirebaseFirestoreSwift'
 
+  # Pods for BeeBants
 end

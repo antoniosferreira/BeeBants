@@ -29,13 +29,40 @@ class SignUpPageViewController: UIPageViewController {
             let view = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SU_1_SB") as! SU_NameEmailViewController
             view.signUp = self.signUp
             view.pageController = self
+            signUp.c1.image = UIImage(named: "Circle_red")
+            signUp.c2.image = UIImage(named: "Circle_white")
+            signUp.c3.image = UIImage(named: "Circle_white")
+            signUp.c4.image = UIImage(named: "Circle_white")
+            
             return view
             
         case 1 :
             let view = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SU_2_SB") as! SU_DateNationViewController
             view.signUp = self.signUp
             view.pageController = self
+            signUp.c1.image = UIImage(named: "Circle_red")
+            signUp.c2.image = UIImage(named: "Circle_red")
+            signUp.c3.image = UIImage(named: "Circle_white")
+            signUp.c4.image = UIImage(named: "Circle_white")
             return view
+        case 2 :
+            let view = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SU_3_SB") as! SU_PassViewController
+            view.signUp = self.signUp
+            view.pageController = self
+            signUp.c1.image = UIImage(named: "Circle_red")
+            signUp.c2.image = UIImage(named: "Circle_red")
+            signUp.c3.image = UIImage(named: "Circle_red")
+            signUp.c4.image = UIImage(named: "Circle_white")
+            return view
+        case 3 :
+            let view = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SU_4_SB") as! SU_FinalViewController
+            view.signUp = self.signUp
+            signUp.c1.image = UIImage(named: "Circle_red")
+            signUp.c2.image = UIImage(named: "Circle_red")
+            signUp.c3.image = UIImage(named: "Circle_red")
+            signUp.c4.image = UIImage(named: "Circle_red")
+            return view
+            
         default:
             return UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SU_1_SB") as UIViewController
         }

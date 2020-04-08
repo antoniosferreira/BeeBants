@@ -18,13 +18,19 @@ class Styling {
         button.backgroundColor = redColor
     }
     
+    static func styleRedFilledBorderButton(button: UIButton) {
+        button.backgroundColor = redColor
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+    }
+    
     static func styleRedUnfilledButton(button: UIButton) {
         button.backgroundColor = whiteTranslucid
         button.layer.borderWidth = 1
         button.layer.borderColor = redColor.cgColor
     }
     
-    static func styleRedField(field: UITextField,  placeholder: String) {
+    static func styleRedField(field: UITextField, placeholder: String) {
         field.layer.borderColor = redColor.cgColor
         
         field.attributedPlaceholder = NSAttributedString(string: placeholder,
@@ -32,6 +38,16 @@ class Styling {
         
         field.font =  UIFont.init(name: "Poppins-Light", size: field.bounds.width/20)
         field.backgroundColor = whiteTranslucid
+    }
+    
+    static func styleWhiteField(field: UITextField, placeholder: String) {
+        field.layer.borderColor = redColor.cgColor
+        
+        field.attributedPlaceholder = NSAttributedString(string: placeholder,
+        attributes: [NSAttributedString.Key.foregroundColor: redColor])
+        
+        field.font =  UIFont.init(name: "Poppins-Light", size: field.bounds.width/20)
+        field.backgroundColor = .white
     }
 
 }
@@ -54,5 +70,31 @@ class RoundTextField : UITextField {
         self.leftView = paddingView
         self.leftViewMode = .always
     }
+}
+
+class RoundDateTextField : DateTextField {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 2
+        self.clipsToBounds = true
+        self.layer.borderWidth = 1
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width*0.075, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+}
+
+class RoundPickerTextField : UITextField {
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 2
+        self.clipsToBounds = true
+        self.layer.borderWidth = 1
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width*0.075, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
 }

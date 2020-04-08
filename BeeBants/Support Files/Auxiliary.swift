@@ -34,3 +34,15 @@ extension UIView {
         self.layer.add(animation, forKey: "shake")
     }
 }
+
+class Constants {
+    static var countries : [String?] {
+        var countries = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
+        if let myCountry = Locale.current.regionCode {
+            countries.insert(Locale.current.localizedString(forRegionCode: myCountry)!, at: 0)
+        }
+        return countries
+    }
+
+    
+}
