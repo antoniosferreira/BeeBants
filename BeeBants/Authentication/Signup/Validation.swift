@@ -34,13 +34,22 @@ class Validation {
     
     static func isValidDate(_ date: Date?) -> Bool {
         
-        if date != nil {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm"
-            let someDateTime = formatter.date(from: "1920/12/31 00:00")
+        if let inputDate = date {
+            let currentDate = Date()
+            let lastValidDate = currentDate.addingTimeInterval(-189216000)
             
-//            if (someDateTime! > date!) {
-//                return false }
+            
+            if inputDate > lastValidDate {
+                return false
+            }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            if let someDateTime = formatter.date(from: "31/12/1935")  {
+                if inputDate < someDateTime {
+                    return false
+                }
+            }
             
             
             return true

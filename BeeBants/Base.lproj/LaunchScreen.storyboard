@@ -22,25 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_red_full" translatesAutoresizingMaskIntoConstraints="NO" id="IBQ-NU-ebx">
-                                <rect key="frame" x="41.5" y="-711.5" width="331" height="2140"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing_subtitle" translatesAutoresizingMaskIntoConstraints="NO" id="KhP-1A-nkV">
-                                <rect key="frame" x="66" y="507" width="282" height="16"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="top" secondItem="ShF-gA-x1p" secondAttribute="top" id="1uz-S3-aeL"/>
-                            <constraint firstItem="KhP-1A-nkV" firstAttribute="width" secondItem="IBQ-NU-ebx" secondAttribute="width" multiplier="0.85" id="DpX-21-hXb"/>
-                            <constraint firstItem="IBQ-NU-ebx" firstAttribute="centerY" secondItem="HMF-iN-cJu" secondAttribute="centerY" multiplier="0.8" id="H0v-9r-gcx"/>
-                            <constraint firstItem="IBQ-NU-ebx" firstAttribute="centerX" secondItem="HMF-iN-cJu" secondAttribute="centerX" id="QTu-eI-3JK"/>
                             <constraint firstItem="ShF-gA-x1p" firstAttribute="leading" secondItem="HMF-iN-cJu" secondAttribute="leading" id="Xtl-YR-Rsv"/>
                             <constraint firstAttribute="trailing" secondItem="ShF-gA-x1p" secondAttribute="trailing" id="cb0-C9-bNx"/>
                             <constraint firstAttribute="bottom" secondItem="ShF-gA-x1p" secondAttribute="bottom" id="eTO-u2-jRe"/>
-                            <constraint firstItem="IBQ-NU-ebx" firstAttribute="width" secondItem="HMF-iN-cJu" secondAttribute="width" multiplier="0.8" id="htV-en-3NW"/>
-                            <constraint firstItem="KhP-1A-nkV" firstAttribute="centerY" secondItem="HMF-iN-cJu" secondAttribute="centerY" multiplier="1.15" id="rLl-dU-dFt"/>
-                            <constraint firstItem="KhP-1A-nkV" firstAttribute="centerX" secondItem="HMF-iN-cJu" secondAttribute="centerX" id="zZq-RZ-aLc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,8 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Landing_BG" width="359" height="641"/>
-        <image name="Logo_red_full" width="2248" height="2140"/>
-        <image name="landing_subtitle" width="191" height="16"/>
+        <image name="Landing_BG" width="1058" height="1884"/>
     </resources>
 </document>

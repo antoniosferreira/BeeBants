@@ -147,6 +147,16 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
         </scene>
+        <!--HowTo-->
+        <scene sceneID="Yx0-xa-WER">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HowTo" id="5EX-eb-Glv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="n6P-yu-Exj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNj-P7-RCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="624" y="-282"/>
+        </scene>
         <!--Signup-->
         <scene sceneID="oH2-TP-ULB">
             <objects>

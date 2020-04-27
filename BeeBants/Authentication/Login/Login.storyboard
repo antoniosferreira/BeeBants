@@ -271,6 +271,9 @@
                                         <rect key="frame" x="40" y="-17.5" width="334" height="63.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <connections>
+                                            <action selector="emailEditChanged:" destination="jBP-kX-OlS" eventType="editingChanged" id="Dyr-HD-CPA"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -350,8 +353,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-ZA-kfK">
                                 <rect key="frame" x="0.0" y="44" width="414" height="122.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_white_small" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-Gw-g5B">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_white_small" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-Gw-g5B">
                                         <rect key="frame" x="40" y="0.0" width="41.5" height="122.5"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="xKz-zf-eaJ" appends="YES" id="Zf3-e4-wZe"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -476,8 +483,13 @@
                         <action selector="resend:" destination="4Jj-nM-ZzV" id="5BK-XT-V5R"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="xKz-zf-eaJ">
+                    <connections>
+                        <segue destination="Jer-uG-Itq" kind="presentation" modalPresentationStyle="fullScreen" id="GU1-y3-rke"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="807" y="795"/>
+            <point key="canvasLocation" x="999" y="795"/>
         </scene>
         <!--Main-->
         <scene sceneID="zJR-TZ-6bI">
@@ -490,9 +502,12 @@
             <point key="canvasLocation" x="645" y="-150"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="R94-D9-7Qv"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo_black_small" width="653" height="881"/>
-        <image name="Logo_white_small" width="129" height="148"/>
+        <image name="Logo_white_small" width="151" height="296"/>
         <image name="whitebar" width="504" height="24"/>
     </resources>
 </document>

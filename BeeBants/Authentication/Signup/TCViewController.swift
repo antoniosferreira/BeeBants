@@ -26,7 +26,7 @@ class TCViewController: UIViewController {
         
 
         textLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        textLabel.font = UIFont(name: "Poppins-SemiBold", size: 16)
+        textLabel.font = UIFont(name: "Poppins-Regular", size: 16)
         textLabel.numberOfLines = 0
         textLabel.lineBreakMode = .byWordWrapping
         let paragraphStyle = NSMutableParagraphStyle()

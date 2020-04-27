@@ -38,6 +38,10 @@ class LostPasswordViewController: UIViewController {
     }
     
 
+    @IBAction func emailEditChanged(_ sender: Any) {
+        emailTextField.text = emailTextField.text?.trimmingCharacters(in: .whitespaces)
+
+    }
     /*
     // MARK: - Navigation
 

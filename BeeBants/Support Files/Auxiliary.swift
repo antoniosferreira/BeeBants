@@ -35,13 +35,27 @@ extension UIView {
     }
 }
 
+extension UIView {
+
+    func constraintsForAnchoringTo(boundsOf view: UIView) -> [NSLayoutConstraint] {
+        return [
+            topAnchor.constraint(equalTo: view.topAnchor),
+            leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ]
+    }
+}
+
 class Constants {
     static var countries : [String?] {
         var countries = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
+        var sortedCountries = countries.sorted(by: { $0 < $1 })
+        
         if let myCountry = Locale.current.regionCode {
-            countries.insert(Locale.current.localizedString(forRegionCode: myCountry)!, at: 0)
+            sortedCountries.insert(Locale.current.localizedString(forRegionCode: myCountry)!, at: 0)
         }
-        return countries
+        return sortedCountries
     }
 
     
