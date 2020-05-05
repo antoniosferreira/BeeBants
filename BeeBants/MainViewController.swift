@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainViewController: UIViewController {
 
@@ -20,6 +21,21 @@ class MainViewController: UIViewController {
         setUpBackground()
         setUpElements()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Directly to home
+        if Auth.auth().currentUser != nil {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MAIN_SB") as! HomeViewController
+            nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+            
+            present(nextViewController, animated: true, completion: nil)
+            
+        }
     }
     
     func setUpBackground() {

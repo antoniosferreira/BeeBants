@@ -160,6 +160,6 @@
         <image name="Circle_red" width="28" height="28"/>
         <image name="Circle_white" width="28" height="28"/>
         <image name="Logo_black_small" width="653" height="881"/>
-        <image name="howto1" width="364" height="452"/>
+        <image name="howto1" width="781" height="969"/>
     </resources>
 </document>

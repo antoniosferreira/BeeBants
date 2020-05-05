@@ -107,7 +107,16 @@ class SignUpViewController: UIViewController {
 
             } else {
                 let db = Firestore.firestore()
-                db.collection("users").addDocument(data: ["name":self.userData.name,"dateofbirth":self.userData.date, "nation":self.userData.nation, "newsletter":self.userData.news, "uid":authResult!.user.uid]) {
+                
+                db.collection("profiles").document(authResult!.user.uid).setData([ "bar_money1":true,"bar_money2":true, "bar_money3":true,
+                    "bar_style1":true, "bar_style2":true, "bar_style3":true,
+                    "bar_density1":true, "bar_density2":true, "bar_density3":true,
+                    "bar_time1":true, "bar_time2":true,
+                    "res_money1":true, "res_money2":true, "res_money3":true,
+                    "res_diet1":true, "res_diet2":true, "res_diet3":true, "res_diet4":true, "res_diet5":true,
+                    "res_amb1":true, "res_amb2":true, "res_amb3":true])
+                
+                db.collection("users").document(authResult!.user.uid).setData([ "name":self.userData.name,"dateofbirth":self.userData.date, "nation":self.userData.nation, "newsletter":self.userData.news, "profile":false, "uid":authResult!.user.uid]) {
                     
                     (error) in
                     if error != nil {

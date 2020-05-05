@@ -49,7 +49,7 @@ extension UIView {
 
 class Constants {
     static var countries : [String?] {
-        var countries = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
+        let countries = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
         var sortedCountries = countries.sorted(by: { $0 < $1 })
         
         if let myCountry = Locale.current.regionCode {
@@ -58,5 +58,14 @@ class Constants {
         return sortedCountries
     }
 
+    static func getFirstName(_ fullName: String) -> String {
+        
+        if let first = fullName.components(separatedBy: " ").first {
+            return first
+        }
+        return ""
+    }
+
     
 }
+

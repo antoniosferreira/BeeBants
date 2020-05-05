@@ -9,7 +9,8 @@ target 'BeeBants' do
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'FirebaseFirestoreSwift'
-pod 'SwiftyOnboard'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
 
   # Pods for BeeBants
 end

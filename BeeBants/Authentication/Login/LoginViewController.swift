@@ -18,8 +18,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         setUpBackground()
         setUpElements()
         hideKeyboardWhenTappedAround()
@@ -60,10 +59,12 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
+    
     @IBAction func signButtonTapped(_ sender: UIButton) {
+        
         if let email = emailTextField.text, let pass = passTextField.text {
             Auth.auth().signIn(withEmail: email, password: pass) { [weak self] authResult, error in
-              guard let strongSelf = self else { return }
+                guard let strongSelf = self else { return }
                 
                 if error != nil {
                     let alert = UIAlertController(title: "Bad Login", message: error?.localizedDescription, preferredStyle: .alert)
@@ -74,10 +75,10 @@ class LoginViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
                     strongSelf.present(alert, animated: true, completion: nil)
                 }
-               
-                
             }
         }
+        
+
     }
     
     

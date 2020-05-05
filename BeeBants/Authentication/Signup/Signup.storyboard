@@ -528,7 +528,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="choose your country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oj-nO-cAy">
-                                        <rect key="frame" x="219" y="87.5" width="155" height="21"/>
+                                        <rect key="frame" x="219.5" y="87.5" width="154.5" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.77430188659999999" green="0.20502492789999999" blue="0.1882026792" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -630,7 +630,7 @@
                                 <rect key="frame" x="0.0" y="179" width="414" height="151.5"/>
                                 <subviews>
                                     <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="7iv-Yq-Yau">
-                                        <rect key="frame" x="40" y="-22" width="290" height="89.5"/>
+                                        <rect key="frame" x="40" y="-14.5" width="290" height="74.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -646,7 +646,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="M4s-Dl-hJ7">
-                                        <rect key="frame" x="40" y="117.5" width="334" height="34"/>
+                                        <rect key="frame" x="40" y="123.5" width="334" height="28"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Make sure you include a capital letter, a number and at least 5 characters">
                                                 <attributes>
@@ -683,7 +683,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your password isn't secure enough" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTh-hY-WVF">
-                                        <rect key="frame" x="113.5" y="94.5" width="260.5" height="21"/>
+                                        <rect key="frame" x="139" y="94.5" width="235" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.77430188659999999" green="0.20502492789999999" blue="0.1882026792" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -874,7 +874,7 @@
                                 <rect key="frame" x="0.0" y="412" width="414" height="204.5"/>
                                 <subviews>
                                     <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="JDW-ZK-CsP">
-                                        <rect key="frame" x="40" y="-42" width="310.5" height="94.5"/>
+                                        <rect key="frame" x="40" y="-51.5" width="310.5" height="113.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                         </accessibility>

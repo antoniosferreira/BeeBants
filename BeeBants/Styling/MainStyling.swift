@@ -49,6 +49,15 @@ class Styling {
         field.font =  UIFont.init(name: "Poppins-Light", size: field.bounds.width/20)
         field.backgroundColor = .white
     }
+    
+    
+    static func styleHiTextLabel(label: UILabel) {
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.25
+        label.numberOfLines = 2
+        label.font = UIFont(name: "Poppins-Bold", size: 40)
+        label.setNeedsDisplay()
+    }
 
 }
 
