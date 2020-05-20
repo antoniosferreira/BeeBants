@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t35-L3-lnh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,9 +42,6 @@
                                         <state key="normal" title="bars">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="bars:" destination="t35-L3-lnh" eventType="touchUpInside" id="Byr-ag-GuB"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -65,13 +62,24 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_b" translatesAutoresizingMaskIntoConstraints="NO" id="nRT-gF-IQA">
                                         <rect key="frame" x="40" y="0.0" width="41.5" height="134.5"/>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_Icon_White" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-jU-nhI">
+                                        <rect key="frame" x="341" y="43.5" width="33" height="47"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="AUq-0a-hdy" appends="YES" id="DhS-eI-gI0"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="X2A-jU-nhI" firstAttribute="width" secondItem="2xd-CI-kyR" secondAttribute="width" multiplier="0.08" id="0IP-ec-4nX"/>
+                                    <constraint firstItem="X2A-jU-nhI" firstAttribute="centerY" secondItem="nRT-gF-IQA" secondAttribute="centerY" id="AYu-Yq-ad6"/>
                                     <constraint firstItem="nRT-gF-IQA" firstAttribute="leading" secondItem="2xd-CI-kyR" secondAttribute="leading" constant="40" id="DAL-O4-sH3"/>
                                     <constraint firstItem="nRT-gF-IQA" firstAttribute="top" secondItem="2xd-CI-kyR" secondAttribute="top" id="PcY-G6-k10"/>
                                     <constraint firstAttribute="bottom" secondItem="nRT-gF-IQA" secondAttribute="bottom" id="Qfa-E7-tnM"/>
+                                    <constraint firstItem="X2A-jU-nhI" firstAttribute="height" secondItem="nRT-gF-IQA" secondAttribute="height" multiplier="0.35" id="TLg-jZ-zDs"/>
                                     <constraint firstItem="nRT-gF-IQA" firstAttribute="width" secondItem="2xd-CI-kyR" secondAttribute="width" multiplier="0.1" id="m1e-jg-elc"/>
+                                    <constraint firstAttribute="trailing" secondItem="X2A-jU-nhI" secondAttribute="trailing" constant="40" id="yP6-L4-HOI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xh-O3-gEy">
@@ -127,6 +135,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Iy-n4-ENL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AUq-0a-hdy" userLabel="menu_tap">
+                    <connections>
+                        <action selector="openMenu:" destination="t35-L3-lnh" id="bnd-iN-uf7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-6" y="133"/>
         </scene>
@@ -146,22 +159,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="313.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Hi, there" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="60b-nB-q64">
-                                        <rect key="frame" x="40" y="20" width="186.5" height="145.5"/>
+                                        <rect key="frame" x="40" y="20" width="334" height="145.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="40"/>
                                         <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="vdE-Js-waq">
-                                        <rect key="frame" x="241.5" y="44" width="132.5" height="97.5"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85529845950000005" green="0.1235658452" blue="0.14757487180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="vdE-Js-waq" firstAttribute="centerY" secondItem="60b-nB-q64" secondAttribute="centerY" id="47q-5J-dPL"/>
-                                    <constraint firstAttribute="trailing" secondItem="vdE-Js-waq" secondAttribute="trailing" constant="40" id="Nri-0b-zxO"/>
-                                    <constraint firstItem="vdE-Js-waq" firstAttribute="height" secondItem="60b-nB-q64" secondAttribute="height" multiplier="0.67" id="OeL-PP-T9q"/>
-                                    <constraint firstItem="vdE-Js-waq" firstAttribute="leading" secondItem="60b-nB-q64" secondAttribute="trailing" constant="15" id="fo2-z5-arw"/>
-                                    <constraint firstItem="60b-nB-q64" firstAttribute="width" secondItem="bRb-kn-OcR" secondAttribute="width" multiplier="0.45" id="i8d-oZ-Nt4"/>
+                                    <constraint firstAttribute="trailing" secondItem="60b-nB-q64" secondAttribute="trailing" constant="40" id="cIU-LY-lnT"/>
                                     <constraint firstItem="60b-nB-q64" firstAttribute="top" secondItem="bRb-kn-OcR" secondAttribute="top" constant="20" symbolic="YES" id="l2d-eW-2lE"/>
                                     <constraint firstItem="60b-nB-q64" firstAttribute="leading" secondItem="bRb-kn-OcR" secondAttribute="leading" constant="40" id="mOb-fi-7xN"/>
                                 </constraints>
@@ -204,7 +210,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_history" translatesAutoresizingMaskIntoConstraints="NO" id="jYb-cI-NCI">
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Vw-Jr-uBY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Vw-Jr-uBY">
                                                 <rect key="frame" x="77.5" y="0.0" width="276.5" height="125"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -230,11 +236,15 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_guide" translatesAutoresizingMaskIntoConstraints="NO" id="ndD-im-Twb">
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="JWb-fP-R3O">
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="JWb-fP-R3O">
                                                 <rect key="frame" x="77.5" y="42" width="276.5" height="42"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="DPa-EE-a2W" appends="YES" id="PUQ-ho-GVZ"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -362,7 +372,6 @@
                         <outlet property="historyLabel" destination="9Vw-Jr-uBY" id="dvF-Vv-M8D"/>
                         <outlet property="profileHi" destination="60b-nB-q64" id="g4V-s8-zOk"/>
                         <outlet property="profileLabel" destination="DCR-0a-NCs" id="wgT-2a-0tC"/>
-                        <outlet property="profilePic" destination="vdE-Js-waq" id="8kk-K5-Zp2"/>
                         <outlet property="whiteView" destination="Wf7-SO-LGu" id="uzl-xR-Z2c"/>
                     </connections>
                 </viewController>
@@ -382,8 +391,13 @@
                         <segue destination="N2E-xY-4P0" kind="presentation" modalPresentationStyle="fullScreen" id="t1E-Dc-fwQ"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="DPa-EE-a2W" userLabel="guide">
+                    <connections>
+                        <segue destination="N0b-2h-a2I" kind="presentation" modalPresentationStyle="fullScreen" id="GkW-kK-U6x"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="656.52173913043487" y="132.58928571428572"/>
+            <point key="canvasLocation" x="970" y="120"/>
         </scene>
         <!--Profile-->
         <scene sceneID="UFf-SP-hwu">
@@ -393,7 +407,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGN-1N-WS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="133"/>
+            <point key="canvasLocation" x="1838" y="120"/>
+        </scene>
+        <!--Guide-->
+        <scene sceneID="7II-aV-aMw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Guide" id="N0b-2h-a2I" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WkW-Rw-8vZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezc-cq-qly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1767" y="313"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="XZZ-4e-GfS">
@@ -422,7 +446,7 @@
                                     <constraint firstItem="XJ9-YK-Dga" firstAttribute="top" secondItem="awQ-TD-2uR" secondAttribute="top" id="voY-DO-C3A"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFR-ef-wX0">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFR-ef-wX0">
                                 <rect key="frame" x="0.0" y="166.5" width="414" height="695.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-zV-cLP">
@@ -546,7 +570,7 @@
                                 <rect key="frame" x="0.0" y="166.5" width="414" height="695.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtD-Gb-BMo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="763"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="F2H-3f-Vk7">
                                                 <rect key="frame" x="40" y="5" width="248.5" height="58.5"/>
@@ -621,7 +645,7 @@ website</string>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="F2H-3f-Vk7" firstAttribute="top" secondItem="FtD-Gb-BMo" secondAttribute="top" constant="5" id="0WV-Jc-oDE"/>
-                                            <constraint firstAttribute="bottom" secondItem="TS7-Ho-2aZ" secondAttribute="bottom" id="K3k-bN-BdN"/>
+                                            <constraint firstAttribute="bottom" secondItem="TS7-Ho-2aZ" secondAttribute="bottom" constant="25" id="K3k-bN-BdN"/>
                                             <constraint firstItem="TS7-Ho-2aZ" firstAttribute="top" secondItem="F2H-3f-Vk7" secondAttribute="bottom" constant="15" id="ghb-hi-Tzk"/>
                                             <constraint firstItem="F2H-3f-Vk7" firstAttribute="leading" secondItem="FtD-Gb-BMo" secondAttribute="leading" constant="40" id="nzB-Wh-RL9"/>
                                             <constraint firstItem="F2H-3f-Vk7" firstAttribute="width" secondItem="FtD-Gb-BMo" secondAttribute="width" multiplier="0.6" id="s8M-eE-vq6"/>
@@ -668,9 +692,10 @@ website</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dq6-QD-COm"/>
+        <segue reference="4aB-fN-hpc"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Menu_Icon_White" width="34" height="40"/>
         <image name="back_arrow" width="980" height="1814"/>
         <image name="bar_bg" width="1440" height="1396"/>
         <image name="flyingbee" width="637" height="707"/>
@@ -684,7 +709,6 @@ website</string>
         <image name="icon_instagram" width="196" height="196"/>
         <image name="icon_web" width="216" height="216"/>
         <image name="logo_b" width="127" height="174"/>
-        <image name="profile_pic" width="292" height="292"/>
         <image name="res_bg" width="1440" height="1164"/>
     </resources>
 </document>

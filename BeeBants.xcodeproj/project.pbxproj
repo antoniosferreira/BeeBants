@@ -17,6 +17,10 @@
 		642453F6245673770006075B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642453F5245673770006075B /* Home.storyboard */; };
 		642453F8245673E00006075B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642453F7245673E00006075B /* HomeViewController.swift */; };
 		6429C64D245A0C8E00373CE7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6429C64C245A0C8E00373CE7 /* ContactsViewController.swift */; };
+		642B77432472B51E006575AF /* LastPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642B77422472B51E006575AF /* LastPageViewController.swift */; };
+		642B77462472BAD6006575AF /* Guide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642B77452472BAD6006575AF /* Guide.storyboard */; };
+		642B77482472BAF1006575AF /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642B77472472BAF1006575AF /* GuideViewController.swift */; };
+		642B774A2472BB29006575AF /* GuideContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642B77492472BB29006575AF /* GuideContentViewController.swift */; };
 		6450060A2432765C00F7444C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645006092432765C00F7444C /* AppDelegate.swift */; };
 		6450060C2432765C00F7444C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6450060B2432765C00F7444C /* SceneDelegate.swift */; };
 		645006112432765C00F7444C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6450060F2432765C00F7444C /* Main.storyboard */; };
@@ -81,6 +85,10 @@
 		642453F5245673770006075B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		642453F7245673E00006075B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6429C64C245A0C8E00373CE7 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		642B77422472B51E006575AF /* LastPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageViewController.swift; sourceTree = "<group>"; };
+		642B77452472BAD6006575AF /* Guide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Guide.storyboard; sourceTree = "<group>"; };
+		642B77472472BAF1006575AF /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		642B77492472BB29006575AF /* GuideContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideContentViewController.swift; sourceTree = "<group>"; };
 		645006062432765C00F7444C /* BeeBants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeBants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645006092432765C00F7444C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6450060B2432765C00F7444C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +180,7 @@
 				64F67464243E85E1003AC7DE /* HowTo.storyboard */,
 				64F67468243E86DA003AC7DE /* HowToViewController.swift */,
 				64F6746A243F360D003AC7DE /* ContentViewController.swift */,
+				642B77422472B51E006575AF /* LastPageViewController.swift */,
 			);
 			path = HowTo;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 		642453F4245673660006075B /* MainApp */ = {
 			isa = PBXGroup;
 			children = (
+				642B77442472BAB9006575AF /* Guide */,
 				642453F5245673770006075B /* Home.storyboard */,
 				642453F7245673E00006075B /* HomeViewController.swift */,
 				646D9CDC24569891003D0518 /* MenuViewController.swift */,
@@ -186,6 +196,16 @@
 				6429C64C245A0C8E00373CE7 /* ContactsViewController.swift */,
 			);
 			path = MainApp;
+			sourceTree = "<group>";
+		};
+		642B77442472BAB9006575AF /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				642B77452472BAD6006575AF /* Guide.storyboard */,
+				642B77472472BAF1006575AF /* GuideViewController.swift */,
+				642B77492472BB29006575AF /* GuideContentViewController.swift */,
+			);
+			path = Guide;
 			sourceTree = "<group>";
 		};
 		645005FD2432765C00F7444C = {
@@ -429,6 +449,7 @@
 				64F4277C24328F2000E4FB3B /* Poppins-SemiBold.ttf in Resources */,
 				64F67465243E85E1003AC7DE /* HowTo.storyboard in Resources */,
 				645006162432765D00F7444C /* Assets.xcassets in Resources */,
+				642B77462472BAD6006575AF /* Guide.storyboard in Resources */,
 				641204D6243CC3D400818054 /* Login.storyboard in Resources */,
 				645006112432765C00F7444C /* Main.storyboard in Resources */,
 			);
@@ -490,15 +511,18 @@
 				646D9CD5245694C5003D0518 /* SOContainerViewController.swift in Sources */,
 				64627C922439EB04008F9DF0 /* DateTextField.swift in Sources */,
 				646D9CDB24569550003D0518 /* UIViewController.swift in Sources */,
+				642B77432472B51E006575AF /* LastPageViewController.swift in Sources */,
 				6476625424362FB300ED9CE1 /* SU_DateNationViewController.swift in Sources */,
 				640C0A79243BA3B2006413B8 /* TCViewController.swift in Sources */,
 				646D9CDD24569891003D0518 /* MenuViewController.swift in Sources */,
 				642453F8245673E00006075B /* HomeViewController.swift in Sources */,
 				64F67469243E86DA003AC7DE /* HowToViewController.swift in Sources */,
 				64AE578924349EDE003AC66A /* SignUpPageViewController.swift in Sources */,
+				642B774A2472BB29006575AF /* GuideContentViewController.swift in Sources */,
 				645006142432765C00F7444C /* BeeBants.xcdatamodeld in Sources */,
 				64EA2613245B009D00C3CC33 /* ProfileViewerViewController.swift in Sources */,
 				64A93D3F2459FA23005A8DCA /* AboutViewController.swift in Sources */,
+				642B77482472BAF1006575AF /* GuideViewController.swift in Sources */,
 				646D9CD924569527003D0518 /* SidebarOverlay.h in Sources */,
 				646D9CD724569509003D0518 /* SOSide.swift in Sources */,
 				6450060A2432765C00F7444C /* AppDelegate.swift in Sources */,
@@ -666,7 +690,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BeeBants.BeeBants;
 				PRODUCT_NAME = BeeBants;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -688,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BeeBants.BeeBants;
 				PRODUCT_NAME = BeeBants;
 				SWIFT_VERSION = 5.0;

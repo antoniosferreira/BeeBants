@@ -94,6 +94,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MMSCameraViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MMSProfileImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BeeBants.xcscheme</key>
 		<dict>
 			<key>isShown</key>

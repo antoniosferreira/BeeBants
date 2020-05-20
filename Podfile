@@ -11,6 +11,6 @@ pod 'Firebase/Auth'
 pod 'FirebaseFirestoreSwift'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
-
+pod 'MMSProfileImagePicker'
   # Pods for BeeBants
 end

@@ -71,9 +71,10 @@ class LoginViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
                     strongSelf.present(alert, animated: true, completion: nil)
                 } else {
-                    let alert = UIAlertController(title: "Good Login", message: "You're logged in", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
-                    strongSelf.present(alert, animated: true, completion: nil)
+                    let home = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "MAIN_SB") as! HomeViewController
+                    home.modalPresentationStyle = .fullScreen
+                    self?.present(home, animated: true)
+                    return
                 }
             }
         }

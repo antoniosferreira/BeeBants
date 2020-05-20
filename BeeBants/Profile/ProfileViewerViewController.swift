@@ -25,6 +25,7 @@ class ProfileViewerViewController: UIViewController {
     @IBOutlet weak var resPriceLabel: UILabel!
     @IBOutlet weak var resDietLabel: UILabel!
     @IBOutlet weak var resAmbianceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,32 +33,16 @@ class ProfileViewerViewController: UIViewController {
         barsView.layer.cornerRadius = 30
         resView.layer.cornerRadius = 30
 
-        var name = "there"
-        let attributes_HI: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.foregroundColor: Styling.redColor,
-            NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 50)!
-        ]
-        let attributes_NAME: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1),
-            NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 30)!
-        ]
-        let helloString = NSMutableAttributedString(string: "Hi,\n", attributes: attributes_HI)
-        let nameString = NSMutableAttributedString(string: name, attributes: attributes_NAME)
-        helloString.append(nameString)
-        hiLabel.attributedText = helloString
-        
-        
+      
         // Access to DB NAME
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid);
         
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                name = document.get("name") as! String
-                let hi = NSMutableAttributedString(string: "Hi,\n", attributes: attributes_HI)
-                let name = NSMutableAttributedString(string: name, attributes: attributes_NAME)
-                hi.append(name)
-                self.hiLabel.attributedText = hi
+                let name = document.get("name") as! String
+                self.hiLabel.text = name
+            
             }
         }
       
@@ -131,7 +116,7 @@ class ProfileViewerViewController: UIViewController {
                     self.resDietLabel.text! += "Pescetarian\n"
                 }
                 if document.get("res_diet5") as! Bool {
-                    self.resDietLabel.text! += "Anything &\n"
+                    self.resDietLabel.text! += "Nothing\n"
                 }
                 
                 self.resAmbianceLabel.text = ""

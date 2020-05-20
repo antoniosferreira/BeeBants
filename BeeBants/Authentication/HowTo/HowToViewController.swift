@@ -62,7 +62,13 @@ class HowToViewController: UIViewController, UIPageViewControllerDataSource, UIP
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         guard let currentViewController = self.pageController.viewControllers?.first else { return }
 
-        guard let nextViewController = pageController.dataSource?.pageViewController( self.pageController, viewControllerAfter: currentViewController ) else { return }
+        guard let nextViewController = pageController.dataSource?.pageViewController( self.pageController, viewControllerAfter: currentViewController ) else {
+            
+            
+            let lastPage = UIStoryboard(name: "HowTo", bundle: nil).instantiateViewController(withIdentifier: "lastPage") as! LastPageViewController
+            lastPage.modalPresentationStyle = .fullScreen
+            present(lastPage, animated: true)
+            return }
 
         pageController.setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
         updateDots()

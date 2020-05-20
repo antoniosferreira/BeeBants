@@ -26,18 +26,20 @@ class HomeViewController: SOContainerViewController {
         setUpElements()
     }
     
-    @IBAction func bars(_ sender: Any) {
-        if let container = self.so_containerViewController {
-             container.isSideViewControllerPresented = true
-         }
-    }
+ 
     
     func setUpElements() {
         Styling.styleRedFilledButton(button: barsButton)
         Styling.styleRedFilledButton(button: resButton)
     }
     
-
+    @IBAction func openMenu(_ sender: Any) {
+        if let container = self.so_containerViewController {
+                    container.isSideViewControllerPresented = true
+                }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
