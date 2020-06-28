@@ -12,6 +12,8 @@
 		641204D3243CBE2E00818054 /* SU_FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641204D2243CBE2E00818054 /* SU_FinalViewController.swift */; };
 		641204D6243CC3D400818054 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641204D5243CC3D400818054 /* Login.storyboard */; };
 		641204D8243CC46F00818054 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641204D7243CC46F00818054 /* LoginViewController.swift */; };
+		641D44F02485720A00539D16 /* Places.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641D44EF2485720A00539D16 /* Places.storyboard */; };
+		641D44F22485723F00539D16 /* FirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D44F12485723F00539D16 /* FirstStepViewController.swift */; };
 		641D5D69245CE0F3009F9FEE /* ProfileEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D5D68245CE0F3009F9FEE /* ProfileEditorViewController.swift */; };
 		641D5D6B245D15AE009F9FEE /* ProfileEditor2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D5D6A245D15AE009F9FEE /* ProfileEditor2ViewController.swift */; };
 		642453F6245673770006075B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642453F5245673770006075B /* Home.storyboard */; };
@@ -80,6 +82,8 @@
 		641204D2243CBE2E00818054 /* SU_FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SU_FinalViewController.swift; sourceTree = "<group>"; };
 		641204D5243CC3D400818054 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		641204D7243CC46F00818054 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		641D44EF2485720A00539D16 /* Places.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Places.storyboard; sourceTree = "<group>"; };
+		641D44F12485723F00539D16 /* FirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepViewController.swift; sourceTree = "<group>"; };
 		641D5D68245CE0F3009F9FEE /* ProfileEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorViewController.swift; sourceTree = "<group>"; };
 		641D5D6A245D15AE009F9FEE /* ProfileEditor2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditor2ViewController.swift; sourceTree = "<group>"; };
 		642453F5245673770006075B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -185,9 +189,19 @@
 			path = HowTo;
 			sourceTree = "<group>";
 		};
+		641D44EE248571F800539D16 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				641D44EF2485720A00539D16 /* Places.storyboard */,
+				641D44F12485723F00539D16 /* FirstStepViewController.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
 		642453F4245673660006075B /* MainApp */ = {
 			isa = PBXGroup;
 			children = (
+				641D44EE248571F800539D16 /* Places */,
 				642B77442472BAB9006575AF /* Guide */,
 				642453F5245673770006075B /* Home.storyboard */,
 				642453F7245673E00006075B /* HomeViewController.swift */,
@@ -438,6 +452,7 @@
 				645006192432765D00F7444C /* LaunchScreen.storyboard in Resources */,
 				64F4277624328F2000E4FB3B /* Poppins-Italic.ttf in Resources */,
 				64F4277F24328F2000E4FB3B /* Poppins-ThinItalic.ttf in Resources */,
+				641D44F02485720A00539D16 /* Places.storyboard in Resources */,
 				64F4277524328F2000E4FB3B /* Poppins-ExtraLightItalic.ttf in Resources */,
 				64F4277924328F2000E4FB3B /* Poppins-Medium.ttf in Resources */,
 				642453F6245673770006075B /* Home.storyboard in Resources */,
@@ -534,6 +549,7 @@
 				64500623243285BA00F7444C /* MainViewController.swift in Sources */,
 				641204D8243CC46F00818054 /* LoginViewController.swift in Sources */,
 				64766252243625D700ED9CE1 /* Validation.swift in Sources */,
+				641D44F22485723F00539D16 /* FirstStepViewController.swift in Sources */,
 				640C0A77243B5E0F006413B8 /* SU_PassViewController.swift in Sources */,
 				641D5D69245CE0F3009F9FEE /* ProfileEditorViewController.swift in Sources */,
 				647BFDFB243E0CFF00322397 /* RecoveryPasswordViewController.swift in Sources */,
@@ -690,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3.1;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BeeBants.BeeBants;
 				PRODUCT_NAME = BeeBants;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -712,7 +728,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3.1;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BeeBants.BeeBants;
 				PRODUCT_NAME = BeeBants;
 				SWIFT_VERSION = 5.0;

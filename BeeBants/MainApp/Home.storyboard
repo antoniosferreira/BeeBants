@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t35-L3-lnh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t35-L3-lnh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -18,6 +18,16 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Places-->
+        <scene sceneID="1AX-FT-m7D">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Places" id="6Hy-GV-ngZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="X6m-tg-0jX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BRV-aO-JPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="-364"/>
+        </scene>
         <!--MAIN_SB-->
         <scene sceneID="wTJ-Ep-L9K">
             <objects>
@@ -42,6 +52,9 @@
                                         <state key="normal" title="bars">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="6Hy-GV-ngZ" kind="presentation" modalPresentationStyle="fullScreen" id="Q90-ep-DEA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -591,8 +604,9 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_at" translatesAutoresizingMaskIntoConstraints="NO" id="T1b-Em-ndp">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxI-Yn-Vvg">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxI-Yn-Vvg">
                                                         <rect key="frame" x="0.0" y="104.5" width="414" height="21"/>
+                                                        <gestureRecognizers/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="beebants@gmail.com">
                                                                 <attributes>
@@ -604,35 +618,50 @@
                                                             </fragment>
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="fpb-LD-3OF" appends="YES" id="xYH-Ec-tvQ"/>
+                                                        </connections>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_instagram" translatesAutoresizingMaskIntoConstraints="NO" id="0mC-0i-fw4">
                                                         <rect key="frame" x="0.0" y="160.5" width="414" height="80"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@beebantsofficial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-kZ-LfJ">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@beebantsofficial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-kZ-LfJ">
                                                         <rect key="frame" x="0.0" y="275.5" width="414" height="21"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                         <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="6af-dk-SSt" appends="YES" id="UY8-lU-w2f"/>
+                                                        </connections>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_fb" translatesAutoresizingMaskIntoConstraints="NO" id="VzO-Jt-Ohd">
                                                         <rect key="frame" x="0.0" y="331.5" width="414" height="80"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bee Bants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di9-B6-BWs" userLabel="https://beebants.wixsite.com/ website">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bee Bants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di9-B6-BWs" userLabel="https://beebants.wixsite.com/ website">
                                                         <rect key="frame" x="0.0" y="446.5" width="414" height="21"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                         <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="6b1-AU-s3w" appends="YES" id="EnG-cp-da8"/>
+                                                        </connections>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_web" translatesAutoresizingMaskIntoConstraints="NO" id="NLl-vY-6ew">
                                                         <rect key="frame" x="0.0" y="502.5" width="414" height="80"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-CR-jnx">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-CR-jnx">
                                                         <rect key="frame" x="0.0" y="617.5" width="414" height="42"/>
+                                                        <gestureRecognizers/>
                                                         <string key="text">https://beebants.wixsite.com/
 website</string>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                         <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="prk-9Q-Y6I" appends="YES" id="5OB-OS-E4Y"/>
+                                                        </connections>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
@@ -680,11 +709,34 @@ website</string>
                         <viewLayoutGuide key="safeArea" id="nRi-e1-5Ai"/>
                     </view>
                     <navigationItem key="navigationItem" id="13N-xf-OCH"/>
+                    <connections>
+                        <outlet property="mail" destination="qxI-Yn-Vvg" id="0PQ-zi-94r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYE-Re-tp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="COY-UA-0q7">
+                <tapGestureRecognizer id="COY-UA-0q7" userLabel="back">
                     <connections>
                         <segue destination="t35-L3-lnh" kind="presentation" modalPresentationStyle="fullScreen" id="4aB-fN-hpc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fpb-LD-3OF" userLabel="mail">
+                    <connections>
+                        <action selector="mailTapped:" destination="I4Z-HC-WLA" id="YLp-5H-202"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="6af-dk-SSt" userLabel="insta">
+                    <connections>
+                        <action selector="instaTapped:" destination="I4Z-HC-WLA" id="Zz3-P6-4gX"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="6b1-AU-s3w" userLabel="fb">
+                    <connections>
+                        <action selector="fbTapped:" destination="I4Z-HC-WLA" id="qgc-oF-U0P"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="prk-9Q-Y6I" userLabel="web">
+                    <connections>
+                        <action selector="webTapped:" destination="I4Z-HC-WLA" id="gD1-Ve-kuY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -692,7 +744,7 @@ website</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4aB-fN-hpc"/>
+        <segue reference="dq6-QD-COm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Menu_Icon_White" width="34" height="40"/>
