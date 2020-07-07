@@ -39,23 +39,20 @@ class HomeViewController: SOContainerViewController {
                 }
     }
     
+   
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tappedBars(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Places", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlacesHomeViewController") as! PlacesHomeViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        newViewController.option = true
+        self.present(newViewController, animated: true, completion: nil)
     }
-    */
-
-    @IBAction func logout(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
-        }
+    @IBAction func tappedRestaurants(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Places", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlacesHomeViewController") as! PlacesHomeViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        newViewController.option = false
+        self.present(newViewController, animated: true, completion: nil)
     }
 }

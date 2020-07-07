@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class ProfileViewerViewController: UIViewController {
 
@@ -134,6 +135,23 @@ class ProfileViewerViewController: UIViewController {
         }
     }
     
-
+    @IBAction func signOut(_ sender: Any) {
+        print("tapped")
+        let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Main_SB") as! MainViewController
+        nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        
+        present(nextViewController, animated: true, completion: nil)
+        
+    }
+    
 
 }
