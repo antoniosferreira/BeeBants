@@ -17,7 +17,6 @@ class ProfileEditorViewController: UIViewController {
     @IBOutlet weak var buttonMoney2: UIImageView!
     @IBOutlet weak var buttonMoney3: UIImageView!
     
-    
     @IBOutlet weak var buttonStyle1: UIImageView!
     @IBOutlet weak var buttonStyle2: UIImageView!
     @IBOutlet weak var buttonStyle3: UIImageView!
@@ -149,7 +148,6 @@ class ProfileEditorViewController: UIViewController {
             vc.barData = data
         }
      }
-    
 }
 
 

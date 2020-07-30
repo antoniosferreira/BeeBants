@@ -140,8 +140,6 @@ class ProfileViewController: UIViewController {
     }
     
     
-    
-    
     private func loadData() {
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid);
@@ -153,17 +151,30 @@ class ProfileViewController: UIViewController {
             }
             if let document = document, document.exists {
 
-                self.labelUserName.text = document.get("name") as? String
-                let barsProfile = document.get("barprofile") as! [Int]
-                let resProfile = document.get("resprofile") as! [Int]
-
-                self.barProfiling = BarProfile(barsProfile[2], barsProfile[3], barsProfile[4], barsProfile[5], barsProfile[6], barsProfile[7], barsProfile[8], barsProfile[9], barsProfile[10])
-                self.resProfiling = ResProfile(resProfile[2], resProfile[3], resProfile[4], resProfile[5], resProfile[6], resProfile[7], resProfile[8], resProfile[9], resProfile[10])
-                self.displayData()
+                if let name = document.get("name") as? String {
+                    if let barsProfile = document.get("barprofile") as? [Int] {
+                        if let resProfile = document.get("resprofile") as? [Int] {
+                            self.labelUserName.text = name
+                            self.barProfiling = BarProfile(barsProfile)
+                            self.resProfiling = ResProfile(resProfile)
+                            self.displayData()
+                            return
+                        }
+                    }
+                }
+                
+                // SOMETHING WENT WRONG
+                let alert = UIAlertController(title: "Something went wrong", message: "Impossible to load profile data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try again", style: .destructive, handler: {
+                    (alert) in
+                    // Goes to main
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "MAIN_SB") as! HomeViewController
+                    newViewController.modalPresentationStyle = .fullScreen
+                    self.present(newViewController, animated: true, completion: nil)}))
+                self.present(alert, animated: true, completion: nil)
             }
         }
-        
-
     }
     
     private func displayData() {
@@ -176,18 +187,18 @@ class ProfileViewController: UIViewController {
         default: break
         }
         var style = ""
-        if (barProfiling?.style1 == 1) {style += "Casual\n"}
-        if (barProfiling?.style2 == 1) {style += "Up-market\n"}
-        if (barProfiling?.style3 == 1) {style += "Down and Dirty\n"}
+        if (barProfiling!.style1) {style += "Casual\n"}
+        if (barProfiling!.style2) {style += "Up-market\n"}
+        if (barProfiling!.style3) {style += "Down and Dirty\n"}
         labelBarsStyle.text = String(style.dropLast())
         var density = ""
-        if (barProfiling?.density1 == 1) {density += "Calm\n"}
-        if (barProfiling?.density2 == 1) {density += "Crowded\n"}
-        if (barProfiling?.density3 == 1) {density += "Banging\n"}
+        if (barProfiling!.density1) {density += "Calm\n"}
+        if (barProfiling!.density2) {density += "Crowded\n"}
+        if (barProfiling!.density3) {density += "Banging\n"}
         labelBarsDensity.text = String(density.dropLast())
         var time = ""
-        if (barProfiling?.time1 == 1) {time += "Day\n"}
-        if (barProfiling?.time2 == 1) {time += "Night\n"}
+        if (barProfiling!.time1) {time += "Day\n"}
+        if (barProfiling!.time2) {time += "Night\n"}
         labelBarsTime.text = String(time.dropLast())
         
         
@@ -199,16 +210,35 @@ class ProfileViewController: UIViewController {
         default: break
         }
         var dietary = ""
-        if (resProfiling?.dietary1 == 1) {dietary += "Vegan\n"}
-        if (resProfiling?.dietary2 == 1) {dietary += "Vegetarian\n"}
-        if (resProfiling?.dietary3 == 1) {dietary += "Halal\n"}
-        if (resProfiling?.dietary4 == 1) {dietary += "Pescetarian\n"}
-        if (resProfiling?.dietary5 == 1) {dietary += "Nothing\n"}
+        if (resProfiling!.dietary1) {dietary += "Vegan\n"}
+        if (resProfiling!.dietary2) {dietary += "Vegetarian\n"}
+        if (resProfiling!.dietary3) {dietary += "Halal\n"}
+        if (resProfiling!.dietary4) {dietary += "Pescetarian\n"}
+        if (resProfiling!.dietary5) {dietary += "Nothing\n"}
         labelResDietary.text = String(dietary.dropLast())
         var ambiance = ""
-        if (resProfiling?.ambiance1 == 1) {ambiance += "Cosy\n"}
-        if (resProfiling?.ambiance2 == 1) {ambiance += "Romantic\n"}
-        if (resProfiling?.ambiance3 == 1) {ambiance += "Lively\n"}
+        if (resProfiling!.ambiance1) {ambiance += "Cosy\n"}
+        if (resProfiling!.ambiance2) {ambiance += "Romantic\n"}
+        if (resProfiling!.ambiance3) {ambiance += "Lively\n"}
         labelResAmbiance.text = String(ambiance.dropLast())
+    }
+    
+    
+    
+    @IBAction func tapEditBars(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "BarEditorViewController") as! BarEditorViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        newViewController.barProfiling = barProfiling
+        self.present(newViewController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func tapEditRes(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ResEditorViewController") as! ResEditorViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        newViewController.resProfiling = resProfiling
+        self.present(newViewController, animated: true, completion: nil)
     }
 }

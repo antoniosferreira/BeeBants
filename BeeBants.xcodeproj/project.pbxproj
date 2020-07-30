@@ -10,6 +10,8 @@
 		4360BC2E24D0F896004F7250 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360BC2B24D0F896004F7250 /* ProfileViewController.swift */; };
 		4360BC3024D0F896004F7250 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360BC2D24D0F896004F7250 /* Profile.storyboard */; };
 		4360BC3224D10D65004F7250 /* Profilers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360BC3124D10D65004F7250 /* Profilers.swift */; };
+		437FE5D424D1C98800D51BAC /* BarEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FE5D324D1C98800D51BAC /* BarEditorViewController.swift */; };
+		437FE5D624D30D6300D51BAC /* ResEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FE5D524D30D6300D51BAC /* ResEditorViewController.swift */; };
 		640483FF24AF84DF0068BE53 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640483FE24AF84DF0068BE53 /* LocationViewController.swift */; };
 		64088A5624B3F87000E44A40 /* PlacesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64088A5524B3F87000E44A40 /* PlacesHomeViewController.swift */; };
 		640C0A77243B5E0F006413B8 /* SU_PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640C0A76243B5E0F006413B8 /* SU_PassViewController.swift */; };
@@ -89,6 +91,8 @@
 		4360BC2B24D0F896004F7250 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4360BC2D24D0F896004F7250 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4360BC3124D10D65004F7250 /* Profilers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profilers.swift; sourceTree = "<group>"; };
+		437FE5D324D1C98800D51BAC /* BarEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarEditorViewController.swift; sourceTree = "<group>"; };
+		437FE5D524D30D6300D51BAC /* ResEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResEditorViewController.swift; sourceTree = "<group>"; };
 		640483FE24AF84DF0068BE53 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		64088A5524B3F87000E44A40 /* PlacesHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesHomeViewController.swift; sourceTree = "<group>"; };
 		640C0A76243B5E0F006413B8 /* SU_PassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SU_PassViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 			children = (
 				4360BC2D24D0F896004F7250 /* Profile.storyboard */,
 				4360BC2B24D0F896004F7250 /* ProfileViewController.swift */,
+				437FE5D324D1C98800D51BAC /* BarEditorViewController.swift */,
+				437FE5D524D30D6300D51BAC /* ResEditorViewController.swift */,
 				4360BC3124D10D65004F7250 /* Profilers.swift */,
 			);
 			path = Profile;
@@ -562,6 +568,7 @@
 				64AE578724349ED2003AC66A /* SignUpViewController.swift in Sources */,
 				646D9CD5245694C5003D0518 /* SOContainerViewController.swift in Sources */,
 				64627C922439EB04008F9DF0 /* DateTextField.swift in Sources */,
+				437FE5D424D1C98800D51BAC /* BarEditorViewController.swift in Sources */,
 				646D9CDB24569550003D0518 /* UIViewController.swift in Sources */,
 				64088A5624B3F87000E44A40 /* PlacesHomeViewController.swift in Sources */,
 				642B77432472B51E006575AF /* LastPageViewController.swift in Sources */,
@@ -584,6 +591,7 @@
 				646D9CD724569509003D0518 /* SOSide.swift in Sources */,
 				6450060A2432765C00F7444C /* AppDelegate.swift in Sources */,
 				64AE578B2434FB28003AC66A /* SU_NameEmailViewController.swift in Sources */,
+				437FE5D624D30D6300D51BAC /* ResEditorViewController.swift in Sources */,
 				64F4278224328FAD00E4FB3B /* MainStyling.swift in Sources */,
 				6450060C2432765C00F7444C /* SceneDelegate.swift in Sources */,
 				6469B17124AE156200702D33 /* DataStructures.swift in Sources */,

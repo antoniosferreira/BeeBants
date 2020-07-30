@@ -9,69 +9,71 @@ import Foundation
 
 public class BarProfile {
     
+    var encodedProfile : [Int]
+    
     //0, 1, 2
     var price : Int
     
     // Casual, Up-Market, Down & Dirty
-    var style1 : Int
-    var style2 : Int
-    var style3 : Int
+    var style1 : Bool
+    var style2 : Bool
+    var style3 : Bool
     
     // Calm, Crowded, Banging
-    var density1 : Int
-    var density2 : Int
-    var density3 : Int
+    var density1 : Bool
+    var density2 : Bool
+    var density3 : Bool
 
     // Day, Night
-    var time1 : Int
-    var time2 : Int
+    var time1 : Bool
+    var time2 : Bool
     
-    init(_ price : Int, _ style1 : Int,_ style2 : Int, _ style3 : Int,
-         _ density1 : Int, _ density2 : Int, _ density3 : Int,
-         _ time1 : Int, _ time2 : Int) {
-        self.price = price
-        self.style1 = style1
-        self.style2 = style2
-        self.style3 = style3
-        self.density1 = density1
-        self.density2 = density2
-        self.density3 = density3
-        self.time1 = time1
-        self.time2 = time2
+    init(_ encodedProfile: [Int]) {
+        self.encodedProfile = encodedProfile
+        self.price = encodedProfile[2]
+        self.style1 = (encodedProfile[3] == 1) ? true : false
+        self.style2 = (encodedProfile[4] == 1) ? true : false
+        self.style3 = (encodedProfile[5] == 1) ? true : false
+        self.density1 = (encodedProfile[6] == 1) ? true : false
+        self.density2 = (encodedProfile[7] == 1) ? true : false
+        self.density3 = (encodedProfile[8] == 1) ? true : false
+        self.time1 = (encodedProfile[9] == 1) ? true : false
+        self.time2 = (encodedProfile[10] == 1) ? true : false
     }
 }
 
 
 public class ResProfile {
     
+    var encodedProfile : [Int]
+    
     //0, 1, 2
     var price : Int
     
     // Vegan, Vegetarian, Halal, Pescetarian, Nothing
-    var dietary1 : Int
-    var dietary2 : Int
-    var dietary3 : Int
-    var dietary4 : Int
-    var dietary5 : Int
+    var dietary1 : Bool
+    var dietary2 : Bool
+    var dietary3 : Bool
+    var dietary4 : Bool
+    var dietary5 : Bool
 
     // Cosy, Romantic, Lively
-    var ambiance1 : Int
-    var ambiance2 : Int
-    var ambiance3 : Int
+    var ambiance1 : Bool
+    var ambiance2 : Bool
+    var ambiance3 : Bool
 
     
-    init(_ price : Int, _ dietary1 : Int,_ dietary2 : Int, _ dietary3 : Int,
-         _ dietary4 : Int, _ dietary5 : Int, _ ambiance1 : Int,
-         _ ambiance2 : Int, _ ambiance3 : Int) {
+    init(_ encodedProfile: [Int]) {
         
-        self.price = price
-        self.dietary1 = dietary1
-        self.dietary2 = dietary2
-        self.dietary3 = dietary3
-        self.dietary4 = dietary4
-        self.dietary5 = dietary5
-        self.ambiance1 = ambiance1
-        self.ambiance2 = ambiance2
-        self.ambiance3 = ambiance3
+        self.encodedProfile = encodedProfile
+        self.price = encodedProfile[2]
+        self.dietary1 = (encodedProfile[3] == 1) ? true : false
+        self.dietary2 = (encodedProfile[4] == 1) ? true : false
+        self.dietary3 = (encodedProfile[5] == 1) ? true : false
+        self.dietary4 = (encodedProfile[6] == 1) ? true : false
+        self.dietary5 = (encodedProfile[7] == 1) ? true : false
+        self.ambiance1 = (encodedProfile[8] == 1) ? true : false
+        self.ambiance2 = (encodedProfile[9] == 1) ? true : false
+        self.ambiance3 = (encodedProfile[10] == 1) ? true : false
     }
 }
