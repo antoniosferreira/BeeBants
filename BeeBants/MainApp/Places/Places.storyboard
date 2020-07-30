@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pGN-DT-Tix">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pGN-DT-Tix">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -12,6 +12,9 @@
         </array>
         <array key="Poppins-Light.ttf">
             <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
         </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
@@ -77,7 +80,7 @@
                                                             <fragment content="Paddington Bear Statue">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.85529845950000005" green="0.1235658452" blue="0.14757487180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" size="32" name="Poppins-Medium"/>
+                                                                    <font key="NSFont" metaFont="system" size="32"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.69999999999999996" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -461,23 +464,34 @@
         <scene sceneID="yl0-O6-YDU">
             <objects>
                 <viewController storyboardIdentifier="LoaderViewController" id="mjW-sM-Q6m" customClass="LoaderViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Saj-Nl-dC7" customClass="Loader">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Saj-Nl-dC7" customClass="Loader">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOADING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-b7-KCz">
-                                <rect key="frame" x="186" y="301" width="73" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_bee" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-xv-EXD">
+                                <rect key="frame" x="103.5" y="201.5" width="207" height="269"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="just one sec" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YHN-nd-nAS">
+                                <rect key="frame" x="93" y="515.5" width="228" height="188"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="FKE-po-T3D"/>
+                        <color key="backgroundColor" red="0.81375592949999997" green="0.3807139397" blue="0.3843018413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="YHN-nd-nAS" firstAttribute="centerX" secondItem="9dB-xv-EXD" secondAttribute="centerX" id="68V-LJ-AWr"/>
+                            <constraint firstItem="9dB-xv-EXD" firstAttribute="centerY" secondItem="Saj-Nl-dC7" secondAttribute="centerY" multiplier="0.75" id="8eH-NS-Nwn"/>
+                            <constraint firstItem="9dB-xv-EXD" firstAttribute="centerX" secondItem="Saj-Nl-dC7" secondAttribute="centerX" id="C2b-gQ-OTq"/>
+                            <constraint firstItem="YHN-nd-nAS" firstAttribute="width" secondItem="9dB-xv-EXD" secondAttribute="width" multiplier="1.1" id="IF6-Gv-Dkn"/>
+                            <constraint firstItem="9dB-xv-EXD" firstAttribute="height" secondItem="Saj-Nl-dC7" secondAttribute="height" multiplier="0.3" id="NGk-TY-ng6"/>
+                            <constraint firstItem="YHN-nd-nAS" firstAttribute="top" secondItem="9dB-xv-EXD" secondAttribute="bottom" constant="45" id="blX-IK-tuH"/>
+                            <constraint firstItem="YHN-nd-nAS" firstAttribute="height" secondItem="9dB-xv-EXD" secondAttribute="height" multiplier="0.7" id="jh4-ic-fwP"/>
+                            <constraint firstItem="9dB-xv-EXD" firstAttribute="width" secondItem="Saj-Nl-dC7" secondAttribute="width" multiplier="0.5" id="jkO-fG-Ef1"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="labelWaiting" destination="fzh-b7-KCz" id="WXF-gf-786"/>
+                        <outlet property="loadingBee" destination="9dB-xv-EXD" id="FC6-ow-KWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zX-B9-jTQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -557,7 +571,7 @@
                                             <fragment content="Let us know when you've arrived at:">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="28" name="Poppins-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="28"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.78000000000000003" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -582,7 +596,7 @@
                                             <fragment content="Paddington Bear Statue">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="32" name="Poppins-Medium"/>
+                                                    <font key="NSFont" metaFont="system" size="32"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.78000000000000003" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -763,7 +777,7 @@
                                                     <fragment content="open in maps">
                                                         <attributes>
                                                             <color key="NSColor" red="0.78603655100000003" green="0.20895731449999999" blue="0.19212388990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="22" name="Poppins-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="22"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             <integer key="NSUnderline" value="1"/>
                                                         </attributes>
@@ -847,6 +861,7 @@
         <image name="back_arrow_white" width="60" height="110"/>
         <image name="flyingbee" width="637" height="707"/>
         <image name="icon_location" width="74" height="106"/>
+        <image name="loading_bee" width="896" height="896"/>
         <image name="red_bar" width="504" height="24"/>
         <image name="red_line" width="32768" height="142"/>
     </resources>

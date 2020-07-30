@@ -70,8 +70,8 @@ class ResEditorViewController: UIViewController {
         swap(boxPescetarian, resProfiling!.dietary4)
         
         swap(boxCosy, resProfiling!.ambiance1)
-        swap(boxRomantic, resProfiling!.ambiance1)
-        swap(boxLively, resProfiling!.ambiance1)
+        swap(boxRomantic, resProfiling!.ambiance2)
+        swap(boxLively, resProfiling!.ambiance3)
     }
     
     private func swap(_ button: UIImageView, _ value: Bool) {

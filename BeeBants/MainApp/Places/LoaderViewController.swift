@@ -23,13 +23,32 @@ class LoaderViewController: UIViewController {
     private var spotData : SpotStructure?
     private var locationData : LocationStructure?
     
-    @IBOutlet weak var labelWaiting: UILabel!
-    
-    
+    @IBOutlet weak var loadingBee: UIImageView!
     // Loads from backend all data related with the place
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        rotate2(imageView: loadingBee, aCircleTime: 2.0)
+        
+    }
+    
+    func rotate2(imageView: UIImageView, aCircleTime: Double) { //UIView
+            
+            UIView.animate(withDuration: aCircleTime/2, delay: 0.0, options: .curveLinear, animations: {
+                imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+            }, completion: { finished in
+                UIView.animate(withDuration: aCircleTime/2, delay: 0.0, options: .curveLinear, animations: {
+                    imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2))
+                }, completion: { finished in
+                    self.rotate2(imageView: imageView, aCircleTime: aCircleTime)
+                })
+            })
+    }
+    
     func initPlace() {
 
-        labelWaiting.text = String(pageController.option)
 
         var docName = "Bars"
         if (!pageController.option) { docName = "Restaurants" }
