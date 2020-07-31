@@ -13,12 +13,20 @@ import FirebaseAuth
 
 class ResEditorViewController: UIViewController {
 
-    var savePressed = false
-    var resProfiling : ResProfile?
-    var newResProfiling : [Int]?
-    @IBOutlet weak var sliderPrice: UISlider!
+    var profileViewController : ProfileViewController?
     
-    // Data Labels
+    var resProfile : ResProfile?
+    var oldResProfile : ResProfile?
+
+    private var savePressed = false
+    
+    // LABELS TITLE
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelDietary: UILabel!
+    @IBOutlet weak var labelAmbiance: UILabel!
+    lazy var displayedTitles = [labelPrice, labelDietary, labelAmbiance]
+    
+    // LABELS DATA
     @IBOutlet weak var labelVegan: UILabel!
     @IBOutlet weak var labelVegetarian: UILabel!
     @IBOutlet weak var labelHalal: UILabel!
@@ -28,13 +36,9 @@ class ResEditorViewController: UIViewController {
     @IBOutlet weak var labelLively: UILabel!
     lazy var displayedData = [labelVegan, labelVegetarian, labelHalal, labelPescetarian, labelCosy, labelRomantic, labelLively]
     
-    // Titles Labels
-    @IBOutlet weak var labelPrice: UILabel!
-    @IBOutlet weak var labelDietary: UILabel!
-    @IBOutlet weak var labelAmbiance: UILabel!
-    lazy var displayedTitles = [labelPrice, labelDietary, labelAmbiance]
     
-    // DATA BOXES
+    // BOXES
+    @IBOutlet weak var sliderPrice: UISlider!
     @IBOutlet weak var boxVegan: UIImageView!
     @IBOutlet weak var boxVegetarian: UIImageView!
     @IBOutlet weak var boxHalal: UIImageView!
@@ -45,41 +49,22 @@ class ResEditorViewController: UIViewController {
     
     @IBOutlet weak var saveButton: RoundButton!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        newResProfiling = resProfiling!.encodedProfile
-
+        resProfile = ResProfile(profile: oldResProfile!)
+        
         fixFontSize()
         Styling.styleRedFilledButton(button: saveButton)
         
         updateProfileInfo()
 
     }
+    
     @IBAction func sliderChanged(_ sender: Any) {
         sliderPrice.setValue(round(sliderPrice.value * 1.0) / 1.0, animated: true)
-
-    }
-    
-    private func updateProfileInfo() {
-        sliderPrice.setValue(Float(resProfiling!.price), animated: true)
-        swap(boxVegan, resProfiling!.dietary1)
-        swap(boxVegetarian, resProfiling!.dietary2)
-        swap(boxHalal, resProfiling!.dietary3)
-        swap(boxPescetarian, resProfiling!.dietary4)
-        
-        swap(boxCosy, resProfiling!.ambiance1)
-        swap(boxRomantic, resProfiling!.ambiance2)
-        swap(boxLively, resProfiling!.ambiance3)
-    }
-    
-    private func swap(_ button: UIImageView, _ value: Bool) {
-        if value {
-            button.image = UIImage(named: "selectionbox_selected")!
-        } else {
-            button.image = UIImage(named: "selectionbox_empty")!
-        }
+        resProfile?.price = Int(sliderPrice.value)
     }
     
     private func fixFontSize() {
@@ -95,83 +80,119 @@ class ResEditorViewController: UIViewController {
     }
     
     
-    @IBAction func tappedVegan(_ sender: Any) {
-        newResProfiling![3] = alternate(value: newResProfiling![3])
-        swap(boxVegan, toBool(value: newResProfiling![3]))
-    }
-    
-    @IBAction func tappedVegetarian(_ sender: Any) {
-        newResProfiling![4] = alternate(value: newResProfiling![4])
-        swap(boxVegetarian, toBool(value: newResProfiling![4]))
-    }
-    @IBAction func tappedHalal(_ sender: Any) {
-        newResProfiling![5] = alternate(value: newResProfiling![5])
-        swap(boxHalal, toBool(value: newResProfiling![5]))
-    }
-    @IBAction func tappedPesc(_ sender: Any) {
-        newResProfiling![6] = alternate(value: newResProfiling![6])
-        swap(boxPescetarian, toBool(value: newResProfiling![6]))
-    }
-    
-    @IBAction func tappedCosy(_ sender: Any) {
-        newResProfiling![8] = alternate(value: newResProfiling![8])
-        swap(boxCosy, toBool(value: newResProfiling![8]))
-    }
-    @IBAction func tappedRomantic(_ sender: Any) {
-        newResProfiling![9] = alternate(value: newResProfiling![9])
-        swap(boxRomantic, toBool(value: newResProfiling![9]))
-    }
-    
-    @IBAction func tappedLively(_ sender: Any) {
-        newResProfiling![10] = alternate(value: newResProfiling![10])
-        swap(boxLively, toBool(value: newResProfiling![10]))
-    }
-    private func alternate(value : Int) -> Int
-       {
-           if (value == 0) {return 1}
-           else {return 0}
-       }
-       
-       private func toBool(value : Int) -> Bool
-       {
-           if (value == 0) {return false}
-           else {return true}
-       }
-       
-    
     @IBAction func tappedSave(_ sender: Any) {
         if (savePressed == false) {
+            
             savePressed = true
             
-            newResProfiling![2] = Int(sliderPrice.value)
-            
-            Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).updateData([
-                "resprofile": newResProfiling!
-            ]) { err in
-                if let error = err {
-                    
-                    // SOMETHING WENT WRONG
-                    let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try again", style: .destructive, handler: {
-                        (alert) in
-                        
-                        // Goes to main
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MAIN_SB") as! HomeViewController
-                        newViewController.modalPresentationStyle = .fullScreen
-                        self.present(newViewController, animated: true, completion: nil)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    
-                    // ALL OK
-                    let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileMain") as! ProfileViewController
-                    newViewController.modalPresentationStyle = .fullScreen
-                    self.present(newViewController, animated: true, completion: nil)
+            // Confirms at least one diet is selected
+            var dietOk = false
+            for value in resProfile!.dietary {
+                if value == true {
+                    dietOk = true
+                    break
                 }
             }
+            
+            // Confirms at least one density is selected
+            var ambOk = false
+            for value in resProfile!.ambiance {
+                if value == true {
+                    ambOk = true
+                    break
+                }
+            }
+            
+            
+            if (!(ambOk && dietOk)) {
+                savePressed = false
+                let alert = ProfileBadValuesAlert(title: "Something missing!", message: "Make sure you select at least one option for each section", buttonTitle: "OK")
+                self.present(alert.getAlert(), animated: true, completion: nil)
+                return
+            }
+            
+            
+            
+            // Updates Bar Doc
+            
+            let uid = Auth.auth().currentUser!.uid
+
+            oldResProfile!.update(resProfile!)
+            oldResProfile!.document!.setData([
+                "uid": uid,
+                "version": 0,
+                "name": resProfile!.name,
+                "diet1": resProfile!.dietary[0],
+                "diet2": resProfile!.dietary[1],
+                "diet3": resProfile!.dietary[2],
+                "diet4": resProfile!.dietary[3],
+                "amb1": resProfile!.ambiance[0],
+                "amb2": resProfile!.ambiance[1],
+                "amb3": resProfile!.ambiance[2],
+                "price": resProfile!.price
+            ])
+            
+            self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
         }
     }
     
+    
+    
+    
+    private func updateProfileInfo() {
+        sliderPrice.setValue(Float(resProfile!.price), animated: true)
+        swap(boxVegan, resProfile!.dietary[0])
+        swap(boxVegetarian, resProfile!.dietary[1])
+        swap(boxHalal, resProfile!.dietary[2])
+        swap(boxPescetarian, resProfile!.dietary[3])
+        
+        swap(boxCosy, resProfile!.ambiance[0])
+        swap(boxRomantic, resProfile!.ambiance[1])
+        swap(boxLively, resProfile!.ambiance[2])
+    }
+    
+    private func swap(_ button: UIImageView, _ value: Bool) {
+        if value {
+            button.image = UIImage(named: "selectionbox_selected")!
+        } else {
+            button.image = UIImage(named: "selectionbox_empty")!
+        }
+    }
+    
+    
+    @IBAction func tappedVegan(_ sender: Any) {
+        resProfile!.dietary[0] = !resProfile!.dietary[0]
+        swap(boxVegan, resProfile!.dietary[0])
+    }
+    
+    @IBAction func tappedVegetarian(_ sender: Any) {
+        resProfile!.dietary[1] = !resProfile!.dietary[1]
+        swap(boxVegetarian, resProfile!.dietary[1])
+    }
+    @IBAction func tappedHalal(_ sender: Any) {
+        resProfile!.dietary[2] = !resProfile!.dietary[2]
+        swap(boxHalal, resProfile!.dietary[2])
+    }
+    @IBAction func tappedPesc(_ sender: Any) {
+        resProfile!.dietary[3] = !resProfile!.dietary[3]
+        swap(boxPescetarian, resProfile!.dietary[3])
+    }
+    
+    @IBAction func tappedCosy(_ sender: Any) {
+        resProfile!.ambiance[0] = !resProfile!.ambiance[0]
+        swap(boxCosy, resProfile!.ambiance[0])
+    }
+    @IBAction func tappedRomantic(_ sender: Any) {
+        resProfile!.ambiance[1] = !resProfile!.ambiance[1]
+        swap(boxRomantic, resProfile!.ambiance[1])
+    }
+    
+    @IBAction func tappedLively(_ sender: Any) {
+        resProfile!.ambiance[2] = !resProfile!.ambiance[2]
+        swap(boxLively, resProfile!.ambiance[2])
+    }
+    
+    @IBAction func tapGoBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
+    }
 }

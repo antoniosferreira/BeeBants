@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6J8-Tq-16Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CCb-Ut-8Hv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -651,7 +651,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="mme-RQ-gcv" userLabel="Tap Res">
                     <connections>
-                        <action selector="tapResOpen:" destination="6J8-Tq-16Y" id="xMy-cx-TNx"/>
+                        <action selector="tapOpenRes:" destination="6J8-Tq-16Y" id="2DA-TZ-cnE"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="u0l-C5-W7a" userLabel="Tap Back">
@@ -666,7 +666,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="ixj-Ms-BGM" userLabel="Tap Res Header">
                     <connections>
-                        <action selector="tapResOpen:" destination="6J8-Tq-16Y" id="a0w-gR-HGL"/>
+                        <action selector="tapOpenRes:" destination="6J8-Tq-16Y" id="VIR-er-ApG"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="FMw-2b-CFL" userLabel="Tap Bars Edit">
@@ -1304,7 +1304,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMh-W1-Etn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Ep8-8x-c99" userLabel="Tap Go Back">
                     <connections>
-                        <segue destination="6J8-Tq-16Y" kind="presentation" modalPresentationStyle="fullScreen" id="d9G-0k-ZQw"/>
+                        <action selector="tapGoBack:" destination="yLL-nx-i1h" id="lMo-4R-VgV"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="M4y-kO-q03" userLabel="Tap Casual Label">
@@ -1948,7 +1948,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7BC-nz-I9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="mLf-SJ-EIk" userLabel="Tap Go Back">
                     <connections>
-                        <segue destination="6J8-Tq-16Y" kind="presentation" modalPresentationStyle="fullScreen" id="Wh9-Sw-KWh"/>
+                        <action selector="tapGoBack:" destination="5aP-yK-Cff" id="j9I-Ai-orz"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Fhz-tK-IZW" userLabel="Tap Vegan Label">
@@ -2024,14 +2024,51 @@
             </objects>
             <point key="canvasLocation" x="2184" y="848"/>
         </scene>
+        <!--Profile Loader View Controller-->
+        <scene sceneID="ReF-dp-mwB">
+            <objects>
+                <viewController storyboardIdentifier="ProfileLoaderViewController" id="CCb-Ut-8Hv" customClass="ProfileLoaderViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1fb-O7-Gzi" customClass="Loader">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_bee" translatesAutoresizingMaskIntoConstraints="NO" id="aIC-cN-lYQ">
+                                <rect key="frame" x="103.5" y="201.5" width="207" height="269"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="just one sec" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3er-5D-092">
+                                <rect key="frame" x="93" y="515.5" width="228" height="188"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.81375592949999997" green="0.3807139397" blue="0.3843018413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="aIC-cN-lYQ" firstAttribute="centerX" secondItem="1fb-O7-Gzi" secondAttribute="centerX" id="9hH-ad-an6"/>
+                            <constraint firstItem="3er-5D-092" firstAttribute="centerX" secondItem="aIC-cN-lYQ" secondAttribute="centerX" id="IsF-4Z-fj5"/>
+                            <constraint firstItem="3er-5D-092" firstAttribute="height" secondItem="aIC-cN-lYQ" secondAttribute="height" multiplier="0.7" id="YXg-nk-RQ2"/>
+                            <constraint firstItem="aIC-cN-lYQ" firstAttribute="centerY" secondItem="1fb-O7-Gzi" secondAttribute="centerY" multiplier="0.75" id="cVq-Vr-Oud"/>
+                            <constraint firstItem="3er-5D-092" firstAttribute="top" secondItem="aIC-cN-lYQ" secondAttribute="bottom" constant="45" id="eV6-aQ-5MR"/>
+                            <constraint firstItem="aIC-cN-lYQ" firstAttribute="height" secondItem="1fb-O7-Gzi" secondAttribute="height" multiplier="0.3" id="pZ6-6D-rmD"/>
+                            <constraint firstItem="aIC-cN-lYQ" firstAttribute="width" secondItem="1fb-O7-Gzi" secondAttribute="width" multiplier="0.5" id="rA8-V6-Us4"/>
+                            <constraint firstItem="3er-5D-092" firstAttribute="width" secondItem="aIC-cN-lYQ" secondAttribute="width" multiplier="1.1" id="uRE-kc-hT0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T17-Tm-Q0W"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingBee" destination="aIC-cN-lYQ" id="E3y-lj-Upn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDS-VD-LZA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-661" y="868"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Wh9-Sw-KWh"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="back_arrow" width="980" height="1814"/>
         <image name="icon_edit" width="84" height="84"/>
         <image name="icon_wheel" width="88" height="88"/>
+        <image name="loading_bee" width="896" height="896"/>
         <image name="selectionbox_empty" width="253" height="253"/>
         <image name="white_arrow" width="110" height="60"/>
     </resources>

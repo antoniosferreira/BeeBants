@@ -12,9 +12,10 @@ import FirebaseAuth
 
 class BarEditorViewController: UIViewController {
 
-    var barProfiling : BarProfile?
-    var newBarProfiling : [Int]?
-    var savePressed : Bool = false
+    var profileViewController : ProfileViewController?
+    var barProfile : BarProfile?
+    var oldBarProfile : BarProfile?
+    private var savePressed : Bool = false
     
     // LABELS TITLE
     @IBOutlet weak var labelPrice: UILabel!
@@ -34,7 +35,6 @@ class BarEditorViewController: UIViewController {
     @IBOutlet weak var labelNight: UILabel!
     lazy var displayedData = [labelCasual, labelUp, labelDown, labelCalm, labelCrowded, labelBanging, labelDay, labelNight]
     
-    
     // BOXES
     @IBOutlet weak var sliderPrice: UISlider!
     @IBOutlet weak var boxCasual: UIImageView!
@@ -46,25 +46,24 @@ class BarEditorViewController: UIViewController {
     @IBOutlet weak var boxDay: UIImageView!
     @IBOutlet weak var boxNight: UIImageView!
     
-    
-    
+
     @IBOutlet weak var buttonSave: RoundButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        newBarProfiling = barProfiling!.encodedProfile
-        
+        barProfile = BarProfile(profile: oldBarProfile!)
         fixFontSize()
         Styling.styleRedFilledButton(button: buttonSave)
-        // Do any additional setup after loading the view.
         
         updateProfileInfo()
     }
 
+    
     @IBAction func sliderChanged(_ sender: Any) {
         sliderPrice.setValue(round(sliderPrice.value * 1.0) / 1.0, animated: true)
-   
+        barProfile?.price = Int(sliderPrice.value)
     }
     
     
@@ -80,20 +79,84 @@ class BarEditorViewController: UIViewController {
         }
     }
     
+    @IBAction func saveButton(_ sender: Any) {
+        if (savePressed == false) {
+            savePressed = true
+
+            // Confirms at least one style is selected
+            var styleOk = false
+            for value in barProfile!.style {
+                if value == true {
+                    styleOk = true
+                    break
+                }
+            }
+            
+            // Confirms at least one density is selected
+            var densityOk = false
+            for value in barProfile!.density {
+                if value == true {
+                    densityOk = true
+                    break
+                }
+            }
+            
+            // Confirms at least one time is selected
+            var timeOk = false
+            for value in barProfile!.time {
+                if value == true {
+                    timeOk = true
+                    break
+                }
+            }
+            
+            if (!(timeOk && densityOk && styleOk)) {
+                savePressed = false
+                let alert = ProfileBadValuesAlert(title: "Something missing!", message: "Make sure you select at least one option for each section", buttonTitle: "OK")
+                self.present(alert.getAlert(), animated: true, completion: nil)
+                return
+            }
+        
+        
+            // All good to proceed
+            // Updates Bar Doc
+            
+            let uid = Auth.auth().currentUser!.uid
+
+            oldBarProfile!.update(barProfile!)
+            oldBarProfile!.document!.setData([
+                "uid": uid,
+                "version": 0,
+                "name": barProfile!.name,
+                "style1": barProfile!.style[0],
+                "style2": barProfile!.style[1],
+                "style3": barProfile!.style[2],
+                "density1": barProfile!.density[0],
+                "density2": barProfile!.density[1],
+                "density3": barProfile!.density[2],
+                "time1": barProfile!.time[0],
+                "time2": barProfile!.time[1],
+                "price": barProfile!.price
+            ])
+            
+            self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
+        }
+    }
     
     private func updateProfileInfo() {
-        sliderPrice.setValue(Float(barProfiling!.price), animated: true)
-        swap(boxCasual, barProfiling!.style1)
-        swap(boxUp, barProfiling!.style2)
-        swap(boxDown, barProfiling!.style3)
+        sliderPrice.setValue(Float(barProfile!.price), animated: true)
+        swap(boxCasual, barProfile!.style[0])
+        swap(boxUp, barProfile!.style[1])
+        swap(boxDown, barProfile!.style[2])
         
-        swap(boxCalm, barProfiling!.density1)
-        swap(boxCrowded, barProfiling!.density2)
-        swap(boxBanging, barProfiling!.density3)
+        swap(boxCalm, barProfile!.density[0])
+        swap(boxCrowded, barProfile!.density[1])
+        swap(boxBanging, barProfile!.density[2])
 
-        swap(boxDay, barProfiling!.time1)
-        swap(boxNight, barProfiling!.time2)
+        swap(boxDay, barProfile!.time[0])
+        swap(boxNight, barProfile!.time[1])
     }
+    
     
     private func swap(_ button: UIImageView, _ value: Bool) {
         if value {
@@ -104,94 +167,46 @@ class BarEditorViewController: UIViewController {
     }
     
     @IBAction func tappedCasual(_ sender: Any) {
-        newBarProfiling![3] = alternate(value: newBarProfiling![3])
-        swap(boxCasual, toBool(value: newBarProfiling![3]))
+        barProfile!.style[0] = !barProfile!.style[0]
+        swap(boxCasual, barProfile!.style[0])
     }
 
     @IBAction func tappedUp(_ sender: Any) {
-        newBarProfiling![4] = alternate(value: newBarProfiling![4])
-        swap(boxUp, toBool(value: newBarProfiling![4]))
+        barProfile!.style[1] = !barProfile!.style[1]
+        swap(boxUp, barProfile!.style[1])
     }
     
     @IBAction func tappedDown(_ sender: Any) {
-        newBarProfiling![5] = alternate(value: newBarProfiling![5])
-        swap(boxDown, toBool(value: newBarProfiling![5]))
+        barProfile!.style[2] = !barProfile!.style[2]
+        swap(boxDown, barProfile!.style[2])
     }
     
     @IBAction func tappedCalm(_ sender: Any) {
-        newBarProfiling![6] = alternate(value: newBarProfiling![6])
-        swap(boxCalm, toBool(value: newBarProfiling![6]))
-        
+        barProfile!.density[0] = !barProfile!.density[0]
+        swap(boxCalm, barProfile!.density[0])
     }
     
     @IBAction func tappedCrowded(_ sender: Any) {
-        newBarProfiling![7] = alternate(value: newBarProfiling![7])
-        swap(boxCrowded, toBool(value: newBarProfiling![7]))
+        barProfile!.density[1] = !barProfile!.density[1]
+        swap(boxCrowded, barProfile!.density[1])
     }
     
     @IBAction func tappedBanging(_ sender: Any) {
-        newBarProfiling![8] = alternate(value: newBarProfiling![8])
-        swap(boxBanging, toBool(value: newBarProfiling![8]))
+        barProfile!.density[2] = !barProfile!.density[2]
+        swap(boxBanging, barProfile!.density[2])
     }
     
     @IBAction func tappedDay(_ sender: Any) {
-        newBarProfiling![9] = alternate(value: newBarProfiling![9])
-        swap(boxDay, toBool(value: newBarProfiling![9]))
+        barProfile!.time[0] = !barProfile!.time[0]
+        swap(boxDay, barProfile!.time[0])
     }
     
     @IBAction func tappedNight(_ sender: Any) {
-        newBarProfiling![10] = alternate(value: newBarProfiling![10])
-        swap(boxNight, toBool(value: newBarProfiling![10]))
+        barProfile!.time[1] = !barProfile!.time[1]
+        swap(boxNight, barProfile!.time[1])
     }
-    
-    
-    private func alternate(value : Int) -> Int
-    {
-        if (value == 0) {return 1}
-        else {return 0}
-    }
-    
-    private func toBool(value : Int) -> Bool
-    {
-        if (value == 0) {return false}
-        else {return true}
-    }
-    
-    
-    
-    @IBAction func saveButton(_ sender: Any) {
-        if (savePressed == false) {
-            savePressed = true
-            
-            newBarProfiling![2] = Int(sliderPrice.value)
-            
-            Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).updateData([
-                "barprofile": newBarProfiling!
-            ]) { err in
-                if let error = err {
-                    
-                    // SOMETHING WENT WRONG
-                    let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try again", style: .destructive, handler: {
-                        (alert) in
-                        
-                        // Goes to main
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MAIN_SB") as! HomeViewController
-                        newViewController.modalPresentationStyle = .fullScreen
-                        self.present(newViewController, animated: true, completion: nil)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    
-                    // ALL OK
-                    let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileMain") as! ProfileViewController
-                    newViewController.modalPresentationStyle = .fullScreen
-                    self.present(newViewController, animated: true, completion: nil)
-                }
-            }
-        }
+    @IBAction func tapGoBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
     }
 }
 

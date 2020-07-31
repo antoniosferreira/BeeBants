@@ -104,7 +104,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eS1-tI-gK6" userLabel="Subtitle View">
                                                 <rect key="frame" x="0.0" y="134.5" width="414" height="104"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Originally from Peru, Paddington moved to England with his suitcase and duffel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jdk-Yn-R64" userLabel="Subtitle">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Originally from Peru, Paddington moved to England with his suitcase and duffel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jdk-Yn-R64" userLabel="Subtitle">
                                                         <rect key="frame" x="55" y="5" width="304" height="94"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="25"/>
                                                         <nil key="textColor"/>
@@ -489,6 +489,7 @@
                             <constraint firstItem="YHN-nd-nAS" firstAttribute="height" secondItem="9dB-xv-EXD" secondAttribute="height" multiplier="0.7" id="jh4-ic-fwP"/>
                             <constraint firstItem="9dB-xv-EXD" firstAttribute="width" secondItem="Saj-Nl-dC7" secondAttribute="width" multiplier="0.5" id="jkO-fG-Ef1"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ugg-QG-jnj"/>
                     </view>
                     <connections>
                         <outlet property="loadingBee" destination="9dB-xv-EXD" id="FC6-ow-KWB"/>

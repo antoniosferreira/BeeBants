@@ -25,12 +25,7 @@ class LastPageViewController: UIViewController {
         Styling.styleRedUnfilledButton(button: laterButton)
     }
 
-    @IBAction func goToProfile(_ sender: Any) {
-        let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "profile_1") as! ProfileEditorViewController
-        profile.modalPresentationStyle = .fullScreen
-        present(profile, animated: true)
-        return
-    }
+    
     /*
     // MARK: - Navigation
 

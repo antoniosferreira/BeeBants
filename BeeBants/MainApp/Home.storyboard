@@ -144,7 +144,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-6" y="133"/>
+            <point key="canvasLocation" x="-7.2463768115942031" y="132.58928571428572"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="kQW-Nd-c8I">
@@ -185,7 +185,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="DCR-0a-NCs">
-                                                <rect key="frame" x="77.5" y="41.5" width="276.5" height="42"/>
+                                                <rect key="frame" x="77.5" y="45" width="276.5" height="35"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -240,7 +240,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="JWb-fP-R3O">
-                                                <rect key="frame" x="77.5" y="42" width="276.5" height="42"/>
+                                                <rect key="frame" x="77.5" y="45.5" width="276.5" height="35"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -269,7 +269,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="qRj-Il-d2F">
-                                                <rect key="frame" x="77.5" y="41.5" width="276.5" height="42"/>
+                                                <rect key="frame" x="77.5" y="45" width="276.5" height="35"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -298,7 +298,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9o1-kt-xf9">
-                                                <rect key="frame" x="77.5" y="41.5" width="276.5" height="42"/>
+                                                <rect key="frame" x="77.5" y="45" width="276.5" height="35"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

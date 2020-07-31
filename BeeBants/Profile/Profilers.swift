@@ -6,74 +6,122 @@
 //  Copyright © 2020 BeeBants. All rights reserved.
 //
 import Foundation
+import Firebase
 
 public class BarProfile {
     
-    var encodedProfile : [Int]
+    var document : DocumentReference?
+    var name : String
+    let version = 0
     
     //0, 1, 2
     var price : Int
     
     // Casual, Up-Market, Down & Dirty
-    var style1 : Bool
-    var style2 : Bool
-    var style3 : Bool
+    var style = [false, false, false]
     
     // Calm, Crowded, Banging
-    var density1 : Bool
-    var density2 : Bool
-    var density3 : Bool
-
-    // Day, Night
-    var time1 : Bool
-    var time2 : Bool
+    var density = [false, false, false]
     
-    init(_ encodedProfile: [Int]) {
-        self.encodedProfile = encodedProfile
-        self.price = encodedProfile[2]
-        self.style1 = (encodedProfile[3] == 1) ? true : false
-        self.style2 = (encodedProfile[4] == 1) ? true : false
-        self.style3 = (encodedProfile[5] == 1) ? true : false
-        self.density1 = (encodedProfile[6] == 1) ? true : false
-        self.density2 = (encodedProfile[7] == 1) ? true : false
-        self.density3 = (encodedProfile[8] == 1) ? true : false
-        self.time1 = (encodedProfile[9] == 1) ? true : false
-        self.time2 = (encodedProfile[10] == 1) ? true : false
+    // Day, Night
+    var time = [false, false]
+    
+    init(document: DocumentSnapshot, documentReference: DocumentReference) throws {
+        
+        self.document = documentReference
+        // Confirms no conflict of profile versions
+        if (version == (document.get("version") as! Int)) {
+            name = document.get("name") as! String
+            price = document.get("price") as! Int
+            style[0] = document.get("style1") as! Bool
+            style[1] = document.get("style2") as! Bool
+            style[2] = document.get("style3") as! Bool
+            density[0] = document.get("density1") as! Bool
+            density[1] = document.get("density2") as! Bool
+            density[2] = document.get("density3") as! Bool
+            time[0] = document.get("time1") as! Bool
+            time[1] = document.get("time2") as! Bool
+            
+            return
+        }
+        
+        throw ProfileExceptions.incompatibleVersion
     }
+    
+    init(profile: BarProfile) {
+        self.document = profile.document
+        self.name = profile.name
+        self.price = profile.price
+        self.style = profile.style
+        self.density = profile.density
+        self.time = profile.time
+
+    }
+    
+    func update(_ profile: BarProfile) {
+        self.document = profile.document
+        self.name = profile.name
+        self.price = profile.price
+        self.style = profile.style
+        self.density = profile.density
+        self.time = profile.time
+    }
+    
 }
 
 
 public class ResProfile {
     
-    var encodedProfile : [Int]
+    var document : DocumentReference?
+
+    var name : String
+    let version = 0
     
     //0, 1, 2
     var price : Int
     
-    // Vegan, Vegetarian, Halal, Pescetarian, Nothing
-    var dietary1 : Bool
-    var dietary2 : Bool
-    var dietary3 : Bool
-    var dietary4 : Bool
-    var dietary5 : Bool
+    // Vegan, Vegetarian, Halal, Pescetarian
+    var dietary = [false, false, false, false]
 
     // Cosy, Romantic, Lively
-    var ambiance1 : Bool
-    var ambiance2 : Bool
-    var ambiance3 : Bool
+    var ambiance = [false, false, false]
 
     
-    init(_ encodedProfile: [Int]) {
+    init(document: DocumentSnapshot, documentReference: DocumentReference) throws {
+        self.document = documentReference
+
+        // Confirms no conflict of profile versions
+        if (version == (document.get("version") as! Int)) {
+            name = document.get("name") as! String
+            price = document.get("price") as! Int
+            dietary[0] = document.get("diet1") as! Bool
+            dietary[1] = document.get("diet2") as! Bool
+            dietary[2] = document.get("diet3") as! Bool
+            dietary[3] = document.get("diet4") as! Bool
+            ambiance[0] = document.get("amb1") as! Bool
+            ambiance[1] = document.get("amb2") as! Bool
+            ambiance[2] = document.get("amb3") as! Bool
+            
+            return
+        }
         
-        self.encodedProfile = encodedProfile
-        self.price = encodedProfile[2]
-        self.dietary1 = (encodedProfile[3] == 1) ? true : false
-        self.dietary2 = (encodedProfile[4] == 1) ? true : false
-        self.dietary3 = (encodedProfile[5] == 1) ? true : false
-        self.dietary4 = (encodedProfile[6] == 1) ? true : false
-        self.dietary5 = (encodedProfile[7] == 1) ? true : false
-        self.ambiance1 = (encodedProfile[8] == 1) ? true : false
-        self.ambiance2 = (encodedProfile[9] == 1) ? true : false
-        self.ambiance3 = (encodedProfile[10] == 1) ? true : false
+        throw ProfileExceptions.incompatibleVersion
     }
+    
+    init(profile: ResProfile) {
+        self.document = profile.document
+        self.name = profile.name
+        self.price = profile.price
+        self.ambiance = profile.ambiance
+        self.dietary = profile.dietary
+    }
+    
+    func update(_ profile: ResProfile) {
+        self.document = profile.document
+        self.name = profile.name
+        self.price = profile.price
+        self.dietary = profile.dietary
+        self.ambiance = profile.ambiance
+    }
+    
 }
