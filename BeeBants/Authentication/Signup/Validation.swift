@@ -2,7 +2,7 @@
 //  Validation.swift
 //  BeeBants
 //
-//  Created by António Ferreira on 02/04/2020.
+//  Created by António Ferreira on 04/08/2020.
 //  Copyright © 2020 BeeBants. All rights reserved.
 //
 
@@ -66,3 +66,4 @@ class Validation {
     }
     
 }
+

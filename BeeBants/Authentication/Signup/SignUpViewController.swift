@@ -2,161 +2,208 @@
 //  SignUpViewController.swift
 //  BeeBants
 //
-//  Created by António Ferreira on 01/04/2020.
+//  Created by António Ferreira on 04/08/2020.
 //  Copyright © 2020 BeeBants. All rights reserved.
 //
 
 import UIKit
 import Firebase
 import FirebaseAuth
-import FirebaseFirestore
 
-struct UserData {
-    var name = ""
-    var email = ""
-    var date = ""
-    var nation = ""
-    var news = false
-    var password = ""
-}
+class SignUpViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-class SignUpViewController: UIViewController {
-
-    @IBOutlet weak var bbLogo: UIImageView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    var mainView : SignUpMainViewController?
+    var pageController : SignUpPageViewController?
+    var pages : [SlideViewController] = []
     
-    var userData : UserData = UserData()
-    var signUpController : SignUpPageViewController? = nil
-    
-    @IBOutlet weak var c1: UIImageView!
-    @IBOutlet weak var c2: UIImageView!
-    @IBOutlet weak var c3: UIImageView!
-    @IBOutlet weak var c4: UIImageView!
-    
-    
+    var tapped = false
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        loadPages()
+        setPageController()
+    }
 
-        setUpBackground()
-        setUpElements()
-    }
-    
-    func setUpElements() {
-        let guestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        bbLogo.addGestureRecognizer(guestureRecognizer)
-    }
-    
-    func setUpBackground() {
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Main_BG")
-        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        backgroundImage.alpha = 0.8
+    private func loadPages() {
+        let vc1 = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "FirstSlideViewController") as! FirstSlideViewController
+        vc1.signViewController = self
+        let _ = vc1.view
+        pages.append(vc1)
         
-        let gradientMaskLayer = CAGradientLayer()
-        gradientMaskLayer.frame = backgroundImage.bounds
-        gradientMaskLayer.bounds = backgroundImage.bounds
-        gradientMaskLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
-        gradientMaskLayer.locations = [0.4, 1]
+        let vc2 = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "SecondSlideViewController") as! SecondSlideViewController
+        vc2.signViewController = self
+        let _ = vc2.view
+        pages.append(vc2)
         
-        backgroundImage.layer.mask = gradientMaskLayer
-        view.addSubview(backgroundImage)
+        let vc3 = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "ThirdSlideViewController") as! ThirdSlideViewController
+        vc3.signViewController = self
+        let _ = vc3.view
+        pages.append(vc3)
         
-        self.view.insertSubview(backgroundImage, at: 0)
+        fixFontSizes()
     }
     
-    @objc func handleTap() {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main_SB") as UIViewController
-        viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true, completion: nil)
+    func fixFontSizes() {
+        let titleLabels = [
+            (pages[0] as! FirstSlideViewController).labelNameTitle,
+            (pages[0] as! FirstSlideViewController).labelEmailTitle,
+            (pages[1] as! SecondSlideViewController).labelLocationTitle,
+            (pages[1] as! SecondSlideViewController).labelDateTitle,
+            (pages[2] as! ThirdSlideViewController).labelPasswordTitle,
+        ]
+        
+        let badLabels = [
+            (pages[0] as! FirstSlideViewController).labelBadName,
+            (pages[0] as! FirstSlideViewController).labelBadEmail,
+            (pages[1] as! SecondSlideViewController).labelBadDate,
+            (pages[1] as! SecondSlideViewController).labelBadLocation,
+            (pages[2] as! ThirdSlideViewController).labelBadPassword,
+        ]
+        
+        let smallestFontSizeBad = badLabels.map{$0!.actualFontSize}.min()
+        for label in badLabels {
+            label?.font = label?.font.withSize(smallestFontSizeBad!)
+        }
+        
+        let smallesFontSizeTitle = titleLabels.map{$0!.actualFontSize}.min()
+        for label in titleLabels {
+            label?.font = label?.font.withSize(smallesFontSizeTitle!)
+        }
     }
     
-    
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if  let vc = segue.destination as? SignUpPageViewController {
-        vc.signUp = self
-        self.signUpController = vc
-       }
+    private func setPageController() {
+        self.pageController = SignUpPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        self.pageController?.dataSource = self
+        self.pageController?.delegate = self
+        self.pageController?.view.backgroundColor = .clear
+        self.pageController?.view.frame = self.view.frame
+        self.addChild(self.pageController!)
+        self.view.addSubview(self.pageController!.view)
+        
+        
+        self.pageController?.setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
+        self.pageController?.didMove(toParent: self)
     }
     
-    func setNameAndEmail(name: String, email: String) {
-        self.userData.name = name
-        self.userData.email = email
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let currentVC = viewController as? SlideViewController else {
+            return nil
+        }
+        var index = currentVC.index
+        if (index == 0) {return nil}
+        index -= 1
+        return pages[index]
+        
     }
     
-    func setDateAndNation(date: String, nation: String) {
-        self.userData.date = date
-        self.userData.nation = nation
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let currentVC = viewController as? SlideViewController else {
+            return nil
+        }
+        var index = currentVC.index
+    
+        if index >= self.pages.count - 1 { return nil }
+        index += 1
+        return pages[index]
     }
     
-    func setPassNews(password: String, news: Bool) {
-        self.userData.password = password
-        self.userData.news = news
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool){
+        
+        let pageContentViewController = pageViewController.viewControllers![0]
+        self.mainView?.pageControl.currentPage = pages.firstIndex(of: pageContentViewController as! SlideViewController)!
     }
     
+    /*
+        REGISTER TO FIREBASE
+     */
     func register() {
+        if (tapped) {return}
+        tapped = true
         
-        Auth.auth().createUser(withEmail: self.userData.email, password: self.userData.password) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        print(pages[0].validData())
+        print(pages[1].validData())
+        print(pages[2].validData())
+
+        if (!(pages[0].validData() &&
+            pages[1].validData() &&
+            pages[2].validData())) {
+            
+            let alert = UIAlertController(title: "Bad Sign Up", message: "Confirm your information", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            print("heredfd")
+            tapped = false
+            return
+        }
+        
+        
+        let name = (pages[0] as! FirstSlideViewController).fieldName.text!
+        let email = (pages[0] as! FirstSlideViewController).fieldEmail.text!
+        
+        let date = dateFormatter.string(from:(pages[1] as! SecondSlideViewController).fieldDate.date!)
+        let nation = (pages[1] as! SecondSlideViewController).fieldLocation.text!
+        
+        let password = (pages[2] as! ThirdSlideViewController).fieldPassword.text!
+        let news = (pages[2] as! ThirdSlideViewController).tc
+        
+        Auth.auth().createUser(withEmail: email, password: password) {
             authResult, error in
             
             if error != nil {
+                self.tapped = false
+                
                 let alert = UIAlertController(title: "Bad Sign Up", message: error?.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Start again", style: .destructive, handler: nil))
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-                self.signUpController?.forward(index: 0)
-
+                
             } else {
                 let db = Firestore.firestore()
                 
-                db.collection("profiles").document(authResult!.user.uid).setData([ "bar_money1":true,"bar_money2":true, "bar_money3":true,
-                    "bar_style1":true, "bar_style2":true, "bar_style3":true,
-                    "bar_density1":true, "bar_density2":true, "bar_density3":true,
-                    "bar_time1":true, "bar_time2":true,
-                    "res_money1":true, "res_money2":true, "res_money3":true,
-                    "res_diet1":true, "res_diet2":true, "res_diet3":true, "res_diet4":true, "res_diet5":true,
-                    "res_amb1":true, "res_amb2":true, "res_amb3":true])
+                db.collection("Users").document(authResult!.user.uid).setData([
+                    "name":name,"dateofbirth":date, "email": email, "nation":nation,
+                    "newsletter":news, "uid":authResult!.user.uid]) {
                 
-                db.collection("users").document(authResult!.user.uid).setData([ "name":self.userData.name,"dateofbirth":self.userData.date, "nation":self.userData.nation, "newsletter":self.userData.news, "profile":false, "uid":authResult!.user.uid]) {
-                    
                     (error) in
                     if error != nil {
-                        let alert = UIAlertController(title: "Bad Sign Up", message: error?.localizedDescription, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Start again", style: .destructive, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                        self.signUpController?.forward(index: 0)
 
-                    } else {
-                        // Everythint went fine
+                        let alert = UIAlertController(title: "Bad Sign Up", message: error?.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                         
-                        self.signUpController?.forward(index: 3)
+                        
+                    } else {
+                        
+                        // Initializes new Profile from default
+                        db.collection("ProfilingBars").document(authResult!.user.uid).setData([
+                            "density1":true, "density2":true, "density3":true,
+                            "style1":true, "style2":true, "style3":true,
+                            "time1":true, "time2":true,
+                            "price":2, "name":name,
+                            "uid":authResult!.user.uid, "version":0])
+                        
+                        
+                        db.collection("ProfilingRestaurants").document(authResult!.user.uid).setData([
+                            "amb1":true, "amb2":true, "amb3":true,
+                            "diet1":false, "diet2":false, "diet3":false, "diet4":false,
+                            "price":2, "name":name,
+                            "uid":authResult!.user.uid, "version":0])
+                        
+                        
+                        // GOES TO NEXT VIEW CONTROLLER AFTER SIGN UP
+                        let vc = UIStoryboard(name: "Signup", bundle: nil).instantiateViewController(withIdentifier: "FinalViewController") as! FinalViewController
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true, completion: nil)
+                        
                     }
                 }
             }
             
         }
     }
-}
-
-
-extension SignUpViewController {
-    
-    func keyboardWillShow(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.contentView.frame.origin.y == 0 {
-                UIView.animate(withDuration: 0.25, animations: { () -> Void in
-                    self.contentView.frame.origin.y -= keyboardSize.height
-                })
-            }
-        }
-        
-    }
-    
-    func keyboardWillHide(notification: Notification) {
-        if self.contentView.frame.origin.y != 0 {
-            UIView.animate(withDuration: 0.25, animations: { () -> Void in
-                self.contentView.frame.origin.y = 0
-            })
-        }
-    }
-    
 }

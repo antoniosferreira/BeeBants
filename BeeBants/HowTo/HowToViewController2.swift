@@ -11,6 +11,8 @@ import UIKit
 class HowToViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     
+    var afterSignUp = false
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var nextButton: RoundButton!
     

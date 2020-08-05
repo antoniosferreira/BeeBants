@@ -86,8 +86,12 @@
                                                     <constraint firstItem="VqW-st-F8R" firstAttribute="top" secondItem="2PV-62-3uZ" secondAttribute="top" id="YHS-Pn-doo"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wheel" translatesAutoresizingMaskIntoConstraints="NO" id="KEn-aD-9FT" userLabel="Edit Account Button">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wheel" translatesAutoresizingMaskIntoConstraints="NO" id="KEn-aD-9FT" userLabel="Edit Account Button">
                                                 <rect key="frame" x="345.5" y="38" width="18.5" height="88"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="mo1-YD-u4T" appends="YES" id="OBh-l6-YMg"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -677,6 +681,11 @@
                 <tapGestureRecognizer id="VGH-rp-Xte" userLabel="Tap Res Edit">
                     <connections>
                         <action selector="tapEditRes:" destination="6J8-Tq-16Y" id="1GB-F7-hNa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="mo1-YD-u4T" userLabel="Tap Wheel Edit">
+                    <connections>
+                        <action selector="tapEditAccount:" destination="6J8-Tq-16Y" id="aGh-XZ-Gq4"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

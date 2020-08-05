@@ -1,22 +1,19 @@
 //
-//  SU_FinalViewController.swift
+//  HowToViewController.swift
 //  BeeBants
 //
-//  Created by António Ferreira on 07/04/2020.
+//  Created by António Ferreira on 05/08/2020.
 //  Copyright © 2020 BeeBants. All rights reserved.
 //
 
 import UIKit
 
-class SU_FinalViewController: UIViewController {
+class HowToViewController: UIViewController {
 
-    var signUp: SignUpViewController!
-   
-    @IBOutlet weak var nextButton: RoundButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Styling.styleRedFilledButton(button: nextButton)
+
+        // Do any additional setup after loading the view.
     }
     
 

@@ -67,9 +67,9 @@ public class DateTextField: UITextField {
 
     private func setup() {
         super.delegate = self
-        self.keyboardType = .numberPad
+        keyboardType = .numberPad
         autocorrectionType = .no
-
+        
         insertSubview(alwaysVisiblePlaceHolder, at: 0)
         alwaysVisiblePlaceHolder.backgroundColor = backgroundColor
         backgroundColor = .clear

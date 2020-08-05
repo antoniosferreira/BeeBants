@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -206,4 +207,17 @@ class ProfileViewController: UIViewController {
         newViewController.profileViewController = self
         self.present(newViewController, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func tapEditAccount(_ sender: Any) {
+    do {
+      try Auth.auth().signOut()
+    } catch let signOutError as NSError {
+      print ("Error signing out: %@", signOutError)
+    }
+      
+    
+    }
+    
+    
 }
