@@ -21,7 +21,7 @@
         <!--MAIN_SB-->
         <scene sceneID="wTJ-Ep-L9K">
             <objects>
-                <viewController storyboardIdentifier="MAIN_SB" title="MAIN_SB" id="t35-L3-lnh" customClass="HomeViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="MAIN_SB" id="t35-L3-lnh" customClass="HomeViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6rv-4Q-UUI"/>
                         <viewControllerLayoutGuide type="bottom" id="Jia-Rz-QN8"/>
@@ -185,7 +185,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="DCR-0a-NCs">
-                                                <rect key="frame" x="77.5" y="45" width="276.5" height="35"/>
+                                                <rect key="frame" x="77.5" y="41.5" width="276.5" height="42"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -240,7 +240,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="JWb-fP-R3O">
-                                                <rect key="frame" x="77.5" y="45.5" width="276.5" height="35"/>
+                                                <rect key="frame" x="77.5" y="42" width="276.5" height="42"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -269,7 +269,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="qRj-Il-d2F">
-                                                <rect key="frame" x="77.5" y="45" width="276.5" height="35"/>
+                                                <rect key="frame" x="77.5" y="41.5" width="276.5" height="42"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -298,7 +298,7 @@
                                                 <rect key="frame" x="20" y="0.0" width="37.5" height="125.5"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9o1-kt-xf9">
-                                                <rect key="frame" x="77.5" y="45" width="276.5" height="35"/>
+                                                <rect key="frame" x="77.5" y="41.5" width="276.5" height="42"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="30"/>
                                                 <color key="textColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -410,17 +410,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGN-1N-WS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="120"/>
+            <point key="canvasLocation" x="1764" y="394"/>
         </scene>
-        <!--Guide-->
+        <!--HowTo-->
         <scene sceneID="7II-aV-aMw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Guide" id="N0b-2h-a2I" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="HowTo" id="N0b-2h-a2I" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="WkW-Rw-8vZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezc-cq-qly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="313"/>
+            <point key="canvasLocation" x="1764" y="133"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="XZZ-4e-GfS">

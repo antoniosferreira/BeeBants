@@ -115,6 +115,19 @@ class SignUpViewController: UIPageViewController, UIPageViewControllerDataSource
         self.mainView?.pageControl.currentPage = pages.firstIndex(of: pageContentViewController as! SlideViewController)!
     }
     
+    func forward() -> Bool {
+        guard let currentViewController = self.pageController!.viewControllers?.first else { return false }
+        guard let nextViewController = self.pageController!.dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return true }
+           
+
+        let index = pages.firstIndex(of: currentViewController as! SlideViewController)!
+
+        self.mainView?.pageControl.currentPage = index + 1
+        setViewControllers([nextViewController], direction: .forward, animated: false, completion: nil)
+         
+        return false
+    }
+    
     /*
         REGISTER TO FIREBASE
      */

@@ -138,7 +138,8 @@ class SecondSlideViewController: SlideViewController, UITextFieldDelegate, UIPic
         self.view.endEditing(true)
         
         // Transition to next Slide
-        self.signViewController?.pageController?.setViewControllers([(self.signViewController?.pages[2])! as UIViewController], direction: .forward, animated: true, completion: nil)
+        let _ = self.signViewController?.forward()
+
         
     }
     
