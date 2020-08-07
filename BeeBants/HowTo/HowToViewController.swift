@@ -48,7 +48,7 @@ class HowToViewController: UIViewController {
         if (vc!.forward()) {
             
             if (afterSignUp) {
-                let newViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                let newViewController = UIStoryboard(name: "HowTo", bundle: nil).instantiateViewController(withIdentifier: "CreateProfileViewController") as! CreateProfileViewController
                 newViewController.modalPresentationStyle = .fullScreen
                 present(newViewController, animated: true, completion: nil)
             

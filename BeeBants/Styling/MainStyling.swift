@@ -12,6 +12,8 @@ import UIKit
 class Styling {
     
     static let redColor = UIColor(red: 0.85, green: 0.12, blue: 0.15, alpha: 1)
+    static let redTranslucid = UIColor(red: 0.85, green: 0.12, blue: 0.15, alpha: 0.1)
+
     static let whiteTranslucid = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
 
     static func styleRedFilledButton(button: UIButton) {
@@ -40,6 +42,13 @@ class Styling {
         field.backgroundColor = whiteTranslucid
     }
     
+    static func styleBadRedField(field: UITextField) {
+        field.layer.borderColor = redColor.cgColor
+       
+        field.font =  UIFont.init(name: "Poppins-Light", size: field.bounds.width/20)
+        field.backgroundColor = redTranslucid
+    }
+    
     static func styleWhiteField(field: UITextField, placeholder: String) {
         field.layer.borderColor = redColor.cgColor
         
@@ -49,6 +58,7 @@ class Styling {
         field.font =  UIFont.init(name: "Poppins-Light", size: field.bounds.width/20)
         field.backgroundColor = .white
     }
+    
     
     
     static func styleHiTextLabel(label: UILabel) {

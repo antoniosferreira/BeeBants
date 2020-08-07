@@ -16,12 +16,11 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
     @IBOutlet weak var labelEmailTitle: UILabel!
     
     @IBOutlet weak var fieldName: RoundTextField!
+    @IBOutlet weak var fieldSurname: RoundTextField!
     @IBOutlet weak var fieldEmail: RoundTextField!
     
-    @IBOutlet weak var labelBadName: UILabel!
     @IBOutlet weak var labelBadEmail: UILabel!
     
-    @IBOutlet weak var buttonNext: RoundButton!
         
     var activeField: UITextField?
     
@@ -43,15 +42,14 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
         
         self.fieldEmail.delegate = self
         self.fieldName.delegate = self
+        self.fieldSurname.delegate = self
         
     }
     
     private func setUpElements() {
-        labelNameTitle.setNeedsDisplay()
-        labelEmailTitle.setNeedsDisplay()
-        Styling.styleRedField(field: fieldName, placeholder: "full name")
+        Styling.styleRedField(field: fieldName, placeholder: "name")
+        Styling.styleRedField(field: fieldSurname, placeholder: "surname")
         Styling.styleRedField(field: fieldEmail, placeholder: "e-mail")
-        Styling.styleRedFilledButton(button: buttonNext)
     }
     
     
@@ -76,20 +74,11 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
-        let kbSize = keyboardFrame.cgRectValue.height
+        let kbSize = keyboardFrame.cgRectValue.height * 0.85
         
-        let contentInsets:UIEdgeInsets  = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize, right: 0.0)
-        viewScroll.contentInset = contentInsets
-        viewScroll.scrollIndicatorInsets = contentInsets
-        var aRect: CGRect = self.view.frame
-        aRect.size.height -= kbSize
-        //you may not need to scroll, see if the active field is already visible
-        if activeField != nil {
-            if (!aRect.contains(activeField!.frame.origin) ) {
-                let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField!.frame.origin.y - kbSize)
-                viewScroll.setContentOffset(scrollPoint, animated: true)
-            }
-        }
+        let contentInsents = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize, right: 0.0)
+        viewScroll.contentInset = contentInsents
+        viewScroll.scrollIndicatorInsets = contentInsents
         
     }
     
@@ -110,8 +99,6 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
     }
     
     
-    
-    
     /*
         FIELD RELATED ACTIONS
      */
@@ -124,9 +111,10 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
         if !(Validation.isValidEmail(fieldEmail.text ?? "")) {
             fieldEmail.shake()
             labelBadEmail.alpha = 1
-            
+            Styling.styleBadRedField(field: fieldEmail)
         } else {
             labelBadEmail.alpha = 0
+            Styling.styleRedField(field: fieldEmail, placeholder: "e-mail")
         }
     }
     
@@ -134,42 +122,46 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
         fieldEmail.text = fieldEmail.text?.trimmingCharacters(in: .whitespaces)
     }
     
-    @IBAction func nameFieldEditingBegin(_ sender: Any) {
-        activeField = sender as? UITextField
-    }
     
     @IBAction func nameFieldEditingChanged(_ sender: Any) {
+        fieldName.text = fieldName.text?.trimmingCharacters(in: .whitespaces)
+
     }
     
     @IBAction func nameFieldEditingEnded(_ sender: Any) {
         activeField = nil
         if !(Validation.isValidName(fieldName.text ?? "")) {
             fieldName.shake()
-            labelBadName.alpha = 1
+            Styling.styleBadRedField(field: fieldName)
         } else {
-            labelBadName.alpha = 0
+            Styling.styleRedField(field: fieldName, placeholder: "name")
         }
     }
+    
+    @IBAction func surnameFieldEditingChanged(_ sender: Any) {
+        fieldSurname.text = fieldSurname.text?.trimmingCharacters(in: .whitespaces)
 
+    }
+    
+    @IBAction func surnameFieldEditingEnded(_ sender: Any) {
+        activeField = nil
+        if !(Validation.isValidName(fieldSurname.text ?? "")) {
+            fieldSurname.shake()
+            Styling.styleBadRedField(field: fieldSurname)
+        } else {
+            Styling.styleRedField(field: fieldSurname, placeholder: "surname")
+        }
+    }
+    
     
     /*
         VALIDATION AND DATA INSERTION
      */
-    
-    
     override func validData() -> Bool {
-        if (Validation.isValidName(fieldName.text ?? "") && Validation.isValidEmail(fieldEmail.text ?? "")) {
+        if (Validation.isValidName(fieldName.text ?? "") &&
+            Validation.isValidName(fieldSurname.text ?? "") && Validation.isValidEmail(fieldEmail.text ?? "")) {
             return true
         }
         return false
     }
-    
-    @IBAction func tappedNext(_ sender: Any) {
-        self.view.endEditing(true)
-        
-        // Transition to next Slide
-        let _ = self.signViewController?.forward()
-        
-    }
-    
 }

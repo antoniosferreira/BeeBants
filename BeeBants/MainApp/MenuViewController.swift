@@ -67,7 +67,14 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func tappedGuide(_ sender: Any) {
+        let newViewController = UIStoryboard(name: "HowTo", bundle: nil).instantiateViewController(withIdentifier: "HowToViewController") as! HowToViewController
+        newViewController.afterSignUp = false
+        newViewController.modalPresentationStyle = .fullScreen
+        present(newViewController, animated: true, completion: nil)
+    
+    }
+    
 }
 
 extension UILabel {

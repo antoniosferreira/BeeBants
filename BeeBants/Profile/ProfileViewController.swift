@@ -39,10 +39,16 @@ class ProfileViewController: UIViewController {
     lazy var displayedData = [labelBarsHeader, labelResHeader]
        
     
+    @IBOutlet weak var labelBarsPriceTitle: UILabel!
     @IBOutlet weak var labelBarsPrice: UILabel!
+    @IBOutlet weak var labelBarsStyleTitle: UILabel!
     @IBOutlet weak var labelBarsStyle: UILabel!
+    @IBOutlet weak var labelBarsDensityTitle: UILabel!
     @IBOutlet weak var labelBarsDensity: UILabel!
+    @IBOutlet weak var labelBarsTimeTitle: UILabel!
     @IBOutlet weak var labelBarsTime: UILabel!
+    lazy var labelsBarsTitle = [labelBarsPriceTitle, labelBarsStyleTitle, labelBarsDensityTitle, labelBarsTimeTitle]
+    
     @IBOutlet weak var labelResPrice: UILabel!
     @IBOutlet weak var labelResDietary: UILabel!
     @IBOutlet weak var labelResAmbiance: UILabel!
@@ -56,8 +62,8 @@ class ProfileViewController: UIViewController {
         viewBarSubheader.alpha = 0
         viewResSubheader.alpha = 0
         
-        viewBarsHeader.layer.cornerRadius = viewBarsHeader.frame.size.height / 4
-        viewResHeader.layer.cornerRadius = viewResHeader.frame.size.height / 4
+        viewBarsHeader.layer.cornerRadius = viewBarsHeader.frame.size.height / 2.5
+        viewResHeader.layer.cornerRadius = viewResHeader.frame.size.height / 2.5
 
         viewBarsInfo.layer.cornerRadius = viewBarsInfo.frame.size.height / 8
         viewBarsInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -75,10 +81,30 @@ class ProfileViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        for l in labelsBarsTitle {
+            print(l?.getFontSizeForLabel())
+        }
+        
+        let smallestFontSizeTitles = labelsBarsTitle.map{$0!.actualFontSize}.min()
+        print(smallestFontSizeTitles)
+        for label in labelsBarsTitle {
+            label?.font = label?.font.withSize(smallestFontSizeTitles!)
+            label?.adjustsFontSizeToFitWidth = false
+        }
+    }
+    
     private func updateFontsSize () {
         let smallestFontSize = displayedData.map{$0!.actualFontSize}.min()
         for label in displayedData {
             label?.font = label?.font.withSize(smallestFontSize!)
+            label?.setNeedsDisplay()
+        }
+        
+        let smallestFontSizeTitles = labelsBarsTitle.map{$0!.actualFontSize}.min()
+        for label in labelsBarsTitle {
+            label?.font = label?.font.withSize(smallestFontSizeTitles!)
         }
     }
     

@@ -20,8 +20,6 @@ class SecondSlideViewController: SlideViewController, UITextFieldDelegate, UIPic
     
     @IBOutlet weak var labelBadDate: UILabel!
     @IBOutlet weak var labelBadLocation: UILabel!
-
-    @IBOutlet weak var buttonNext: RoundButton!
         
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -35,13 +33,12 @@ class SecondSlideViewController: SlideViewController, UITextFieldDelegate, UIPic
                 
         setUpElements()
         hideKeyboardWhenTappedAround()
-                     
     }
     
     private func setUpElements() {
+        self.view.backgroundColor = .clear
         Styling.styleRedField(field: fieldDate, placeholder: "date of birth")
         Styling.styleRedField(field: fieldLocation, placeholder: "nationality")
-        Styling.styleRedFilledButton(button: buttonNext)
         
         labelBadDate.alpha = 0
         labelBadLocation.alpha = 0
@@ -109,9 +106,10 @@ class SecondSlideViewController: SlideViewController, UITextFieldDelegate, UIPic
         if !Validation.isValidDate(fieldDate.date) {
             fieldDate.shake()
             labelBadDate.alpha = 1
+            Styling.styleBadRedField(field: fieldDate)
             return
         }
-        
+        Styling.styleRedField(field: fieldDate, placeholder: "date of birth")
         labelBadDate.alpha = 0
     }
     
@@ -119,9 +117,11 @@ class SecondSlideViewController: SlideViewController, UITextFieldDelegate, UIPic
         if fieldLocation.text == nil || fieldLocation.text == "" {
             fieldLocation.shake()
             labelBadLocation.alpha = 1
+            Styling.styleBadRedField(field: fieldLocation)
             return
         }
         
+        Styling.styleRedField(field: fieldLocation, placeholder: "nationality")
         labelBadLocation.alpha = 0
     }
     
@@ -131,16 +131,6 @@ class SecondSlideViewController: SlideViewController, UITextFieldDelegate, UIPic
             return true
         }
         return false
-    }
-    
-    
-    @IBAction func tappedNext(_ sender: Any) {
-        self.view.endEditing(true)
-        
-        // Transition to next Slide
-        let _ = self.signViewController?.forward()
-
-        
     }
     
 }

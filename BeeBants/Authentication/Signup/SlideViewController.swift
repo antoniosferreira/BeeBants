@@ -10,7 +10,7 @@ import UIKit
 
 class SlideViewController: UIViewController {
 
-    var signViewController : SignUpViewController?
+    var pageController : SignupPageViewController?
     var index = 0
     
     override func viewDidLoad() {

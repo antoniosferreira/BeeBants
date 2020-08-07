@@ -18,7 +18,6 @@ class ThirdSlideViewController: SlideViewController {
     
     @IBOutlet weak var buttonTC: UIImageView!
     @IBOutlet weak var buttonNews: UIImageView!
-    @IBOutlet weak var buttonNext: RoundButton!
     
     var tc = false
     var news = false
@@ -39,7 +38,7 @@ class ThirdSlideViewController: SlideViewController {
     }
     
     func setUpElements() {
-        Styling.styleRedFilledButton(button: buttonNext)
+        self.view.backgroundColor = .clear
         Styling.styleRedField(field: fieldPassword, placeholder: "password")
         
         buttonTC.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedButtonTC)))
@@ -89,8 +88,10 @@ class ThirdSlideViewController: SlideViewController {
         if !Validation.isValidPass(fieldPassword.text) {
             fieldPassword.shake()
             labelBadPassword.alpha = 1
+            Styling.styleBadRedField(field: fieldPassword)
         } else {
             labelBadPassword.alpha = 0
+            Styling.styleRedField(field: fieldPassword, placeholder: "password")
         }
     }
     
@@ -98,21 +99,5 @@ class ThirdSlideViewController: SlideViewController {
         return Validation.isValidPass(fieldPassword.text)
     }
 
-    @IBAction func tappedButtonNext(_ sender: Any) {
-        if !Validation.isValidPass(fieldPassword.text) {
-               fieldPassword.shake()
-               labelBadPassword.alpha = 1
-            
-        } else if !tc {
-            let alert = UIAlertController(title: "Terms & Conditions", message: "You must read and accept our T&Cs", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Got it", style: .destructive, handler: nil))
-                  
-            present(alert, animated: true, completion: nil)
-            
-        } else {
-            self.signViewController!.register()
-        }
-    }
-    
 
 }

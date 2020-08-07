@@ -11,13 +11,9 @@ import Foundation
 class Validation {
     
     static func isValidName(_ name: String) -> Bool {
+    
+        if name == "" {return false}
         
-        //Check if at least 2 names
-        let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-        let components = name.components(separatedBy: chararacterSet)
-        let words = components.filter { !$0.isEmpty }
-        if (words.count < 2) { return false }
-
         // Check if contains numbers
         let numbersRange = name.rangeOfCharacter(from: .decimalDigits)
         if (numbersRange != nil) { return false }

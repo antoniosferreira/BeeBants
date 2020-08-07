@@ -134,6 +134,134 @@
             </objects>
             <point key="canvasLocation" x="974" y="148"/>
         </scene>
+        <!--Create Profile View Controller-->
+        <scene sceneID="hOG-yo-Vsy">
+            <objects>
+                <viewController storyboardIdentifier="CreateProfileViewController" id="66R-UC-e4D" customClass="CreateProfileViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XTs-F2-zuT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-C6-ATj" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="122.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_black_small" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-Gs-9uj">
+                                        <rect key="frame" x="40" y="0.0" width="41.5" height="122.5"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="bQ6-Gs-9uj" firstAttribute="leading" secondItem="i8b-C6-ATj" secondAttribute="leading" constant="40" id="3VZ-zR-NNk"/>
+                                    <constraint firstItem="bQ6-Gs-9uj" firstAttribute="top" secondItem="i8b-C6-ATj" secondAttribute="top" id="JLl-iy-8Wx"/>
+                                    <constraint firstAttribute="bottom" secondItem="bQ6-Gs-9uj" secondAttribute="bottom" id="oKD-Y0-hUm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9FH-iw-A7v" userLabel="Middle View">
+                                <rect key="frame" x="0.0" y="166.5" width="414" height="450"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One last thing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IcE-fV-jGm">
+                                        <rect key="frame" x="40" y="-13" width="246.5" height="94.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="48"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="5SC-xg-9f3">
+                                        <rect key="frame" x="40" y="101.5" width="290" height="315"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Would you
+like to create
+a profile so
+the spots
+always suits you?</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.78212654589999997" green="0.20894712209999999" blue="0.19212424759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <font key="NSFont" size="48" name="Poppins-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.69999999999999996" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5SC-xg-9f3" firstAttribute="leading" secondItem="9FH-iw-A7v" secondAttribute="leading" constant="40" id="8aA-5s-CUY"/>
+                                    <constraint firstItem="IcE-fV-jGm" firstAttribute="leading" secondItem="9FH-iw-A7v" secondAttribute="leading" constant="40" id="b3s-4G-whD"/>
+                                    <constraint firstItem="5SC-xg-9f3" firstAttribute="height" secondItem="9FH-iw-A7v" secondAttribute="height" multiplier="0.7" id="ifb-fK-Eac"/>
+                                    <constraint firstItem="5SC-xg-9f3" firstAttribute="top" secondItem="IcE-fV-jGm" secondAttribute="bottom" constant="20" id="lfd-15-s5r"/>
+                                    <constraint firstItem="5SC-xg-9f3" firstAttribute="width" secondItem="9FH-iw-A7v" secondAttribute="width" multiplier="0.7" id="n0t-Rv-YYE"/>
+                                    <constraint firstItem="IcE-fV-jGm" firstAttribute="height" secondItem="5SC-xg-9f3" secondAttribute="height" multiplier="0.3" id="oQ1-lj-58H"/>
+                                    <constraint firstItem="IcE-fV-jGm" firstAttribute="width" secondItem="5SC-xg-9f3" secondAttribute="width" multiplier="0.85" id="rAb-j8-ToS"/>
+                                    <constraint firstItem="5SC-xg-9f3" firstAttribute="centerY" secondItem="9FH-iw-A7v" secondAttribute="centerY" multiplier="1.15" id="tbY-Ub-qby"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3K-fG-o0y" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="616.5" width="414" height="245.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxH-Yw-szD" userLabel="Sure Button" customClass="RoundButton" customModule="BeeBants" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="0.0" width="334" height="73.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
+                                        <state key="normal" title="sure">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedSureButton:" destination="66R-UC-e4D" eventType="touchUpInside" id="Cqd-4Y-3ba"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aja-Yw-IXk" customClass="RoundButton" customModule="BeeBants" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="83.5" width="334" height="74"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
+                                        <state key="normal" title="maybe later">
+                                            <color key="titleColor" red="0.78603655100000003" green="0.20895731449999999" blue="0.19212388990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedLaterButton:" destination="66R-UC-e4D" eventType="touchUpInside" id="FAY-st-UuP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RxH-Yw-szD" secondAttribute="trailing" constant="40" id="W3D-Ah-b88"/>
+                                    <constraint firstItem="Aja-Yw-IXk" firstAttribute="leading" secondItem="P3K-fG-o0y" secondAttribute="leading" constant="40" id="XBT-eV-hnf"/>
+                                    <constraint firstItem="RxH-Yw-szD" firstAttribute="height" secondItem="P3K-fG-o0y" secondAttribute="height" multiplier="0.3" id="eJv-tn-rCh"/>
+                                    <constraint firstItem="Aja-Yw-IXk" firstAttribute="top" secondItem="RxH-Yw-szD" secondAttribute="bottom" constant="10" id="jYz-WR-Wuu"/>
+                                    <constraint firstItem="RxH-Yw-szD" firstAttribute="leading" secondItem="P3K-fG-o0y" secondAttribute="leading" constant="40" id="kOq-n8-JQy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Aja-Yw-IXk" secondAttribute="trailing" constant="40" id="q2b-9f-0yd"/>
+                                    <constraint firstItem="Aja-Yw-IXk" firstAttribute="height" secondItem="P3K-fG-o0y" secondAttribute="height" multiplier="0.3" id="vNa-2A-K4p"/>
+                                    <constraint firstItem="RxH-Yw-szD" firstAttribute="top" secondItem="P3K-fG-o0y" secondAttribute="top" id="wNc-Hf-6QO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="P3K-fG-o0y" firstAttribute="top" secondItem="9FH-iw-A7v" secondAttribute="bottom" id="BAG-rN-jjQ"/>
+                            <constraint firstItem="ULV-pR-kqW" firstAttribute="trailing" secondItem="i8b-C6-ATj" secondAttribute="trailing" id="CHw-6H-12e"/>
+                            <constraint firstItem="ULV-pR-kqW" firstAttribute="trailing" secondItem="9FH-iw-A7v" secondAttribute="trailing" id="NDf-wb-O7u"/>
+                            <constraint firstItem="i8b-C6-ATj" firstAttribute="top" secondItem="ULV-pR-kqW" secondAttribute="top" id="WK8-xO-6vJ"/>
+                            <constraint firstItem="bQ6-Gs-9uj" firstAttribute="width" secondItem="ULV-pR-kqW" secondAttribute="width" multiplier="0.1" id="ZYD-e8-CCM"/>
+                            <constraint firstItem="P3K-fG-o0y" firstAttribute="leading" secondItem="ULV-pR-kqW" secondAttribute="leading" id="dPm-Qa-FOt"/>
+                            <constraint firstItem="i8b-C6-ATj" firstAttribute="height" secondItem="ULV-pR-kqW" secondAttribute="height" multiplier="0.15" id="dl7-rJ-t4D"/>
+                            <constraint firstItem="9FH-iw-A7v" firstAttribute="top" secondItem="i8b-C6-ATj" secondAttribute="bottom" id="f60-Jw-L3h"/>
+                            <constraint firstItem="9FH-iw-A7v" firstAttribute="leading" secondItem="ULV-pR-kqW" secondAttribute="leading" id="fhv-1N-VNs"/>
+                            <constraint firstItem="ULV-pR-kqW" firstAttribute="trailing" secondItem="P3K-fG-o0y" secondAttribute="trailing" id="gip-7I-Nzv"/>
+                            <constraint firstItem="i8b-C6-ATj" firstAttribute="leading" secondItem="ULV-pR-kqW" secondAttribute="leading" id="iyr-m5-erQ"/>
+                            <constraint firstItem="P3K-fG-o0y" firstAttribute="height" secondItem="ULV-pR-kqW" secondAttribute="height" multiplier="0.3" id="jBi-IL-Wf8"/>
+                            <constraint firstItem="ULV-pR-kqW" firstAttribute="bottom" secondItem="P3K-fG-o0y" secondAttribute="bottom" id="xef-Ax-xMm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ULV-pR-kqW"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonLater" destination="Aja-Yw-IXk" id="kua-J2-uYG"/>
+                        <outlet property="buttonSure" destination="RxH-Yw-szD" id="PXJ-aH-Gs5"/>
+                        <outlet property="label1" destination="IcE-fV-jGm" id="gTg-gU-ZYn"/>
+                        <outlet property="label2" destination="5SC-xg-9f3" id="o1V-B4-Aja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c3D-g6-Fzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="148"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo_black_small" width="653" height="881"/>

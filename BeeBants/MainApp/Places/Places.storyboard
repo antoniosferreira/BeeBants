@@ -13,9 +13,6 @@
         <array key="Poppins-Light.ttf">
             <string>Poppins-Light</string>
         </array>
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
-        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -464,35 +461,25 @@
         <scene sceneID="yl0-O6-YDU">
             <objects>
                 <viewController storyboardIdentifier="LoaderViewController" id="mjW-sM-Q6m" customClass="LoaderViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Saj-Nl-dC7" customClass="Loader">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Iyv-zL-HUF" customClass="Loader">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_bee" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-xv-EXD">
-                                <rect key="frame" x="103.5" y="201.5" width="207" height="269"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingbee" translatesAutoresizingMaskIntoConstraints="NO" id="JCs-bO-kMW">
+                                <rect key="frame" x="52" y="313.5" width="310.5" height="269"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="just one sec" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YHN-nd-nAS">
-                                <rect key="frame" x="93" y="515.5" width="228" height="188"/>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.81375592949999997" green="0.3807139397" blue="0.3843018413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YHN-nd-nAS" firstAttribute="centerX" secondItem="9dB-xv-EXD" secondAttribute="centerX" id="68V-LJ-AWr"/>
-                            <constraint firstItem="9dB-xv-EXD" firstAttribute="centerY" secondItem="Saj-Nl-dC7" secondAttribute="centerY" multiplier="0.75" id="8eH-NS-Nwn"/>
-                            <constraint firstItem="9dB-xv-EXD" firstAttribute="centerX" secondItem="Saj-Nl-dC7" secondAttribute="centerX" id="C2b-gQ-OTq"/>
-                            <constraint firstItem="YHN-nd-nAS" firstAttribute="width" secondItem="9dB-xv-EXD" secondAttribute="width" multiplier="1.1" id="IF6-Gv-Dkn"/>
-                            <constraint firstItem="9dB-xv-EXD" firstAttribute="height" secondItem="Saj-Nl-dC7" secondAttribute="height" multiplier="0.3" id="NGk-TY-ng6"/>
-                            <constraint firstItem="YHN-nd-nAS" firstAttribute="top" secondItem="9dB-xv-EXD" secondAttribute="bottom" constant="45" id="blX-IK-tuH"/>
-                            <constraint firstItem="YHN-nd-nAS" firstAttribute="height" secondItem="9dB-xv-EXD" secondAttribute="height" multiplier="0.7" id="jh4-ic-fwP"/>
-                            <constraint firstItem="9dB-xv-EXD" firstAttribute="width" secondItem="Saj-Nl-dC7" secondAttribute="width" multiplier="0.5" id="jkO-fG-Ef1"/>
+                            <constraint firstItem="JCs-bO-kMW" firstAttribute="width" secondItem="Iyv-zL-HUF" secondAttribute="width" multiplier="0.75" id="3iE-Ix-oyF"/>
+                            <constraint firstItem="JCs-bO-kMW" firstAttribute="height" secondItem="Iyv-zL-HUF" secondAttribute="height" multiplier="0.3" id="M0j-0E-ss1"/>
+                            <constraint firstItem="JCs-bO-kMW" firstAttribute="centerX" secondItem="Iyv-zL-HUF" secondAttribute="centerX" id="UV6-il-QVl"/>
+                            <constraint firstItem="JCs-bO-kMW" firstAttribute="centerY" secondItem="Iyv-zL-HUF" secondAttribute="centerY" id="jJU-Sr-JKX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ugg-QG-jnj"/>
+                        <viewLayoutGuide key="safeArea" id="Cq8-Dc-0QO"/>
                     </view>
                     <connections>
-                        <outlet property="loadingBee" destination="9dB-xv-EXD" id="FC6-ow-KWB"/>
+                        <outlet property="loadingBee" destination="JCs-bO-kMW" id="M9x-Tx-DGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zX-B9-jTQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -862,7 +849,7 @@
         <image name="back_arrow_white" width="60" height="110"/>
         <image name="flyingbee" width="637" height="707"/>
         <image name="icon_location" width="74" height="106"/>
-        <image name="loading_bee" width="896" height="896"/>
+        <image name="loadingbee" width="957" height="895"/>
         <image name="red_bar" width="504" height="24"/>
         <image name="red_line" width="32768" height="142"/>
     </resources>

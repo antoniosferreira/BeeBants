@@ -34,7 +34,6 @@ class MainViewController: UIViewController {
             nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
             
             present(nextViewController, animated: true, completion: nil)
-            
         }
     }
     

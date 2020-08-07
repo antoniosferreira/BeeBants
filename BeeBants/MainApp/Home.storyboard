@@ -396,6 +396,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="DPa-EE-a2W" userLabel="guide">
                     <connections>
+                        <action selector="tappedGuide:" destination="qe1-Zr-uFJ" id="PzE-oe-8oe"/>
                         <segue destination="N0b-2h-a2I" kind="presentation" modalPresentationStyle="fullScreen" id="GkW-kK-U6x"/>
                     </connections>
                 </tapGestureRecognizer>

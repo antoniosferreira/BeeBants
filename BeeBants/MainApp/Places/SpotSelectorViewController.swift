@@ -55,8 +55,7 @@ class SpotSelectorViewController: UIViewController {
     @IBOutlet weak var changeButton: RoundButton!
     @IBOutlet weak var buttonShowMore: UIImageView!
 
-    
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
