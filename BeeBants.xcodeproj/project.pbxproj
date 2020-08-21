@@ -49,7 +49,6 @@
 		645006192432765D00F7444C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645006172432765D00F7444C /* LaunchScreen.storyboard */; };
 		64500623243285BA00F7444C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64500622243285BA00F7444C /* MainViewController.swift */; };
 		64627C922439EB04008F9DF0 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64627C912439EB04008F9DF0 /* DateTextField.swift */; };
-		6469B17124AE156200702D33 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6469B17024AE156200702D33 /* DataStructures.swift */; };
 		6469B17324AE1A6C00702D33 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6469B17224AE1A6C00702D33 /* LoaderViewController.swift */; };
 		6469B17524AE346E00702D33 /* PlacesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6469B17424AE346E00702D33 /* PlacesPageViewController.swift */; };
 		646D9CD5245694C5003D0518 /* SOContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646D9CD4245694C5003D0518 /* SOContainerViewController.swift */; };
@@ -150,7 +149,6 @@
 		64500636243289A400F7444C /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		64500637243289A400F7444C /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		64627C912439EB04008F9DF0 /* DateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
-		6469B17024AE156200702D33 /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
 		6469B17224AE1A6C00702D33 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		6469B17424AE346E00702D33 /* PlacesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPageViewController.swift; sourceTree = "<group>"; };
 		646D9CD4245694C5003D0518 /* SOContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOContainerViewController.swift; sourceTree = "<group>"; };
@@ -256,13 +254,12 @@
 			isa = PBXGroup;
 			children = (
 				641D44EF2485720A00539D16 /* Places.storyboard */,
+				64088A5524B3F87000E44A40 /* PlacesHomeViewController.swift */,
 				6469B17424AE346E00702D33 /* PlacesPageViewController.swift */,
+				6469B17224AE1A6C00702D33 /* LoaderViewController.swift */,
 				641D44F12485723F00539D16 /* SpotSelectorViewController.swift */,
 				640483FE24AF84DF0068BE53 /* LocationViewController.swift */,
 				64D3162E24AFFB7200177A17 /* SpotViewController.swift */,
-				6469B17224AE1A6C00702D33 /* LoaderViewController.swift */,
-				6469B17024AE156200702D33 /* DataStructures.swift */,
-				64088A5524B3F87000E44A40 /* PlacesHomeViewController.swift */,
 				43A9460D24EEB74100899254 /* Structures.swift */,
 			);
 			path = Places;
@@ -591,7 +588,6 @@
 				43988EA724DA348D000D9B71 /* HowToViewController.swift in Sources */,
 				6450060C2432765C00F7444C /* SceneDelegate.swift in Sources */,
 				4309EFFD24DAE74B00F1D70B /* HowToPageViewController.swift in Sources */,
-				6469B17124AE156200702D33 /* DataStructures.swift in Sources */,
 				64500623243285BA00F7444C /* MainViewController.swift in Sources */,
 				640483FF24AF84DF0068BE53 /* LocationViewController.swift in Sources */,
 				641D44F22485723F00539D16 /* SpotSelectorViewController.swift in Sources */,

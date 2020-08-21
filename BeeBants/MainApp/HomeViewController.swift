@@ -45,14 +45,14 @@ class HomeViewController: SOContainerViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Places", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlacesHomeViewController") as! PlacesHomeViewController
         newViewController.modalPresentationStyle = .fullScreen
-        newViewController.option = true
+        newViewController.isBar = true
         self.present(newViewController, animated: true, completion: nil)
     }
     @IBAction func tappedRestaurants(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Places", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlacesHomeViewController") as! PlacesHomeViewController
         newViewController.modalPresentationStyle = .fullScreen
-        newViewController.option = false
+        newViewController.isBar = false
         self.present(newViewController, animated: true, completion: nil)
     }
 }

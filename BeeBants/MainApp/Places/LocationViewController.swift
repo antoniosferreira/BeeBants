@@ -24,7 +24,7 @@ class LocationViewController: UIViewController {
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
-        pageController.goPlace()
+        pageController.displaySpotFinalView()
         
     }
     

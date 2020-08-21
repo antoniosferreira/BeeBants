@@ -69,7 +69,6 @@ class SpotSelectorViewController: UIViewController {
             navController: self.navigationController,
             visibleHeight: 0.48 * mainView.bounds.size.height
         )
-        //visibleHeight: (self.buttonsView.bounds.size.height + (self.titleView.bounds.size.height * 2))
         slideController?.setSlideEnabled(true)
         
         // Animation of ShowMore Button
@@ -83,7 +82,6 @@ class SpotSelectorViewController: UIViewController {
         // Updates Slide Panel Information
         labelTitle.text = pageController.getPlace().location.displayName
         labelSubtitle.text = pageController.getPlace().location.displayDescription
-        
         labelSecret.text = pageController.getPlace().spot.displaySecret
         labelValueDesc1.text = pageController.getPlace().spot.dressCode
         labelValueDesc2.text = pageController.getPlace().spot.ambiance
@@ -96,7 +94,6 @@ class SpotSelectorViewController: UIViewController {
         }
     }
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +111,7 @@ class SpotSelectorViewController: UIViewController {
     
     func setUpBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = pageController.locationIMG
+        backgroundImage.image = pageController.currentLocationImg
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         backgroundImage.alpha = 1
         self.view.insertSubview(backgroundImage, at: 0)
@@ -131,7 +128,7 @@ class SpotSelectorViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        pageController.goLocation()
+        pageController.displayLocationPage()
     }
     
     @IBAction func changeButtonTapped(_ sender: Any) {

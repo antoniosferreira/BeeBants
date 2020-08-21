@@ -10,12 +10,11 @@ import UIKit
 
 class PlacesHomeViewController: UIViewController {
 
-    // true: bar, false: restaurant
-    var option : Bool?
+    var isBar : Bool = true
     
     @IBSegueAction func pageControllerInstantiated(_ coder: NSCoder) -> PlacesPageViewController? {
         let pc = PlacesPageViewController(coder: coder)
-        pc!.option = option!
+        pc!.isBar = isBar
         return pc
     }
     

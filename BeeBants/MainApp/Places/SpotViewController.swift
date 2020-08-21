@@ -27,6 +27,10 @@ class SpotViewController: UIViewController {
         infoView.layer.cornerRadius = infoView.frame.size.height / 6
         infoView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        setupOpenMaps()
+    }
+    
+    func setupOpenMaps() {
         let latitude = pageController!.getPlace().spot.latitude
         let longitude = pageController!.getPlace().spot.longitude
         

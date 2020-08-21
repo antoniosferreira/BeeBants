@@ -8,16 +8,6 @@
 
 import Foundation
 
-struct SpotFromJson: Decodable {
-    enum Category: String, Decodable {
-        case swift, combine, debugging, xcode
-    }
-
-    let id: Int
-    let latitude: String
-    let longitude: String
-}
-
 struct Spot: Decodable {
     enum Category: String, Decodable {
         case swift, combine, debugging, xcode
@@ -49,4 +39,14 @@ struct Location: Decodable {
     let displayImgName: String
     
     
+}
+
+class Place {
+    var spot : Spot
+    var location : Location
+    
+    init(spot: Spot, location: Location) {
+        self.spot = spot
+        self.location = location
+    }
 }

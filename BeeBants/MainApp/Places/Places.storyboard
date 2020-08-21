@@ -515,7 +515,7 @@
                         <viewLayoutGuide key="safeArea" id="Cq8-Dc-0QO"/>
                     </view>
                     <connections>
-                        <outlet property="loadingBee" destination="JCs-bO-kMW" id="M9x-Tx-DGL"/>
+                        <outlet property="loadingBeeImg" destination="JCs-bO-kMW" id="q9m-t5-J1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zX-B9-jTQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

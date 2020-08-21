@@ -26,15 +26,18 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Directly to home
-        if Auth.auth().currentUser != nil {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
-            
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-            
-            present(nextViewController, animated: true, completion: nil)
-        }
+        guard let currentUser = Auth.auth().currentUser else { return }
+        currentUser.getIDTokenForcingRefresh(true, completion:  {
+            (idToken, error) in
+            if let error = error {
+                    print(error.localizedDescription)
+            } else {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+                self.present(nextViewController, animated: true, completion: nil)
+            }
+        })
     }
     
     func setUpBackground() {
