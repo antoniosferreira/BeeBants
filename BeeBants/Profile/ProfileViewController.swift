@@ -36,8 +36,8 @@ class ProfileViewController: UIViewController {
     // LABELS
     @IBOutlet weak var labelBarsHeader: UILabel!
     @IBOutlet weak var labelResHeader: UILabel!
-    lazy var displayedData = [labelBarsHeader, labelResHeader]
-       
+    lazy var profileTitles = [labelBarsHeader, labelResHeader]
+    
     
     @IBOutlet weak var labelBarsPriceTitle: UILabel!
     @IBOutlet weak var labelBarsPrice: UILabel!
@@ -47,65 +47,70 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var labelBarsDensity: UILabel!
     @IBOutlet weak var labelBarsTimeTitle: UILabel!
     @IBOutlet weak var labelBarsTime: UILabel!
-    lazy var labelsBarsTitle = [labelBarsPriceTitle, labelBarsStyleTitle, labelBarsDensityTitle, labelBarsTimeTitle]
     
+    
+    @IBOutlet weak var labelResPriceTitle: UILabel!
     @IBOutlet weak var labelResPrice: UILabel!
+    @IBOutlet weak var labelResDietaryTitle: UILabel!
     @IBOutlet weak var labelResDietary: UILabel!
+    @IBOutlet weak var labelResAmbianceTitle: UILabel!
     @IBOutlet weak var labelResAmbiance: UILabel!
+    lazy var labelProfileData = [labelBarsPriceTitle, labelBarsStyleTitle, labelBarsDensityTitle, labelBarsTimeTitle, labelResPriceTitle, labelResDietaryTitle, labelResAmbianceTitle, labelBarsPrice, labelBarsStyle, labelBarsDensity, labelBarsTime, labelResPrice, labelResDietary, labelResAmbiance]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpBackground()
+        self.viewDidLayoutSubviews()
         
+        setUpBackground()
+        updateDisplayedData()
+        
+        
+        // Styling
         viewBarSubheader.alpha = 0
         viewResSubheader.alpha = 0
-        
-        viewBarsHeader.layer.cornerRadius = viewBarsHeader.frame.size.height / 2.5
-        viewResHeader.layer.cornerRadius = viewResHeader.frame.size.height / 2.5
-
-        viewBarsInfo.layer.cornerRadius = viewBarsInfo.frame.size.height / 8
-        viewBarsInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        viewResInfo.layer.cornerRadius = viewResInfo.frame.size.height / 8
-        viewResInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-
+        viewBarsHeader.layer.masksToBounds = false
+        viewBarsHeader.clipsToBounds = true
+        viewResHeader.layer.masksToBounds = false
+        viewResHeader.clipsToBounds = true
         buttonBarsOpen.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         buttonResOpen.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
-
         constraintBarsZeroHeight.isActive = true
         constraintResZeroHeight.isActive = true
-        
-        updateFontsSize()
-        updateDisplayedData()
         view.layoutIfNeeded()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        viewBarsHeader.layer.cornerRadius = viewBarsHeader.layer.bounds.height * 0.49
+        viewResHeader.layer.cornerRadius = viewResHeader.layer.bounds.height * 0.49
+        viewBarsInfo.layer.cornerRadius = 25
+        viewBarsInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        viewResInfo.layer.cornerRadius = 25
+        viewResInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        for l in labelsBarsTitle {
-            print(l?.getFontSizeForLabel())
-        }
         
-        let smallestFontSizeTitles = labelsBarsTitle.map{$0!.actualFontSize}.min()
-        print(smallestFontSizeTitles)
-        for label in labelsBarsTitle {
-            label?.font = label?.font.withSize(smallestFontSizeTitles!)
-            label?.adjustsFontSizeToFitWidth = false
-        }
-    }
-    
-    private func updateFontsSize () {
-        let smallestFontSize = displayedData.map{$0!.actualFontSize}.min()
-        for label in displayedData {
-            label?.font = label?.font.withSize(smallestFontSize!)
+        // Font Corrections
+        for label in profileTitles {
+            label?.adjustsFontSizeToFitWidth = true
+            label?.minimumScaleFactor = 0.5
             label?.setNeedsDisplay()
         }
-        
-        let smallestFontSizeTitles = labelsBarsTitle.map{$0!.actualFontSize}.min()
-        for label in labelsBarsTitle {
-            label?.font = label?.font.withSize(smallestFontSizeTitles!)
+        let fontTitles = profileTitles.map{$0!.actualFontSize}.min()
+        for label in profileTitles {
+            label?.font = label?.font.withSize(fontTitles!)
+            label?.setNeedsDisplay()
         }
+        for label in labelProfileData {
+            label?.adjustsFontSizeToFitWidth = true
+            label?.minimumScaleFactor = 0.5
+            label?.setNeedsDisplay()
+        }
+        let fontDataTitles = labelProfileData.map{$0!.actualFontSize}.min()
+        for label in labelProfileData {
+            label?.font = label?.font.withSize(fontDataTitles!)
+            label?.setNeedsDisplay()
+            
+        }
+        
+        view.layoutIfNeeded()
+        
     }
     
     private func setUpBackground() {
@@ -128,54 +133,58 @@ class ProfileViewController: UIViewController {
     
     
     func updateDisplayedData() {
-         // BAR RELATED DATA
-         switch (barProfile!.price) {
-         case 0 : labelBarsPrice.text = "£"
-         case 1 : labelBarsPrice.text = "£"
-         case 2 : labelBarsPrice.text = "£"
-         default: break
-         }
-         
-         var style = ""
-         if (barProfile!.style[0]) {style += "Casual\n"}
-         if (barProfile!.style[1]) {style += "Up-market\n"}
-         if (barProfile!.style[2]) {style += "Down and Dirty\n"}
-         labelBarsStyle.text = String(style.dropLast())
-         
-         var density = ""
-         if (barProfile!.density[0]) {density += "Calm\n"}
-         if (barProfile!.density[1]) {density += "Crowded\n"}
-         if (barProfile!.density[2]) {density += "Banging\n"}
-         labelBarsDensity.text = String(density.dropLast())
-         
-         var time = ""
-         if (barProfile!.time[0]) {time += "Day\n"}
-         if (barProfile!.time[1]) {time += "Night\n"}
-         labelBarsTime.text = String(time.dropLast())
-         
-         // RESTAURANTS RELATED DATA
-         switch (resProfile?.price) {
-         case 0 : labelResPrice.text = "£"
-         case 1 : labelResPrice.text = "££"
-         case 2 : labelResPrice.text = "£££"
-         default: break
-         }
-         
-         var dietary = ""
-         if (resProfile!.dietary[0]) {dietary += "Vegan\n"}
-         if (resProfile!.dietary[1]) {dietary += "Vegetarian\n"}
-         if (resProfile!.dietary[2]) {dietary += "Halal\n"}
-         if (resProfile!.dietary[3]) {dietary += "Pescetarian\n"}
-         labelResDietary.text = String(dietary.dropLast())
-         
-         var ambiance = ""
-         if (resProfile!.ambiance[0]) {ambiance += "Cosy\n"}
-         if (resProfile!.ambiance[1]) {ambiance += "Romantic\n"}
-         if (resProfile!.ambiance[2]) {ambiance += "Lively\n"}
-         labelResAmbiance.text = String(ambiance.dropLast())
-     }
+        // Name
+        labelUserName.text = barProfile!.name
+        
+        // BAR RELATED DATA
+        switch (barProfile!.price) {
+        case 0 : labelBarsPrice.text = "£"
+        case 1 : labelBarsPrice.text = "££"
+        case 2 : labelBarsPrice.text = "£££"
+        default: break
+        }
+        
+        var style = ""
+        if (barProfile!.style[0]) {style += "Casual\n"}
+        if (barProfile!.style[1]) {style += "Up-market\n"}
+        if (barProfile!.style[2]) {style += "Down and Dirty\n"}
+        labelBarsStyle.text = String(style.dropLast())
+        
+        var density = ""
+        if (barProfile!.density[0]) {density += "Calm\n"}
+        if (barProfile!.density[1]) {density += "Crowded\n"}
+        if (barProfile!.density[2]) {density += "Banging\n"}
+        labelBarsDensity.text = String(density.dropLast())
+        
+        var time = ""
+        if (barProfile!.time[0]) {time += "Day\n"}
+        if (barProfile!.time[1]) {time += "Night\n"}
+        labelBarsTime.text = String(time.dropLast())
+        
+        // RESTAURANTS RELATED DATA
+        switch (resProfile?.price) {
+        case 0 : labelResPrice.text = "£"
+        case 1 : labelResPrice.text = "££"
+        case 2 : labelResPrice.text = "£££"
+        default: break
+        }
+        
+        var dietary = ""
+        if (resProfile!.dietary[0]) {dietary += "Vegan\n"}
+        if (resProfile!.dietary[1]) {dietary += "Vegetarian\n"}
+        if (resProfile!.dietary[2]) {dietary += "Halal\n"}
+        if (resProfile!.dietary[3]) {dietary += "Pescetarian\n"}
+        if dietary == "" {dietary = "None\n"}
+        labelResDietary.text = String(dietary.dropLast())
+        
+        var ambiance = ""
+        if (resProfile!.ambiance[0]) {ambiance += "Cosy\n"}
+        if (resProfile!.ambiance[1]) {ambiance += "Romantic\n"}
+        if (resProfile!.ambiance[2]) {ambiance += "Lively\n"}
+        labelResAmbiance.text = String(ambiance.dropLast())
+    }
     
-
+    
     @IBAction func tapOpenBars(_ sender: Any) {
         let isOpen = (viewBarsInfo.frame.height != 0) ? 0 : 1
         var rotationAngle = CGFloat(0)
@@ -184,13 +193,13 @@ class ProfileViewController: UIViewController {
             rotationAngle = CGFloat(Double.pi)
             constraintBarsZeroHeight.isActive = true
         } else {
-            viewBarSubheader.alpha = CGFloat(1)
             constraintBarsZeroHeight.isActive = false
         }
         
         UIView.animate(withDuration: 0.5, animations: {
             self.buttonBarsOpen.transform = CGAffineTransform(rotationAngle: rotationAngle)
             self.view.layoutIfNeeded()
+            self.viewBarSubheader.alpha = CGFloat(1)
         }, completion: {(finished) in self.viewBarSubheader.alpha = CGFloat(isOpen)})
     }
     
@@ -198,18 +207,18 @@ class ProfileViewController: UIViewController {
     @IBAction func tapOpenRes(_ sender: Any) {
         let isOpen = (viewResInfo.frame.height != 0) ? 0 : 1
         var rotationAngle = CGFloat(0)
-
+        
         if (isOpen == 0) {
             rotationAngle = CGFloat(Double.pi)
             constraintResZeroHeight.isActive = true
         } else {
-            viewResSubheader.alpha = CGFloat(1)
             constraintResZeroHeight.isActive = false
         }
         
         UIView.animate(withDuration: 0.5, animations: {
             self.buttonResOpen.transform = CGAffineTransform(rotationAngle: rotationAngle)
             self.view.layoutIfNeeded()
+            self.viewResSubheader.alpha = CGFloat(1)
         }, completion: {(finished) in self.viewResSubheader.alpha = CGFloat(isOpen)})
     }
     
@@ -236,14 +245,14 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func tapEditAccount(_ sender: Any) {
-    do {
-      try Auth.auth().signOut()
-    } catch let signOutError as NSError {
-      print ("Error signing out: %@", signOutError)
-    }
-      
-    
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileEditAccountViewController") as! ProfileEditAccountViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
     
+    @IBAction func tappedGoBack(_ sender: Any) {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
     
 }

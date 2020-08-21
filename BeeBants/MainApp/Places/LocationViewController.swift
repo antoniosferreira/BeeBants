@@ -19,7 +19,7 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        labelName.text = pageController.getPlace().location.name
+        labelName.text = pageController.getPlace().location.displayName
         Styling.styleRedFilledButton(button: buttonNext)
     }
     
@@ -29,7 +29,7 @@ class LocationViewController: UIViewController {
     }
     
     @IBAction func tappedBackButton(_ sender: Any) {
-        pageController.startExperience()
+        dismiss(animated: true, completion: nil)
     }
     
 }

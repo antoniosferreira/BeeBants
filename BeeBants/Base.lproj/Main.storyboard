@@ -42,12 +42,12 @@
                                 <rect key="frame" x="0.0" y="166.5" width="414" height="245.5"/>
                                 <subviews>
                                     <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="knC-St-LhD">
-                                        <rect key="frame" x="40" y="67" width="290" height="74.5"/>
+                                        <rect key="frame" x="40" y="49.5" width="290" height="110"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Hi, new around here?">
                                                 <attributes>
                                                     <color key="NSColor" red="0.11775878820000001" green="0.113362141" blue="0.13333597780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <font key="NSFont" metaFont="system" size="48"/>
+                                                    <font key="NSFont" size="48" name="Poppins-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.65000000000000002" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -57,9 +57,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="knC-St-LhD" secondAttribute="trailing" priority="999" constant="40" id="Ara-xg-OLb"/>
                                     <constraint firstItem="knC-St-LhD" firstAttribute="width" secondItem="6rw-og-mbh" secondAttribute="width" multiplier="0.7" id="Bpu-Jh-2IK"/>
                                     <constraint firstItem="knC-St-LhD" firstAttribute="centerY" secondItem="6rw-og-mbh" secondAttribute="centerY" multiplier="0.85" id="CMV-W2-S1K"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="knC-St-LhD" secondAttribute="trailing" constant="40" id="Mvn-gK-eWs"/>
+                                    <constraint firstItem="knC-St-LhD" firstAttribute="height" secondItem="6rw-og-mbh" secondAttribute="height" multiplier="0.45" id="VeN-vY-4at"/>
                                     <constraint firstItem="knC-St-LhD" firstAttribute="leading" secondItem="6rw-og-mbh" secondAttribute="leading" constant="40" id="bwR-3p-cMg"/>
                                 </constraints>
                             </view>
@@ -88,14 +89,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVu-8U-Npo">
                                 <rect key="frame" x="0.0" y="575.5" width="414" height="286.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="OXx-ix-7EW">
-                                        <rect key="frame" x="93" y="74" width="228" height="38"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="27"/>
-                                        <color key="textColor" red="0.1020730063" green="0.097673289479999995" blue="0.1176496819" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="OXx-ix-7EW">
+                                        <rect key="frame" x="93" y="68" width="228" height="50.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="36"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-xF-No9" customClass="RoundButton" customModule="BeeBants" customModuleProvider="target">
-                                        <rect key="frame" x="116" y="127" width="182" height="38"/>
+                                        <rect key="frame" x="116" y="133.5" width="182" height="38"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <state key="normal" title="login">
                                             <color key="titleColor" red="0.77430188659999999" green="0.20502492789999999" blue="0.1882026792" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

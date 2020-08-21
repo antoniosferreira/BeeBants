@@ -21,14 +21,14 @@ class SpotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        labelName.text = pageController?.getPlace().spot.place_name
-        labelDirections.text = pageController?.getPlace().spot.place_directions
+        labelName.text = pageController?.getPlace().spot.displayName
+        labelDirections.text = pageController?.getPlace().spot.displayDirections
         
         infoView.layer.cornerRadius = infoView.frame.size.height / 6
         infoView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        let latitude = pageController!.getPlace().spot.place_latitude
-        let longitude = pageController!.getPlace().spot.place_longitude
+        let latitude = pageController!.getPlace().spot.latitude
+        let longitude = pageController!.getPlace().spot.longitude
         
         popupMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         // GOOGLE MAPS SUPPORT
@@ -53,7 +53,7 @@ class SpotViewController: UIViewController {
     }
     
     @IBAction func tappedBackButton(_ sender: Any) {
-        pageController.goLocation()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tappedGoogleMaps(_ sender: Any) {

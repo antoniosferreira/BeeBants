@@ -14,6 +14,7 @@
 		4360BC2E24D0F896004F7250 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360BC2B24D0F896004F7250 /* ProfileViewController.swift */; };
 		4360BC3024D0F896004F7250 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360BC2D24D0F896004F7250 /* Profile.storyboard */; };
 		4360BC3224D10D65004F7250 /* Profilers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360BC3124D10D65004F7250 /* Profilers.swift */; };
+		43796E3624DD9BC400FEADB0 /* ProfileEditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43796E3524DD9BC400FEADB0 /* ProfileEditAccountViewController.swift */; };
 		437FE5D424D1C98800D51BAC /* BarEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FE5D324D1C98800D51BAC /* BarEditorViewController.swift */; };
 		437FE5D624D30D6300D51BAC /* ResEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FE5D524D30D6300D51BAC /* ResEditorViewController.swift */; };
 		437FE5D824D383D800D51BAC /* ProfileExceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FE5D724D383D800D51BAC /* ProfileExceptions.swift */; };
@@ -28,6 +29,7 @@
 		43988EA124DA28A9000D9B71 /* TCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43988EA024DA28A9000D9B71 /* TCViewController.swift */; };
 		43988EA524DA29F6000D9B71 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43988EA424DA29F6000D9B71 /* FinalViewController.swift */; };
 		43988EA724DA348D000D9B71 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43988EA624DA348D000D9B71 /* HowToViewController.swift */; };
+		43A9460E24EEB74100899254 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A9460D24EEB74100899254 /* Structures.swift */; };
 		43C7BA0724DC7D94002F0A6B /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C7BA0624DC7D94002F0A6B /* Signup.storyboard */; };
 		43C7BA0924DC8DBE002F0A6B /* SignupMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7BA0824DC8DBE002F0A6B /* SignupMainViewController.swift */; };
 		43C7BA0B24DC8F34002F0A6B /* SignupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7BA0A24DC8F34002F0A6B /* SignupPageViewController.swift */; };
@@ -93,6 +95,7 @@
 		4360BC2B24D0F896004F7250 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4360BC2D24D0F896004F7250 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4360BC3124D10D65004F7250 /* Profilers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profilers.swift; sourceTree = "<group>"; };
+		43796E3524DD9BC400FEADB0 /* ProfileEditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditAccountViewController.swift; sourceTree = "<group>"; };
 		437FE5D324D1C98800D51BAC /* BarEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarEditorViewController.swift; sourceTree = "<group>"; };
 		437FE5D524D30D6300D51BAC /* ResEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResEditorViewController.swift; sourceTree = "<group>"; };
 		437FE5D724D383D800D51BAC /* ProfileExceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExceptions.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		43988EA024DA28A9000D9B71 /* TCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCViewController.swift; sourceTree = "<group>"; };
 		43988EA424DA29F6000D9B71 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		43988EA624DA348D000D9B71 /* HowToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
+		43A9460D24EEB74100899254 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		43C7BA0624DC7D94002F0A6B /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		43C7BA0824DC8DBE002F0A6B /* SignupMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupMainViewController.swift; sourceTree = "<group>"; };
 		43C7BA0A24DC8F34002F0A6B /* SignupPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPageViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				4360BC3124D10D65004F7250 /* Profilers.swift */,
 				437FE5D724D383D800D51BAC /* ProfileExceptions.swift */,
 				437FE5D924D385E200D51BAC /* ProfileAlerts.swift */,
+				43796E3524DD9BC400FEADB0 /* ProfileEditAccountViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				6469B17224AE1A6C00702D33 /* LoaderViewController.swift */,
 				6469B17024AE156200702D33 /* DataStructures.swift */,
 				64088A5524B3F87000E44A40 /* PlacesHomeViewController.swift */,
+				43A9460D24EEB74100899254 /* Structures.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				4309EFFF24DB0F5700F1D70B /* LoginViewController.swift in Sources */,
 				642453F8245673E00006075B /* HomeViewController.swift in Sources */,
 				4309EFFB24DAE51C00F1D70B /* ContentViewController.swift in Sources */,
+				43A9460E24EEB74100899254 /* Structures.swift in Sources */,
 				43988E8E24D96517000D9B71 /* FirstSlideViewController.swift in Sources */,
 				43C7BA0924DC8DBE002F0A6B /* SignupMainViewController.swift in Sources */,
 				4360BC2E24D0F896004F7250 /* ProfileViewController.swift in Sources */,
@@ -578,6 +585,7 @@
 				6450060A2432765C00F7444C /* AppDelegate.swift in Sources */,
 				437FE5D624D30D6300D51BAC /* ResEditorViewController.swift in Sources */,
 				64F4278224328FAD00E4FB3B /* MainStyling.swift in Sources */,
+				43796E3624DD9BC400FEADB0 /* ProfileEditAccountViewController.swift in Sources */,
 				437FE5D824D383D800D51BAC /* ProfileExceptions.swift in Sources */,
 				43988E9624D9C0AA000D9B71 /* ThirdSlideViewController.swift in Sources */,
 				43988EA724DA348D000D9B71 /* HowToViewController.swift in Sources */,

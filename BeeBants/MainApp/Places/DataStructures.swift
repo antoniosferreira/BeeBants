@@ -59,10 +59,10 @@ class LocationStructure {
 }
 
 class Place {
-    var spot : SpotStructure
-    var location : LocationStructure
+    var spot : Spot
+    var location : Location
     
-    init(spot: SpotStructure, location: LocationStructure) {
+    init(spot: Spot, location: Location) {
         self.spot = spot
         self.location = location
     }

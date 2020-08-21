@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFunctions
 import FirebaseAuth
+import Firebase
 
 class PlacesPageViewController: UIPageViewController {
     
@@ -16,35 +17,66 @@ class PlacesPageViewController: UIPageViewController {
     var option : Bool = true
 
     // List with all suggestions received
-    var spotsToChooseFrom : [String] = []
+    var spotsToChooseFrom : [[String]] = []
     var spot = 0
     
     // Current Displaying Place
     private var place : Place?
-    
+    var locationIMG : UIImage?
 
     
     
     // GETS SPOTS SUGGESTIONS FROM BACKEND
     func initializeSpots(view: LoaderViewController) {
-        let functions = Functions.functions()
         
-        // Init of spots recommendations
-        var functionName = "getBars"
-        if (!option) {functionName = "getRestaurants"}
-        functions.httpsCallable(functionName).call(["uid": Auth.auth().currentUser!.uid]) {
-            (result, error) in
-            
-            if let error = error as NSError? {
-                print(error.localizedDescription)
-            }
-            
-            if let spotsList = result?.data as? [String]  {
-                print(spotsList)
-                self.spotsToChooseFrom.append(contentsOf: spotsList)
-                view.initPlace()
+        // COLLECT USER PROFILE DATA
+        let db = Firestore.firestore()
+        let docRef = db.collection("ProfilingBars").document(Auth.auth().currentUser!.uid)
+
+        var encodedProfile = ""
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                encodedProfile = document.get("encodedProfile") as! String
+                encodedProfile.append(".json")
+                // DOWNLOAD SPOT DATA
+                let storageRef = Storage.storage().reference(forURL: "gs://beebants-bcf17.appspot.com/Manchester/BarsProfiled")
+                
+                // Create a reference to the file you want to download
+                let barsSuggestions = storageRef.child(encodedProfile)
+
+                // Permissions
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let localURL = documentsURL.appendingPathComponent("bar_suggestions.json")
+                    
+                // Download to the local filesystem
+                barsSuggestions.write(toFile: localURL) {
+                    url, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        do {
+                            let data = try Data(contentsOf: localURL)
+                            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+
+                            guard let barsJson = json as? [Dictionary<String, Any>] else {return}
+                            for bar in barsJson {
+                                let id = bar["id"] as! String
+                                let latitude = bar["latitude"] as! String
+                                let longitude = bar["longitude"] as! String
+                                self.spotsToChooseFrom.append([id, latitude, longitude])
+                            }
+                            view.initPlace()
+                        } catch {
+                            // Catch any errors
+                            print("Unable to read the file")
+                        }
+                    }
+                }
+            } else {
+                print("Document does not exist")
             }
         }
+        
     }
 
     // INITIALIZES LOADING PAGE
@@ -100,7 +132,8 @@ class PlacesPageViewController: UIPageViewController {
         return place!
     }
        
-    func setPlace(place: Place) {
+    func setPlace(place: Place, img: UIImage) {
         self.place = place
+        self.locationIMG = img
     }
 }

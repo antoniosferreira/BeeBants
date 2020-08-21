@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="dwd-6Y-2A5">
             <objects>
-                <viewController id="UQ5-Oa-Cdb" customClass="TCViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TCViewController" id="UQ5-Oa-Cdb" customClass="TCViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wPm-k8-cew">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

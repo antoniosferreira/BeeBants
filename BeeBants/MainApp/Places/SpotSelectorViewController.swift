@@ -67,7 +67,7 @@ class SpotSelectorViewController: UIViewController {
             bottomView: slidePanelView,
             tabController: self.tabBarController,
             navController: self.navigationController,
-            visibleHeight: 0.52 * mainView.bounds.size.height
+            visibleHeight: 0.48 * mainView.bounds.size.height
         )
         //visibleHeight: (self.buttonsView.bounds.size.height + (self.titleView.bounds.size.height * 2))
         slideController?.setSlideEnabled(true)
@@ -81,15 +81,15 @@ class SpotSelectorViewController: UIViewController {
         }
         
         // Updates Slide Panel Information
-        labelTitle.text = pageController.getPlace().location.name
-        labelSubtitle.text = pageController.getPlace().location.description
+        labelTitle.text = pageController.getPlace().location.displayName
+        labelSubtitle.text = pageController.getPlace().location.displayDescription
         
-        labelSecret.text = pageController.getPlace().spot.place_secret
-        labelValueDesc1.text = pageController.getPlace().spot.place_dressCode
-        labelValueDesc2.text = pageController.getPlace().spot.place_ambiance
-        labelValueDesc3.text = pageController.getPlace().spot.place_speciality
-        labelValueDesc4.text = pageController.getPlace().spot.place_bestTimes
-        if (pageController.getPlace().spot.place_outsideArea == true) {
+        labelSecret.text = pageController.getPlace().spot.displaySecret
+        labelValueDesc1.text = pageController.getPlace().spot.dressCode
+        labelValueDesc2.text = pageController.getPlace().spot.ambiance
+        labelValueDesc3.text = pageController.getPlace().spot.speciality
+        labelValueDesc4.text = pageController.getPlace().spot.bestTimes
+        if (pageController.getPlace().spot.outsideArea == true) {
             labelValueDesc5.text = "yes"
         } else {
             labelValueDesc5.text = "no"
@@ -114,7 +114,7 @@ class SpotSelectorViewController: UIViewController {
     
     func setUpBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = pageController.getPlace().location.img
+        backgroundImage.image = pageController.locationIMG
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         backgroundImage.alpha = 1
         self.view.insertSubview(backgroundImage, at: 0)
@@ -126,7 +126,7 @@ class SpotSelectorViewController: UIViewController {
         Styling.styleRedUnfilledButton(button: changeButton)
         
         // Round corners on slide view
-        titleView.layer.cornerRadius = titleView.frame.size.height / 2
+        titleView.layer.cornerRadius = titleView.frame.size.height / 2.5
         titleView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
@@ -135,7 +135,7 @@ class SpotSelectorViewController: UIViewController {
     }
     
     @IBAction func changeButtonTapped(_ sender: Any) {
-        slideController?.hidePanel()
+        slideController?.closePanel()
         pageController.changeSpot()
     }
     
@@ -145,5 +145,16 @@ class SpotSelectorViewController: UIViewController {
             self.buttonShowMore.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         })
         buttonShowMore.alpha = 0
+    }
+    
+    @IBAction func tappedViewTitleSlide(_ sender: Any) {
+        if slideController!.isPanelExpanded {
+            slideController!.closePanel()
+        } else {
+            slideController!.expandPanel()
+        }
+    }
+    @IBAction func tappedGoBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -136,11 +136,13 @@ class BarEditorViewController: UIViewController {
                 "density3": barProfile!.density[2],
                 "time1": barProfile!.time[0],
                 "time2": barProfile!.time[1],
-                "price": barProfile!.price
+                "price": barProfile!.price,
+                "encodedProfile": encodeProfile()
             ])
             
             self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
         }
+    
     }
     
     private func updateProfileInfo() {
@@ -207,6 +209,22 @@ class BarEditorViewController: UIViewController {
     }
     @IBAction func tapGoBack(_ sender: Any) {
         self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
+    }
+    
+    
+    
+    func encodeProfile() -> String {
+        var encoded = String(self.barProfile!.price)
+        encoded = encoded + String((self.barProfile!.style[0] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.style[1] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.style[2] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.density[0] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.density[1] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.density[2] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.time[0] ? 1 : 0))
+        encoded = encoded + String((self.barProfile!.time[1] ? 1 : 0))
+        print(encoded)
+        return encoded
     }
 }
 

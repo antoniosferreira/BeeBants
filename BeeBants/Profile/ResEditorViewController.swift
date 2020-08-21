@@ -85,15 +85,6 @@ class ResEditorViewController: UIViewController {
             
             savePressed = true
             
-            // Confirms at least one diet is selected
-            var dietOk = false
-            for value in resProfile!.dietary {
-                if value == true {
-                    dietOk = true
-                    break
-                }
-            }
-            
             // Confirms at least one density is selected
             var ambOk = false
             for value in resProfile!.ambiance {
@@ -104,9 +95,9 @@ class ResEditorViewController: UIViewController {
             }
             
             
-            if (!(ambOk && dietOk)) {
+            if (!(ambOk)) {
                 savePressed = false
-                let alert = ProfileBadValuesAlert(title: "Something missing!", message: "Make sure you select at least one option for each section", buttonTitle: "OK")
+                let alert = ProfileBadValuesAlert(title: "Something missing!", message: "Make sure you select at least one ambiance option", buttonTitle: "OK")
                 self.present(alert.getAlert(), animated: true, completion: nil)
                 return
             }

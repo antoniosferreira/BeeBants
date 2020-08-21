@@ -11,11 +11,11 @@ import FirebaseAuth
 import Firebase
 
 class MenuViewController: UIViewController {
-
+    
     @IBOutlet weak var profileHi: UILabel!
-    @IBOutlet weak var profilePic: UIImageView!
     
     @IBOutlet weak var profileLabel: UILabel!
+    @IBOutlet weak var hiLabel: UILabel!
     @IBOutlet weak var historyLabel: UILabel!
     @IBOutlet weak var guideLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
@@ -25,23 +25,23 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         whiteView.layer.cornerRadius = 50
         setUpElements()
         
+        hiLabel.adjustsFontSizeToFitWidth = true
         
         // Access to DB NAME
         let db = Firestore.firestore()
-        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid);
+        let userRef = db.collection("Users").document(Auth.auth().currentUser!.uid);
         
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let firstName = document.get("name") as! String
-                self.profileHi.text = "Hi,\n" + Constants.getFirstName(firstName)
+                self.profileHi.text = firstName
                 Styling.styleHiTextLabel(label: self.profileHi)
             }
         }
-
         
     }
     
@@ -55,24 +55,15 @@ class MenuViewController: UIViewController {
         aboutLabel.font = aboutLabel.font.withSize(smallestSize)
         contactsLabel.font = contactsLabel.font.withSize(smallestSize)
         
-   }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    
     @IBAction func tappedGuide(_ sender: Any) {
         let newViewController = UIStoryboard(name: "HowTo", bundle: nil).instantiateViewController(withIdentifier: "HowToViewController") as! HowToViewController
         newViewController.afterSignUp = false
         newViewController.modalPresentationStyle = .fullScreen
         present(newViewController, animated: true, completion: nil)
-    
+        
     }
     
 }

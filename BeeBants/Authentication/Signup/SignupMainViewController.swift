@@ -151,6 +151,7 @@ class SignupMainViewController: UIViewController {
                             "style1":true, "style2":true, "style3":true,
                             "time1":true, "time2":true,
                             "price":2, "name":name,
+                            "encodedProfile":"211111111",
                             "uid":authResult!.user.uid, "version":0])
                         
                         
