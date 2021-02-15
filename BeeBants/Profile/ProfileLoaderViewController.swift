@@ -12,17 +12,19 @@ import FirebaseAuth
 
 class ProfileLoaderViewController: UIViewController {
     
-    private var barProfile : BarProfile?
-    private var resProfile : ResProfile?
-    
+    lazy var functions = Functions.functions()
+
     @IBOutlet weak var loadingBee: UIImageView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         rotation(imageView: loadingBee, aCircleTime: 2.0)
-        startLoading()
+        loadProfile()
     }
+    
     
     private func rotation(imageView: UIImageView, aCircleTime: Double) { //UIView
         
@@ -37,70 +39,40 @@ class ProfileLoaderViewController: UIViewController {
         })
     }
     
-    private func startLoading() {
-        loadBarData()
-    }
     
-    private func loadBarData() {
-        /* Starts Loading Bars Profile */
-        let documentReference = Firestore.firestore().collection("ProfilingBars").document(Auth.auth().currentUser!.uid)
+    private func loadProfile() {
         
-        documentReference.getDocument {
+        // Loads profile data
+        functions.httpsCallable("readProfilings").call() {
+            (result, _) in
+                        
+            if let barData = (result?.data as? [String: Any])?["profileBar"] as? [String:Any],
+               let resData = (result?.data as? [String: Any])?["profileRestaurant"] as? [String:Any],
+               let username = (result?.data as? [String: Any])?["userName"] as? String {
+    
                 
-            (document, error) in
+                let barProfile = BarProfile(initData: barData)
+                let resProfile = ResProfile(initData: resData)
                 
-                if let error = error {
-                    let alert = ProfileBadAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Try again", view: self)
-                    self.present(alert.getAlert(), animated: true, completion: nil)
-                }
-                                 
-                /* LOADS BAR PROFILE */
-                if let document = document, document.exists {
-                    do {
-                        try self.barProfile = BarProfile(document: document, documentReference: documentReference)
-                        self.loadResData()
-                    } catch {
-                        // Impossible to load, returns to main home
-                        ProfileBadAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Try again", view: self)
-                    }
-                }
+                self.loadProfileView(username, barProfile: barProfile, resProfile: resProfile)
+            } else {
+                let alert = ProfileBadAlert(title: "Something went wrong", message: "Failed loading profile data", buttonTitle: "Try again", view: self)
+                self.present(alert.getAlert(), animated: true, completion: nil)
             }
-    }
-    
-    private func loadResData() {
-           /* Starts Loading Bars Profile */
-        let documentReference = Firestore.firestore().collection("ProfilingRestaurants").document(Auth.auth().currentUser!.uid)
             
-        documentReference.getDocument {
-                   
-               (document, error) in
-                   
-                   if let error = error {
-                    let alert = ProfileBadAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Try again", view: self)
-                       self.present(alert.getAlert(), animated: true, completion: nil)
-                   }
-                                    
-                   /* LOADS RES PROFILE */
-                   if let document = document, document.exists {
-                       do {
-                        try self.resProfile = ResProfile(document: document, documentReference: documentReference)
-                            self.loadProfileView()
-                       } catch {
-                           // Impossible to load, returns to main home
-                        let alert = ProfileBadAlert(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Try again", view: self)
-                           self.present(alert.getAlert(), animated: true, completion: nil)
-                       }
-                   }
-               }
+        }
     }
     
-    private func loadProfileView() {
+    
+    private func loadProfileView(_ username : String, barProfile: BarProfile, resProfile: ResProfile) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileMain") as! ProfileViewController
         newViewController.modalPresentationStyle = .fullScreen
         
+        
         newViewController.barProfile = barProfile
         newViewController.resProfile = resProfile
+        newViewController.userName = username
         
         self.present(newViewController, animated: true, completion: nil)
     }

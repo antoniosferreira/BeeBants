@@ -273,16 +273,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reg-Hv-ahQ" userLabel="Forgot Password Wrapper" customClass="PassThroughView" customModule="BeeBants" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="289.5" width="414" height="572.5"/>
+                                <rect key="frame" x="0.0" y="395.5" width="414" height="466.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mh-Oh-YVp" userLabel="Forgot Password View" customClass="PassThroughView" customModule="BeeBants" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="572.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="466.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGG-01-RKb" userLabel="Top Bar View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="16.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitebar" translatesAutoresizingMaskIntoConstraints="NO" id="GA5-6u-JnU" userLabel="White Bar">
-                                                        <rect key="frame" x="114" y="-2" width="186" height="24"/>
+                                                        <rect key="frame" x="114" y="-3.5" width="186" height="24"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.78603655100000003" green="0.20895731449999999" blue="0.19212388990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -297,35 +297,30 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kd-1N-Azj" userLabel="Background Scroll">
-                                                <rect key="frame" x="0.0" y="20" width="414" height="552.5"/>
+                                                <rect key="frame" x="0.0" y="16.5" width="414" height="450"/>
                                                 <color key="backgroundColor" red="0.78603655100000003" green="0.20895731449999999" blue="0.19212388990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujY-AP-KF6">
-                                                <rect key="frame" x="0.0" y="20" width="414" height="552.5"/>
+                                                <rect key="frame" x="0.0" y="16.5" width="414" height="450"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhF-6l-Vwq" userLabel="Forgot Content View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="552.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="W2a-3A-hSg" userLabel="Main Title Label">
-                                                                <rect key="frame" x="45" y="0.0" width="165.5" height="114.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="W2a-3A-hSg" userLabel="Main Title Label">
+                                                                <rect key="frame" x="45" y="15" width="269" height="80"/>
                                                                 <attributedString key="attributedText">
-                                                                    <fragment content="forgot your password?">
+                                                                    <fragment content="don't worry!">
                                                                         <attributes>
                                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <font key="NSFont" size="48" name="Poppins-Regular"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="don't worry!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="W3O-iZ-L4s" userLabel="Help1 Label">
-                                                                <rect key="frame" x="40" y="119.5" width="141" height="28.5"/>
-                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="32"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-cH-qUx" userLabel="Help2 Label">
-                                                                <rect key="frame" x="40" y="153" width="290" height="91.5"/>
+                                                                <rect key="frame" x="40" y="95" width="290" height="64.5"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment>
                                                                         <string key="content">we'll send you a reset link to
@@ -339,7 +334,7 @@ your registered e-mail</string>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="clA-AR-5fM" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
-                                                                <rect key="frame" x="40" y="249.5" width="334" height="57.5"/>
+                                                                <rect key="frame" x="40" y="164.5" width="334" height="57"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" spellCheckingType="yes" keyboardType="emailAddress" smartDashesType="yes" smartInsertDeleteType="yes" smartQuotesType="yes" textContentType="email"/>
                                                                 <connections>
@@ -347,7 +342,7 @@ your registered e-mail</string>
                                                                 </connections>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-Kg-TGe" userLabel="Submit Button" customClass="RoundButton" customModule="BeeBants" customModuleProvider="target">
-                                                                <rect key="frame" x="40" y="378.5" width="334" height="71.5"/>
+                                                                <rect key="frame" x="40" y="316.5" width="334" height="71.5"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
                                                                 <state key="normal" title="submit">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -359,23 +354,19 @@ your registered e-mail</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="W2a-3A-hSg" firstAttribute="height" secondItem="clA-AR-5fM" secondAttribute="height" multiplier="2" id="122-nq-NPS"/>
-                                                            <constraint firstItem="W2a-3A-hSg" firstAttribute="top" secondItem="bhF-6l-Vwq" secondAttribute="top" id="4ih-hy-EyW"/>
+                                                            <constraint firstItem="W2a-3A-hSg" firstAttribute="height" secondItem="clA-AR-5fM" secondAttribute="height" multiplier="1.4" id="122-nq-NPS"/>
+                                                            <constraint firstItem="W2a-3A-hSg" firstAttribute="top" secondItem="bhF-6l-Vwq" secondAttribute="top" constant="15" id="4ih-hy-EyW"/>
                                                             <constraint firstItem="clA-AR-5fM" firstAttribute="leading" secondItem="bhF-6l-Vwq" secondAttribute="leading" constant="40" id="5m4-TZ-DDw"/>
-                                                            <constraint firstItem="W3O-iZ-L4s" firstAttribute="width" secondItem="W2a-3A-hSg" secondAttribute="width" multiplier="0.85" id="8hU-Qx-Qc6"/>
-                                                            <constraint firstItem="W2a-3A-hSg" firstAttribute="width" secondItem="bhF-6l-Vwq" secondAttribute="width" multiplier="0.4" id="E9r-1h-L4T"/>
+                                                            <constraint firstItem="W2a-3A-hSg" firstAttribute="width" secondItem="bhF-6l-Vwq" secondAttribute="width" multiplier="0.65" id="E9r-1h-L4T"/>
+                                                            <constraint firstItem="B0f-Kg-TGe" firstAttribute="top" secondItem="clA-AR-5fM" secondAttribute="bottom" constant="95" id="FTo-yf-agl"/>
                                                             <constraint firstItem="clA-AR-5fM" firstAttribute="top" secondItem="EDb-cH-qUx" secondAttribute="bottom" constant="5" id="Jco-RM-41m"/>
-                                                            <constraint firstItem="W3O-iZ-L4s" firstAttribute="top" secondItem="W2a-3A-hSg" secondAttribute="bottom" constant="5" id="MlK-9t-CQ6"/>
                                                             <constraint firstItem="EDb-cH-qUx" firstAttribute="width" secondItem="bhF-6l-Vwq" secondAttribute="width" multiplier="0.7" id="PFY-BU-t3B"/>
-                                                            <constraint firstItem="W3O-iZ-L4s" firstAttribute="leading" secondItem="bhF-6l-Vwq" secondAttribute="leading" constant="40" id="TeW-iN-Tte"/>
                                                             <constraint firstItem="EDb-cH-qUx" firstAttribute="leading" secondItem="bhF-6l-Vwq" secondAttribute="leading" constant="40" id="Xua-fZ-ESE"/>
                                                             <constraint firstAttribute="trailing" secondItem="clA-AR-5fM" secondAttribute="trailing" constant="40" id="Zb2-Qb-jxz"/>
+                                                            <constraint firstItem="EDb-cH-qUx" firstAttribute="top" secondItem="W2a-3A-hSg" secondAttribute="bottom" id="aqF-Kc-nHw"/>
                                                             <constraint firstAttribute="trailing" secondItem="B0f-Kg-TGe" secondAttribute="trailing" constant="40" id="f5K-z9-5pg"/>
                                                             <constraint firstItem="EDb-cH-qUx" firstAttribute="height" secondItem="W2a-3A-hSg" secondAttribute="height" multiplier="0.8" id="fVg-Ay-dTq"/>
                                                             <constraint firstItem="W2a-3A-hSg" firstAttribute="leading" secondItem="bhF-6l-Vwq" secondAttribute="leading" constant="45" id="hQv-sJ-0xw"/>
-                                                            <constraint firstItem="B0f-Kg-TGe" firstAttribute="top" secondItem="clA-AR-5fM" secondAttribute="bottom" multiplier="1.2" constant="10" id="jrx-Fc-ngs"/>
-                                                            <constraint firstItem="W3O-iZ-L4s" firstAttribute="height" secondItem="clA-AR-5fM" secondAttribute="height" multiplier="0.5" id="lEY-xr-EJb"/>
-                                                            <constraint firstItem="EDb-cH-qUx" firstAttribute="top" secondItem="W3O-iZ-L4s" secondAttribute="bottom" constant="5" id="vZA-02-5FL"/>
                                                             <constraint firstItem="B0f-Kg-TGe" firstAttribute="leading" secondItem="bhF-6l-Vwq" secondAttribute="leading" constant="40" id="vku-YS-lzn"/>
                                                         </constraints>
                                                     </view>
@@ -427,7 +418,7 @@ your registered e-mail</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="reg-Hv-ahQ" firstAttribute="height" secondItem="ZR5-dB-eiL" secondAttribute="height" multiplier="0.7" id="2Jz-Sy-Urp"/>
+                            <constraint firstItem="reg-Hv-ahQ" firstAttribute="height" secondItem="ZR5-dB-eiL" secondAttribute="height" multiplier="0.57" id="2Jz-Sy-Urp"/>
                             <constraint firstItem="Yud-Ld-4kl" firstAttribute="top" secondItem="gYM-QU-cru" secondAttribute="bottom" id="4GC-BS-hti"/>
                             <constraint firstItem="61E-6E-RqX" firstAttribute="leading" secondItem="ZR5-dB-eiL" secondAttribute="leading" id="66X-B1-x4m"/>
                             <constraint firstItem="ZR5-dB-eiL" firstAttribute="trailing" secondItem="gYM-QU-cru" secondAttribute="trailing" id="7bN-EB-GvH"/>
@@ -458,7 +449,6 @@ your registered e-mail</string>
                         <outlet property="fieldEmail" destination="had-Wb-LgX" id="udf-8v-1Sq"/>
                         <outlet property="fieldForgottenEmail" destination="clA-AR-5fM" id="FAS-rq-9XJ"/>
                         <outlet property="fieldPassword" destination="39g-Q7-rqM" id="kYD-2e-VfG"/>
-                        <outlet property="labelForgot1" destination="W3O-iZ-L4s" id="hWp-pm-apI"/>
                         <outlet property="labelForgot2" destination="EDb-cH-qUx" id="zlX-W1-V4t"/>
                         <outlet property="viewBottom" destination="Yud-Ld-4kl" id="IOV-Ku-Vgb"/>
                         <outlet property="viewForgot" destination="4mh-Oh-YVp" id="dRg-CZ-vkX"/>

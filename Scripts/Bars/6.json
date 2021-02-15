@@ -1,0 +1,15 @@
+{
+	"id": "6",
+	"displayName": "Bowns Brasserie and Bar",
+	"displaySecret": "Fabulous cocktails, historical decor",
+	"displayDirections": "Milk St, Manchester M2 2AW, UK",
+	"dressCode": "Dress to impress",
+	"ambiance": "Chilled",
+	"speciality": "Cocktails/Romantic",
+	"bestTimes": "9-23",
+	"outsideArea": false,
+	"locationID": "5",
+	"latitude": "53.480972",
+	"longitude": "-2.240972",
+	"version": 0
+}

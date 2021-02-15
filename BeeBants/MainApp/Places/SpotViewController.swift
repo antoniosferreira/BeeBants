@@ -64,4 +64,14 @@ class SpotViewController: UIViewController {
         present(popupMenu!, animated: true)
     }
     
+    
+    @IBAction func tap_goBack(_ sender: Any) {
+        pageController.displayLocationPage()
+    }
+    
+    
+    @IBAction func tap_goFeedback(_ sender: Any) {
+        pageController.displayFeedbackView()
+    }
+    
 }

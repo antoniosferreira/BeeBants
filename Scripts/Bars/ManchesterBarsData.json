@@ -1,0 +1,107 @@
+[
+{
+	"id": "0",
+	"encodedProfile": "110001011",
+	"latitude": "53.480361",
+	"longitude": "-2.253333"
+},
+
+{
+	"id": "1",
+	"encodedProfile": "110001011",
+	"latitude": "53.479639",
+	"longitude": "-2.230083"
+},
+
+{
+	"id": "2",
+	"encodedProfile": "010001011",
+	"latitude": "53.475128",
+	"longitude": "-2.247115"
+},
+
+{
+	"id": "3",
+	"encodedProfile": "011111111",
+	"latitude": "53.478426",
+	"longitude": "-2.249267"
+},
+
+{
+	"id": "4",
+	"encodedProfile": "111111101",
+	"latitude": "53.479833",
+	"longitude": "-2.252278"
+},
+
+{
+	"id": "5",
+	"encodedProfile": "101011101",
+	"latitude": "53.479167",
+	"longitude": "-2.248861"
+},
+
+{
+	"id": "6",
+	"encodedProfile": "110011011",
+	"latitude": "53.480972",
+	"longitude": "-2.240972"
+},
+
+{
+	"id": "7",
+	"encodedProfile": "110011111",
+	"latitude": "53.482806",
+	"longitude": "-2.246944"
+},
+
+{
+	"id": "8",
+	"encodedProfile": "110011111",
+	"latitude": "53.479861",
+	"longitude": "-2.233333"
+},
+
+{
+	"id": "9",
+	"encodedProfile": "101011111",
+	"latitude": "53.477750",
+	"longitude": "-2.236000"
+},
+
+{
+	"id": "10",
+	"encodedProfile": "110011111",
+	"latitude": "53.481333",
+	"longitude": "-2.249444"
+},
+
+{
+	"id": "11",
+	"encodedProfile": "110011111",
+	"latitude": "53.479333",
+	"longitude": "-2.242472"
+},
+
+{
+	"id": "12",
+	"encodedProfile": "110011111",
+	"latitude": "53.482250",
+	"longitude": "-2.247639"
+},
+
+{
+	"id": "13",
+	"encodedProfile": "110011111",
+	"latitude": "53.478222",
+	"longitude": "-2.247083"
+},
+
+{
+	"id": "14",
+	"encodedProfile": "101011111",
+	"latitude": "53.478222",
+	"longitude": "-2.247083"
+}
+
+]

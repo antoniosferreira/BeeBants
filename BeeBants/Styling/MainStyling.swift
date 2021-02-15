@@ -79,41 +79,85 @@ class RoundButton : UIButton {
 }
 
 class RoundTextField : UITextField {
+    
+    var textPadding = UIEdgeInsets(
+            top: 0,
+            left: 20,
+            bottom: 0,
+            right: 0
+        )
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.textRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.editingRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
         self.clipsToBounds = true
         self.layer.borderWidth = 1
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width*0.075, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
     }
 }
 
 class RoundDateTextField : DateTextField {
+    var textPadding = UIEdgeInsets(
+            top: 0,
+            left: 20,
+            bottom: 0,
+            right: 0
+        )
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.textRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.editingRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
         self.clipsToBounds = true
         self.layer.borderWidth = 1
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width*0.075, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
+    
     }
 }
 
 class RoundPickerTextField : UITextField {
+    var textPadding = UIEdgeInsets(
+            top: 0,
+            left: 20,
+            bottom: 0,
+            right: 0
+        )
     
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.textRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.editingRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
         self.clipsToBounds = true
         self.layer.borderWidth = 1
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width*0.075, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
+       
     }
 }

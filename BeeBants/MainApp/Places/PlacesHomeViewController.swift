@@ -11,10 +11,12 @@ import UIKit
 class PlacesHomeViewController: UIViewController {
 
     var isBar : Bool = true
+    var specific : Int = 0
     
     @IBSegueAction func pageControllerInstantiated(_ coder: NSCoder) -> PlacesPageViewController? {
         let pc = PlacesPageViewController(coder: coder)
         pc!.isBar = isBar
+        pc!.specific = specific
         return pc
     }
     

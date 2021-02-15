@@ -53,7 +53,7 @@ class ResEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        resProfile = ResProfile(profile: oldResProfile!)
+        resProfile = ResProfile(initProfile: oldResProfile!)
         
         fixFontSize()
         Styling.styleRedFilledButton(button: saveButton)
@@ -84,46 +84,34 @@ class ResEditorViewController: UIViewController {
         if (savePressed == false) {
             
             savePressed = true
+    
             
-            // Confirms at least one density is selected
-            var ambOk = false
-            for value in resProfile!.ambiance {
-                if value == true {
-                    ambOk = true
-                    break
-                }
-            }
-            
-            
-            if (!(ambOk)) {
-                savePressed = false
-                let alert = ProfileBadValuesAlert(title: "Something missing!", message: "Make sure you select at least one ambiance option", buttonTitle: "OK")
-                self.present(alert.getAlert(), animated: true, completion: nil)
-                return
-            }
-            
-            
-            
-            // Updates Bar Doc
-            
-            let uid = Auth.auth().currentUser!.uid
-
-            oldResProfile!.update(resProfile!)
-            oldResProfile!.document!.setData([
-                "uid": uid,
-                "version": 0,
-                "name": resProfile!.name,
+            let newProfile : [String:Any] = [
+                "price": resProfile!.price,
                 "diet1": resProfile!.dietary[0],
                 "diet2": resProfile!.dietary[1],
                 "diet3": resProfile!.dietary[2],
                 "diet4": resProfile!.dietary[3],
+
                 "amb1": resProfile!.ambiance[0],
                 "amb2": resProfile!.ambiance[1],
-                "amb3": resProfile!.ambiance[2],
-                "price": resProfile!.price
-            ])
+                "amb3": resProfile!.ambiance[2]
+            ]
+    
             
-            self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
+            Functions.functions().httpsCallable("updateResProfile").call(newProfile) {
+                (result, error) in
+                
+                if let error = error {
+                    let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: .destructive, handler:nil))
+                    self.present(alert, animated: true, completion: nil)
+                    self.savePressed = false
+
+                } else {
+                    self.dismiss(animated: true, completion: {self.profileViewController?.resProfile=self.resProfile ;self.profileViewController?.updateDisplayedData()})
+                }
+            }
         }
     }
     
@@ -186,4 +174,7 @@ class ResEditorViewController: UIViewController {
     @IBAction func tapGoBack(_ sender: Any) {
         self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
     }
+    
+
+    
 }

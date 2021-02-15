@@ -22,6 +22,12 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>User Profile image upload</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We use your location to optimize results. All your location data is processed locally.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to optimize results. All your location data is processed locally.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to optimize results. All your location data is processed locally.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Black.ttf</string>

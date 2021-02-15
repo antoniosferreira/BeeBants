@@ -29,9 +29,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var viewTopBar: UIView!
     @IBOutlet weak var viewForgotContent: UIView!
     @IBOutlet weak var viewScrollForgotten: UIScrollView!
-    @IBOutlet weak var labelForgot1: UILabel!
     @IBOutlet weak var labelForgot2: UILabel!
-    lazy var labels = [labelForgot1, labelForgot2]
+    lazy var labels = [labelForgot2]
     @IBOutlet weak var fieldForgottenEmail: RoundTextField!
     @IBOutlet weak var buttonSubmit: RoundButton!
     

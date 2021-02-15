@@ -1,0 +1,15 @@
+{
+	"id": "4",
+	"displayName": "Tattu",
+	"displaySecret": "Asian inspired visual decor",
+	"displayDirections": "4 Hardman St",
+	"dressCode": "Dress to impress",
+	"ambiance": "Chilled",
+	"speciality": "Cocktails/romantic",
+	"bestTimes": "Afternoon",
+	"outsideArea": false,
+	"locationID": "4",
+	"latitude": "53.479833",
+	"longitude": "-2.252278",
+	"version": 0
+}

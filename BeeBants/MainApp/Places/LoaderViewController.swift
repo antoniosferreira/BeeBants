@@ -45,7 +45,7 @@ class LoaderViewController: UIViewController {
     
     
     
-    func initSpot() {
+    func initSpot(_ isBar: Bool) {
         
         //if (!pageController.option) { docName = "Restaurants" }
         
@@ -53,10 +53,20 @@ class LoaderViewController: UIViewController {
         let spotFilename = spotId + ".json"
         
         // Prepare download of Slot Information
-        let storageRef = Storage.storage().reference(forURL: "gs://beebants-bcf17.appspot.com/Manchester/BarsData")
+        var url = ""
+        var append = ""
+        if (isBar){
+            url = "gs://beebants-bcf17.appspot.com/Manchester/BarsData"
+            append = "bar_"
+        } else {
+            url = "gs://beebants-bcf17.appspot.com/Manchester/ResData"
+            append = "res_"
+        }
+        
+        let storageRef = Storage.storage().reference(forURL: url)
         let spotFile = storageRef.child(spotFilename)
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let localURL = documentsURL.appendingPathComponent("bar_" + spotFilename)
+        let localURL = documentsURL.appendingPathComponent(append + spotFilename)
         
         // Download Slot Information to the local filesystem
         spotFile.write(toFile: localURL) { (url, error) in
@@ -114,7 +124,7 @@ class LoaderViewController: UIViewController {
                             let img:UIImage! = UIImage(data: _data)
 
                             // UPDATES PAGE CONTROLLER CURRENT SPOT
-                            self.pageController.setPlace(place: Place(spot: self.spotData!, location: self.locationData!), img: img)
+                            self.pageController.setPlace(place: Place(spot: self.spotData!, location: self.locationData!, historyFile: "", feedback: 0), img: img)
                             self.pageController.displaySpotInitialView()
                         }
                     }

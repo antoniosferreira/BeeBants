@@ -1,0 +1,15 @@
+{
+	"id": "0",
+	"displayName": "The Refinery Spinningfields",
+	"displaySecret": "Delightfull cocktails",
+	"displayDirections": "XYZ Building, 1 Hardman Blvd",
+	"dressCode": "Casual",
+	"ambiance": "Chilled",
+	"speciality": "Cocktails",
+	"bestTimes": "Evening",
+	"outsideArea": true,
+	"locationID": "0",
+	"latitude": "53.480361",
+	"longitude": "-2.253333",
+	"version": 0
+}

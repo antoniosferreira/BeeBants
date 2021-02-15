@@ -42,7 +42,6 @@ class MenuViewController: UIViewController {
                 Styling.styleHiTextLabel(label: self.profileHi)
             }
         }
-        
     }
     
     func setUpElements() {

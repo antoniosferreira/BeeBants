@@ -1,0 +1,15 @@
+{
+	"id": "10",
+	"displayName": "Crazy Pedro's Pizza Parlour",
+	"displaySecret": "Mexican cocktails and NYC Pizza",
+	"displayDirections": "Courtlets House, 38 King St W, Manchester M3 2WZ, UK",
+	"dressCode": "Casual",
+	"ambiance": "Party",
+	"speciality": "Cocktails, Tequila",
+	"bestTimes": "Night",
+	"outsideArea": true,
+	"locationID": "3",
+	"latitude": "53.481333",
+	"longitude": "-2.249444",
+	"version": 0
+}

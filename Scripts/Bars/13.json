@@ -1,0 +1,15 @@
+{
+	"id": "13",
+	"displayName": "Brewdog",
+	"displaySecret": "One of the first caft beer bar of Manchesters",
+	"displayDirections": "37 Peter St, Manchester M2 5GB, UK",
+	"dressCode": "Casual",
+	"ambiance": "Chilled",
+	"speciality": "Real beer",
+	"bestTimes": "Afternoon",
+	"outsideArea": true,
+	"locationID": "4",
+	"latitude": "53.478222",
+	"longitude": "-2.247083",
+	"version": 0
+}

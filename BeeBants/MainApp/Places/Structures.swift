@@ -44,9 +44,13 @@ struct Location: Decodable {
 class Place {
     var spot : Spot
     var location : Location
+    var historyFile : String
+    var ranking : Int
     
-    init(spot: Spot, location: Location) {
+    init(spot: Spot, location: Location, historyFile: String, feedback: Int) {
         self.spot = spot
         self.location = location
+        self.historyFile = historyFile
+        self.ranking = feedback
     }
 }

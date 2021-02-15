@@ -1,0 +1,15 @@
+{
+	"id": "2",
+	"displayName": "The Briton's Protection",
+	"displaySecret": "Whiskey and Bourbon selection",
+	"displayDirections": "50 Great Bridgewater St",
+	"dressCode": "Casual",
+	"ambiance": "Chilled",
+	"speciality": "Sport /Whiskey bar",
+	"bestTimes": "Evening",
+	"outsideArea": true,
+	"locationID": "2",
+	"latitude": "53.475128",
+	"longitude": "-2.247115",
+	"version": 0
+}

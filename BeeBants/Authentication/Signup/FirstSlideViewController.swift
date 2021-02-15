@@ -40,8 +40,8 @@ class FirstSlideViewController: SlideViewController, UITextFieldDelegate {
         
         self.index = 0
         
-        self.fieldEmail.delegate = self
         self.fieldName.delegate = self
+        self.fieldEmail.delegate = self
         self.fieldSurname.delegate = self
         
     }

@@ -84,7 +84,7 @@ class SignupPageViewController: UIPageViewController, UIPageViewControllerDataSo
         self.view.frame = self.view.frame
         
         self.setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
-        //self.didMove(toParent: self)
+        self.didMove(toParent: self)
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

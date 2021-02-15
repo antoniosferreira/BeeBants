@@ -1,0 +1,15 @@
+{
+	"id": "14",
+	"displayName": "Revolucion de Cuba",
+	"displaySecret": "One of the first caft beer bar of Manchesters",
+	"displayDirections": "37 Peter St, Manchester M2 5GB, UK",
+	"dressCode": "Casual",
+	"ambiance": "Chilled",
+	"speciality": "Real beer",
+	"bestTimes": "Night",
+	"outsideArea": true,
+	"locationID": "3",
+	"latitude": "53.478222",
+	"longitude": "-2.247083",
+	"version": 0
+}

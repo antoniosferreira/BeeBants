@@ -1,0 +1,15 @@
+{
+	"id": "7",
+	"displayName": "The Botanist",
+	"displaySecret": "Horticultural experience, botanical themed cocktails",
+	"displayDirections": "68-74 Deansgate, Manchester M3 2FN, UK",
+	"dressCode": "Dress to impress",
+	"ambiance": "Chilled",
+	"speciality": "Cocktails/Romantic",
+	"bestTimes": "Night",
+	"outsideArea": false,
+	"locationID": "3",
+	"latitude": "53.482806",
+	"longitude": "-2.246944",
+	"version": 0
+}

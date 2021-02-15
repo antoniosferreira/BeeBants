@@ -20,7 +20,7 @@ public class ProfileBadAlert {
                 (_) in
                 // Goes to main
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                let newViewController = storyBoard.instantiateViewController(withIdentifier: "MAIN_SB") as! HomeViewController
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "Main_SB") as! HomeViewController
                 newViewController.modalPresentationStyle = .fullScreen
                 view.present(self.alert, animated: true, completion: nil)
         }))

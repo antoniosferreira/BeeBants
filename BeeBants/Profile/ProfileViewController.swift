@@ -13,31 +13,29 @@ class ProfileViewController: UIViewController {
     
     var barProfile : BarProfile?
     var resProfile : ResProfile?
+    var userName : String = ""
     
+    // Display Elements
     @IBOutlet weak var labelUserName: UILabel!
     
-    // VIEWS
+    // Collapsable Views
     @IBOutlet weak var viewBarsHeader: UIView!
     @IBOutlet weak var viewBarsInfo: UIView!
     
     @IBOutlet weak var viewResHeader: UIView!
     @IBOutlet weak var viewResInfo: UIView!
     
+    // Collapbsable Views Buttons
     @IBOutlet weak var buttonBarsOpen: UIImageView!
     @IBOutlet weak var viewBarSubheader: UIView!
-    private lazy var constraintBarsZeroHeight: NSLayoutConstraint = viewBarsInfo.heightAnchor.constraint(equalToConstant: 0)
-    
-    
     @IBOutlet weak var buttonResOpen: UIImageView!
     @IBOutlet weak var viewResSubheader: UIView!
-    private lazy var constraintResZeroHeight: NSLayoutConstraint = viewResInfo.heightAnchor.constraint(equalToConstant: 0)
-    
-    
+
+
     // LABELS
     @IBOutlet weak var labelBarsHeader: UILabel!
     @IBOutlet weak var labelResHeader: UILabel!
     lazy var profileTitles = [labelBarsHeader, labelResHeader]
-    
     
     @IBOutlet weak var labelBarsPriceTitle: UILabel!
     @IBOutlet weak var labelBarsPrice: UILabel!
@@ -48,7 +46,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var labelBarsTimeTitle: UILabel!
     @IBOutlet weak var labelBarsTime: UILabel!
     
-    
     @IBOutlet weak var labelResPriceTitle: UILabel!
     @IBOutlet weak var labelResPrice: UILabel!
     @IBOutlet weak var labelResDietaryTitle: UILabel!
@@ -56,6 +53,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var labelResAmbianceTitle: UILabel!
     @IBOutlet weak var labelResAmbiance: UILabel!
     lazy var labelProfileData = [labelBarsPriceTitle, labelBarsStyleTitle, labelBarsDensityTitle, labelBarsTimeTitle, labelResPriceTitle, labelResDietaryTitle, labelResAmbianceTitle, labelBarsPrice, labelBarsStyle, labelBarsDensity, labelBarsTime, labelResPrice, labelResDietary, labelResAmbiance]
+    
+    // Constraints for collapsing
+    private lazy var constraintBarsZeroHeight: NSLayoutConstraint = viewBarsInfo.heightAnchor.constraint(equalToConstant: 0)
+    private lazy var constraintResZeroHeight: NSLayoutConstraint = viewResInfo.heightAnchor.constraint(equalToConstant: 0)
+    
     
     
     override func viewDidLoad() {
@@ -65,53 +67,35 @@ class ProfileViewController: UIViewController {
         setUpBackground()
         updateDisplayedData()
         
-        
-        // Styling
+        // STYLING
         viewBarSubheader.alpha = 0
         viewResSubheader.alpha = 0
+        
         viewBarsHeader.layer.masksToBounds = false
         viewBarsHeader.clipsToBounds = true
         viewResHeader.layer.masksToBounds = false
         viewResHeader.clipsToBounds = true
+        
         buttonBarsOpen.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         buttonResOpen.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        
         constraintBarsZeroHeight.isActive = true
         constraintResZeroHeight.isActive = true
+        
         view.layoutIfNeeded()
+        
         viewBarsHeader.layer.cornerRadius = viewBarsHeader.layer.bounds.height * 0.49
         viewResHeader.layer.cornerRadius = viewResHeader.layer.bounds.height * 0.49
+        
         viewBarsInfo.layer.cornerRadius = 25
         viewBarsInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         viewResInfo.layer.cornerRadius = 25
         viewResInfo.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        
-        // Font Corrections
-        for label in profileTitles {
-            label?.adjustsFontSizeToFitWidth = true
-            label?.minimumScaleFactor = 0.5
-            label?.setNeedsDisplay()
-        }
-        let fontTitles = profileTitles.map{$0!.actualFontSize}.min()
-        for label in profileTitles {
-            label?.font = label?.font.withSize(fontTitles!)
-            label?.setNeedsDisplay()
-        }
-        for label in labelProfileData {
-            label?.adjustsFontSizeToFitWidth = true
-            label?.minimumScaleFactor = 0.5
-            label?.setNeedsDisplay()
-        }
-        let fontDataTitles = labelProfileData.map{$0!.actualFontSize}.min()
-        for label in labelProfileData {
-            label?.font = label?.font.withSize(fontDataTitles!)
-            label?.setNeedsDisplay()
-            
-        }
-        
+        fixFontSizes()
         view.layoutIfNeeded()
-        
     }
+    
     
     private func setUpBackground() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -132,16 +116,47 @@ class ProfileViewController: UIViewController {
     }
     
     
+    private func fixFontSizes() {
+        let fontTitles = profileTitles.map{$0!.actualFontSize}.min()
+        for label in profileTitles {
+            label?.font = label?.font.withSize(fontTitles!)
+            label?.setNeedsDisplay()
+        }
+        for label in profileTitles {
+            label?.adjustsFontSizeToFitWidth = true
+            label?.minimumScaleFactor = 0.1
+            label?.setNeedsDisplay()
+            label?.textAlignment = .left
+            label?.numberOfLines = 1
+            label?.lineBreakMode = .byClipping
+            label?.baselineAdjustment = .alignCenters
+            
+            label?.sizeToFit()
+        }
+       
+        for label in labelProfileData {
+            label?.adjustsFontSizeToFitWidth = true
+            label?.minimumScaleFactor = 0.5
+            label?.setNeedsDisplay()
+        }
+        let fontDataTitles = labelProfileData.map{$0!.actualFontSize}.min()
+        for label in labelProfileData {
+            label?.font = label?.font.withSize(fontDataTitles!)
+            label?.setNeedsDisplay()
+        }
+    }
+    
+    
     func updateDisplayedData() {
-        // Name
-        labelUserName.text = barProfile!.name
+        labelUserName.text = userName
         
         // BAR RELATED DATA
         switch (barProfile!.price) {
-        case 0 : labelBarsPrice.text = "£"
-        case 1 : labelBarsPrice.text = "££"
-        case 2 : labelBarsPrice.text = "£££"
-        default: break
+            case 0 : labelBarsPrice.text = "£"
+            case 1 : labelBarsPrice.text = "££"
+            case 2 : labelBarsPrice.text = "£££"
+            
+            default: break
         }
         
         var style = ""
@@ -163,10 +178,10 @@ class ProfileViewController: UIViewController {
         
         // RESTAURANTS RELATED DATA
         switch (resProfile?.price) {
-        case 0 : labelResPrice.text = "£"
-        case 1 : labelResPrice.text = "££"
-        case 2 : labelResPrice.text = "£££"
-        default: break
+            case 0 : labelResPrice.text = "£"
+            case 1 : labelResPrice.text = "££"
+            case 2 : labelResPrice.text = "£££"
+            default: break
         }
         
         var dietary = ""
@@ -215,6 +230,7 @@ class ProfileViewController: UIViewController {
             constraintResZeroHeight.isActive = false
         }
         
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.buttonResOpen.transform = CGAffineTransform(rotationAngle: rotationAngle)
             self.view.layoutIfNeeded()
@@ -227,19 +243,23 @@ class ProfileViewController: UIViewController {
     @IBAction func tapEditBars(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "BarEditorViewController") as! BarEditorViewController
+        
         newViewController.modalPresentationStyle = .fullScreen
         newViewController.oldBarProfile = barProfile
         newViewController.profileViewController = self
-        self.present(newViewController, animated: true, completion: nil)
         
+        self.present(newViewController, animated: true, completion: nil)
     }
+    
     
     @IBAction func tapEditRes(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ResEditorViewController") as! ResEditorViewController
+        
         newViewController.modalPresentationStyle = .fullScreen
         newViewController.oldResProfile = resProfile
         newViewController.profileViewController = self
+        
         self.present(newViewController, animated: true, completion: nil)
     }
     
@@ -247,9 +267,12 @@ class ProfileViewController: UIViewController {
     @IBAction func tapEditAccount(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileEditAccountViewController") as! ProfileEditAccountViewController
+        
         newViewController.modalPresentationStyle = .fullScreen
+        
         self.present(newViewController, animated: true, completion: nil)
     }
+    
     
     @IBAction func tappedGoBack(_ sender: Any) {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)

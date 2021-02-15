@@ -1,0 +1,15 @@
+{
+	"id": "1",
+	"displayName": "The Green",
+	"displaySecret": "Multiple game options, HUGE screens",
+	"displayDirections": "Junction House, 16 Jutland St",
+	"dressCode": "Casual",
+	"ambiance": "Chilled/Party",
+	"speciality": "Sports/Game night",
+	"bestTimes": "All day",
+	"outsideArea": true,
+	"locationID": "1",
+	"latitude": "53.479639",
+	"longitude": "-2.230083",
+	"version": 0
+}

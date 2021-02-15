@@ -1,0 +1,15 @@
+{
+	"id": "8",
+	"displayName": "Waldorf",
+	"displaySecret": "Traditional British pub",
+	"displayDirections": "97 Piccadilly, Manchester, UK",
+	"dressCode": "Casual",
+	"ambiance": "Chilled",
+	"speciality": "Sport",
+	"bestTimes": "12-22",
+	"outsideArea": false,
+	"locationID": "1",
+	"latitude": "53.479861",
+	"longitude": "-2.233333",
+	"version": 0
+}

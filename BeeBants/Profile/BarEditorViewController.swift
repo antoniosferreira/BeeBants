@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFunctions
 
 class BarEditorViewController: UIViewController {
 
@@ -53,7 +54,7 @@ class BarEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        barProfile = BarProfile(profile: oldBarProfile!)
+        barProfile = BarProfile(initProfile: oldBarProfile!)
         fixFontSize()
         Styling.styleRedFilledButton(button: buttonSave)
         
@@ -83,64 +84,35 @@ class BarEditorViewController: UIViewController {
         if (savePressed == false) {
             savePressed = true
 
-            // Confirms at least one style is selected
-            var styleOk = false
-            for value in barProfile!.style {
-                if value == true {
-                    styleOk = true
-                    break
-                }
-            }
             
-            // Confirms at least one density is selected
-            var densityOk = false
-            for value in barProfile!.density {
-                if value == true {
-                    densityOk = true
-                    break
-                }
-            }
-            
-            // Confirms at least one time is selected
-            var timeOk = false
-            for value in barProfile!.time {
-                if value == true {
-                    timeOk = true
-                    break
-                }
-            }
-            
-            if (!(timeOk && densityOk && styleOk)) {
-                savePressed = false
-                let alert = ProfileBadValuesAlert(title: "Something missing!", message: "Make sure you select at least one option for each section", buttonTitle: "OK")
-                self.present(alert.getAlert(), animated: true, completion: nil)
-                return
-            }
-        
-        
-            // All good to proceed
-            // Updates Bar Doc
-            
-            let uid = Auth.auth().currentUser!.uid
-
-            oldBarProfile!.update(barProfile!)
-            oldBarProfile!.document!.setData([
-                "uid": uid,
-                "version": 0,
-                "name": barProfile!.name,
+            let newProfile : [String:Any] = [
+                "price": barProfile!.price,
                 "style1": barProfile!.style[0],
                 "style2": barProfile!.style[1],
                 "style3": barProfile!.style[2],
+                
                 "density1": barProfile!.density[0],
                 "density2": barProfile!.density[1],
                 "density3": barProfile!.density[2],
+
                 "time1": barProfile!.time[0],
-                "time2": barProfile!.time[1],
-                "price": barProfile!.price,
-                "encodedProfile": encodeProfile()
-            ])
+                "time2": barProfile!.time[1]
+            ]
+    
             
-            self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
+            Functions.functions().httpsCallable("updateBarProfile").call(newProfile) {
+                (result, error) in
+                
+                if let error = error {
+                    let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: .destructive, handler:nil))
+                    self.present(alert, animated: true, completion: nil)
+                    self.savePressed = false
+
+                } else {
+                    self.dismiss(animated: true, completion: {self.profileViewController?.barProfile=self.barProfile ;self.profileViewController?.updateDisplayedData()})
+                }
+            }
         }
     
     }
@@ -207,25 +179,12 @@ class BarEditorViewController: UIViewController {
         barProfile!.time[1] = !barProfile!.time[1]
         swap(boxNight, barProfile!.time[1])
     }
+    
     @IBAction func tapGoBack(_ sender: Any) {
         self.dismiss(animated: true, completion: {self.profileViewController?.updateDisplayedData()})
     }
     
-    
-    
-    func encodeProfile() -> String {
-        var encoded = String(self.barProfile!.price)
-        encoded = encoded + String((self.barProfile!.style[0] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.style[1] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.style[2] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.density[0] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.density[1] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.density[2] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.time[0] ? 1 : 0))
-        encoded = encoded + String((self.barProfile!.time[1] ? 1 : 0))
-        print(encoded)
-        return encoded
-    }
+
 }
 
 

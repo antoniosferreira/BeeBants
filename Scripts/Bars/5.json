@@ -1,0 +1,15 @@
+{
+	"id": "5",
+	"displayName": "Speak in Code",
+	"displaySecret": "Something a little different",
+	"displayDirections": "Library Elliot House",
+	"dressCode": "Casual",
+	"ambiance": "Party",
+	"speciality": "Party, cocktails",
+	"bestTimes": "Afternoon/Night",
+	"outsideArea": false,
+	"locationID": "0",
+	"latitude": "53.479167",
+	"longitude": "-2.248861",
+	"version": 0
+}

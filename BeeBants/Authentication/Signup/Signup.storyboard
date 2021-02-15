@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1i-4M-vIE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1i-4M-vIE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,13 +33,13 @@
                                         </connections>
                                     </imageView>
                                     <pageControl opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Xbf-XX-iS6">
-                                        <rect key="frame" x="335" y="48.5" width="39" height="37"/>
+                                        <rect key="frame" x="251.5" y="53.5" width="122.5" height="27.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="currentPageIndicatorTintColor" red="0.85490196080000003" green="0.1215686275" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </pageControl>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="6Ya-Cf-zdx" firstAttribute="leading" secondItem="zMC-4C-Yah" secondAttribute="leading" constant="40" id="0T5-Dm-GB9"/>
@@ -71,7 +73,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qB2-hr-XVf" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="698.5" width="414" height="163.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbx-7w-jXz" userLabel="Next Button" customClass="RoundButton" customModule="BeeBants" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbx-7w-jXz" userLabel="Next Button" customClass="RoundButton" customModule="BeeBants" customModuleProvider="target">
                                         <rect key="frame" x="40" y="41" width="334" height="81.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
                                         <state key="normal" title="next">
@@ -91,7 +93,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FVS-4W-zk5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qmG-TD-FA3" firstAttribute="bottom" secondItem="qB2-hr-XVf" secondAttribute="top" id="3cN-cN-wJd"/>
                             <constraint firstItem="qmG-TD-FA3" firstAttribute="top" secondItem="zMC-4C-Yah" secondAttribute="bottom" id="79M-36-Faz"/>
@@ -106,7 +109,6 @@
                             <constraint firstItem="qmG-TD-FA3" firstAttribute="leading" secondItem="FVS-4W-zk5" secondAttribute="leading" id="eyv-KB-abN"/>
                             <constraint firstItem="zMC-4C-Yah" firstAttribute="top" secondItem="FVS-4W-zk5" secondAttribute="top" id="fGa-us-UDS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="FVS-4W-zk5"/>
                     </view>
                     <connections>
                         <outlet property="buttonNext" destination="pbx-7w-jXz" id="jYC-Fn-Wah"/>
@@ -303,6 +305,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="9r6-cO-q2W"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="c7x-kJ-f1J"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hyw-0G-lmX" firstAttribute="bottom" secondItem="GuQ-Fg-ibO" secondAttribute="bottom" id="1SK-1L-cay"/>
@@ -313,7 +316,6 @@
                             <constraint firstItem="hyw-0G-lmX" firstAttribute="leading" secondItem="GuQ-Fg-ibO" secondAttribute="leading" id="joI-I9-5d9"/>
                             <constraint firstItem="39Z-kv-ky1" firstAttribute="height" secondItem="GuQ-Fg-ibO" secondAttribute="height" multiplier="0.5" id="pub-NA-Sdf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="c7x-kJ-f1J"/>
                     </view>
                     <connections>
                         <outlet property="fieldDate" destination="VHh-9S-Pb8" id="3og-Wb-vhh"/>
@@ -374,41 +376,33 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95L-Im-DQQ" userLabel="Name Field View">
                                                 <rect key="frame" x="0.0" y="246.5" width="414" height="123"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5X-M5-Vq4" userLabel="Name Text Field" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFw-R0-9II" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="334" height="94"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="given-name"/>
-                                                        <connections>
-                                                            <action selector="nameFieldEditingChanged:" destination="5nV-iZ-zbU" eventType="editingChanged" id="13f-qB-DKj"/>
-                                                            <action selector="nameFieldEditingEnded:" destination="5nV-iZ-zbU" eventType="editingDidEnd" id="DbG-0o-S4m"/>
-                                                        </connections>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="z5X-M5-Vq4" firstAttribute="top" secondItem="95L-Im-DQQ" secondAttribute="top" id="ABH-8t-kO7"/>
-                                                    <constraint firstItem="z5X-M5-Vq4" firstAttribute="leading" secondItem="95L-Im-DQQ" secondAttribute="leading" constant="40" id="M2S-gh-UXy"/>
-                                                    <constraint firstAttribute="trailing" secondItem="z5X-M5-Vq4" secondAttribute="trailing" constant="40" id="exZ-0U-VZr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rFw-R0-9II" secondAttribute="trailing" constant="40" id="eWN-XO-0OE"/>
+                                                    <constraint firstItem="rFw-R0-9II" firstAttribute="top" secondItem="95L-Im-DQQ" secondAttribute="top" id="g6o-Md-xOJ"/>
+                                                    <constraint firstItem="rFw-R0-9II" firstAttribute="leading" secondItem="95L-Im-DQQ" secondAttribute="leading" constant="40" id="nQv-pe-cOQ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GK3-ZM-X5c" userLabel="Surname Field View">
                                                 <rect key="frame" x="0.0" y="369.5" width="414" height="123.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o70-IB-AJR" userLabel="Surname Text Field" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcT-t3-E1Y" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="334" height="94"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" textContentType="family-name"/>
-                                                        <connections>
-                                                            <action selector="surnameFieldEditingChanged:" destination="5nV-iZ-zbU" eventType="editingChanged" id="yKY-EU-kjL"/>
-                                                            <action selector="surnameFieldEditingEnded:" destination="5nV-iZ-zbU" eventType="editingDidEnd" id="Sgo-w3-vMO"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="o70-IB-AJR" firstAttribute="top" secondItem="GK3-ZM-X5c" secondAttribute="top" id="3rb-RK-6QO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="o70-IB-AJR" secondAttribute="trailing" constant="40" id="Iev-12-pZF"/>
-                                                    <constraint firstItem="o70-IB-AJR" firstAttribute="leading" secondItem="GK3-ZM-X5c" secondAttribute="leading" constant="40" id="bH2-gy-Jn4"/>
+                                                    <constraint firstItem="hcT-t3-E1Y" firstAttribute="leading" secondItem="GK3-ZM-X5c" secondAttribute="leading" constant="40" id="bAG-TM-PQm"/>
+                                                    <constraint firstItem="hcT-t3-E1Y" firstAttribute="top" secondItem="GK3-ZM-X5c" secondAttribute="top" id="mq3-hX-PRo"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hcT-t3-E1Y" secondAttribute="trailing" constant="40" id="vDx-2S-3vd"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -424,7 +418,6 @@
                                             <constraint firstAttribute="bottom" secondItem="GK3-ZM-X5c" secondAttribute="bottom" id="KVi-LK-Nl9"/>
                                             <constraint firstItem="GK3-ZM-X5c" firstAttribute="height" secondItem="6Pu-j5-2uB" secondAttribute="height" multiplier="0.25" id="T6Y-6x-ABM"/>
                                             <constraint firstItem="95L-Im-DQQ" firstAttribute="bottom" secondItem="GK3-ZM-X5c" secondAttribute="top" id="YC7-qS-E2A"/>
-                                            <constraint firstItem="o70-IB-AJR" firstAttribute="height" secondItem="z5X-M5-Vq4" secondAttribute="height" id="jXZ-bL-CFr"/>
                                             <constraint firstAttribute="trailing" secondItem="95L-Im-DQQ" secondAttribute="trailing" id="jev-uU-Y7a"/>
                                             <constraint firstItem="nZu-MZ-7aS" firstAttribute="height" secondItem="6Pu-j5-2uB" secondAttribute="height" multiplier="0.5" id="uVZ-kR-TeE"/>
                                             <constraint firstItem="95L-Im-DQQ" firstAttribute="top" secondItem="nZu-MZ-7aS" secondAttribute="bottom" id="ytK-T1-SaO"/>
@@ -464,18 +457,13 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLH-Es-cNg" userLabel="Email Field View">
                                                 <rect key="frame" x="0.0" y="184" width="414" height="184"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Atg-Cc-wPE" userLabel="Email Text Field" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IiM-bd-khs" customClass="RoundTextField" customModule="BeeBants" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="334" height="94"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
-                                                        <connections>
-                                                            <action selector="emailFieldEditingBegin:" destination="5nV-iZ-zbU" eventType="editingDidBegin" id="eAn-BK-Imt"/>
-                                                            <action selector="emailFieldEditingChanged:" destination="5nV-iZ-zbU" eventType="editingChanged" id="SWv-IH-5sq"/>
-                                                            <action selector="emailFieldEditingEnded:" destination="5nV-iZ-zbU" eventType="editingDidEnd" id="tnq-Y4-yIf"/>
-                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This e-mail is invalid" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-YZ-EiJ">
-                                                        <rect key="frame" x="63.5" y="94" width="310.5" height="24"/>
+                                                        <rect key="frame" x="63.5" y="0.0" width="310.5" height="24"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                         <color key="textColor" red="0.85490196080000003" green="0.1215686275" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -483,12 +471,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="Atg-Cc-wPE" secondAttribute="trailing" constant="40" id="54q-VV-I2a"/>
                                                     <constraint firstAttribute="trailing" secondItem="dGX-YZ-EiJ" secondAttribute="trailing" constant="40" id="Fum-PA-hHi"/>
-                                                    <constraint firstItem="Atg-Cc-wPE" firstAttribute="leading" secondItem="xLH-Es-cNg" secondAttribute="leading" constant="40" id="V8V-A4-Yxd"/>
+                                                    <constraint firstItem="dGX-YZ-EiJ" firstAttribute="top" secondItem="IiM-bd-khs" secondAttribute="top" id="HaW-O6-fN8"/>
+                                                    <constraint firstItem="IiM-bd-khs" firstAttribute="top" secondItem="xLH-Es-cNg" secondAttribute="top" id="Hhl-6M-w4k"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IiM-bd-khs" secondAttribute="trailing" constant="40" id="ac0-Wc-bDh"/>
                                                     <constraint firstItem="dGX-YZ-EiJ" firstAttribute="width" secondItem="xLH-Es-cNg" secondAttribute="width" multiplier="0.75" id="g8C-k4-bgN"/>
-                                                    <constraint firstItem="dGX-YZ-EiJ" firstAttribute="top" secondItem="Atg-Cc-wPE" secondAttribute="bottom" id="oO7-KW-1zz"/>
-                                                    <constraint firstItem="Atg-Cc-wPE" firstAttribute="top" secondItem="xLH-Es-cNg" secondAttribute="top" id="vC0-VT-q3T"/>
+                                                    <constraint firstItem="IiM-bd-khs" firstAttribute="leading" secondItem="xLH-Es-cNg" secondAttribute="leading" constant="40" id="jyj-6I-eZk"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -513,7 +501,7 @@
                                     <constraint firstItem="6Pu-j5-2uB" firstAttribute="leading" secondItem="1wa-wZ-z5M" secondAttribute="leading" id="L6M-X3-Iqa"/>
                                     <constraint firstItem="wht-fG-Dce" firstAttribute="width" secondItem="FjV-eV-2xb" secondAttribute="width" id="TPj-hW-2ge"/>
                                     <constraint firstItem="wht-fG-Dce" firstAttribute="leading" secondItem="1wa-wZ-z5M" secondAttribute="leading" id="Xno-fS-YhW"/>
-                                    <constraint firstItem="Atg-Cc-wPE" firstAttribute="height" secondItem="z5X-M5-Vq4" secondAttribute="height" id="h6C-dQ-kEI"/>
+                                    <constraint firstItem="IiM-bd-khs" firstAttribute="height" secondItem="hcT-t3-E1Y" secondAttribute="height" id="ujZ-v5-dlp"/>
                                     <constraint firstItem="wht-fG-Dce" firstAttribute="trailing" secondItem="1wa-wZ-z5M" secondAttribute="trailing" id="uwc-2r-r0H"/>
                                     <constraint firstItem="6Pu-j5-2uB" firstAttribute="bottom" secondItem="wht-fG-Dce" secondAttribute="top" id="vka-AH-7vs"/>
                                 </constraints>
@@ -521,22 +509,23 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="FjV-eV-2xb"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="7TP-n5-0sd"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Pu-j5-2uB" firstAttribute="height" secondItem="Bav-mm-X6M" secondAttribute="height" multiplier="0.55" id="1P5-8A-1pY"/>
                             <constraint firstAttribute="trailing" secondItem="S6p-dv-xid" secondAttribute="trailing" id="23n-Za-oWQ"/>
                             <constraint firstItem="wht-fG-Dce" firstAttribute="height" secondItem="7TP-n5-0sd" secondAttribute="height" multiplier="0.45" id="6lb-ON-i1E"/>
-                            <constraint firstItem="z5X-M5-Vq4" firstAttribute="height" secondItem="7TP-n5-0sd" secondAttribute="height" multiplier="0.115" id="JT7-9d-toE"/>
+                            <constraint firstItem="rFw-R0-9II" firstAttribute="height" secondItem="7TP-n5-0sd" secondAttribute="height" multiplier="0.115" id="72Z-SJ-ZJL"/>
                             <constraint firstAttribute="bottom" secondItem="S6p-dv-xid" secondAttribute="bottom" id="Jfp-Eg-sS8"/>
                             <constraint firstItem="S6p-dv-xid" firstAttribute="leading" secondItem="Bav-mm-X6M" secondAttribute="leading" id="YxV-Wp-EOo"/>
                             <constraint firstItem="S6p-dv-xid" firstAttribute="top" secondItem="Bav-mm-X6M" secondAttribute="top" id="b3s-7W-cRb"/>
+                            <constraint firstItem="hcT-t3-E1Y" firstAttribute="height" secondItem="7TP-n5-0sd" secondAttribute="height" multiplier="0.115" id="kve-Zo-dJC"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="7TP-n5-0sd"/>
                     </view>
                     <connections>
-                        <outlet property="fieldEmail" destination="Atg-Cc-wPE" id="Hox-Sv-65G"/>
-                        <outlet property="fieldName" destination="z5X-M5-Vq4" id="mDF-PM-jY4"/>
-                        <outlet property="fieldSurname" destination="o70-IB-AJR" id="Ya0-Bq-QGp"/>
+                        <outlet property="fieldEmail" destination="IiM-bd-khs" id="fvl-OT-SXm"/>
+                        <outlet property="fieldName" destination="rFw-R0-9II" id="iNg-m4-Wrk"/>
+                        <outlet property="fieldSurname" destination="hcT-t3-E1Y" id="TMz-KJ-XwC"/>
                         <outlet property="labelBadEmail" destination="dGX-YZ-EiJ" id="XMB-m2-Mhq"/>
                         <outlet property="labelEmailTitle" destination="HTQ-VZ-9Du" id="RmR-uF-LaG"/>
                         <outlet property="labelNameTitle" destination="JJg-fI-l2O" id="95U-OB-q4l"/>
@@ -687,6 +676,7 @@ password</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Rss-k9-1Po"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="kWG-S7-CHs"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eVL-fi-Hon" firstAttribute="height" secondItem="dn6-T2-ZyB" secondAttribute="height" id="3ko-so-5bV"/>
@@ -698,7 +688,6 @@ password</string>
                             <constraint firstItem="Osq-Co-ylz" firstAttribute="bottom" secondItem="dn6-T2-ZyB" secondAttribute="bottom" id="WvR-AV-rfb"/>
                             <constraint firstItem="hsQ-37-czN" firstAttribute="height" secondItem="kWG-S7-CHs" secondAttribute="height" multiplier="0.1" id="mbJ-ya-QY8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kWG-S7-CHs"/>
                     </view>
                     <connections>
                         <outlet property="buttonNews" destination="DzQ-dC-yh6" id="Tex-4I-7mj"/>
@@ -722,5 +711,8 @@ password</string>
     <resources>
         <image name="Logo_black_small" width="653" height="881"/>
         <image name="selectionbox_empty" width="253" height="253"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

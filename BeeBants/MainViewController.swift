@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import CoreLocation
+
 
 class MainViewController: UIViewController {
 
@@ -15,12 +17,25 @@ class MainViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
+    var locManager : CLLocationManager?
+
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpBackground()
         setUpElements()
-        // Do any additional setup after loading the view.
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            // continue
+        } else {
+            UserDefaults.standard.set(false, forKey: "LocationPermission")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,17 +77,4 @@ class MainViewController: UIViewController {
         Styling.styleRedFilledButton(button: signUpButton)
         Styling.styleRedUnfilledButton(button: loginButton)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

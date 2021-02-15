@@ -1,0 +1,15 @@
+{
+	"id": "11",
+	"displayName": "Salut",
+	"displaySecret": "Ask about Enomatic wine preservation",
+	"displayDirections": "11-9 Cooper St, Manchester, UK",
+	"dressCode": "Casual",
+	"ambiance": "Chilled",
+	"speciality": "Wine bar",
+	"bestTimes": "Twilight",
+	"outsideArea": false,
+	"locationID": "0",
+	"latitude": "53.479333",
+	"longitude": "-2.242472",
+	"version": 0
+}

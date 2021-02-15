@@ -37,8 +37,7 @@ class SpotSelectorViewController: UIViewController {
                           labelTitleDesc2, labelValueDesc2,
                           labelTitleDesc3, labelValueDesc3,
                           labelTitleDesc4, labelValueDesc4,
-                          labelTitleDesc5, labelValueDesc5,
-                          labelSecret]
+                          labelTitleDesc5, labelValueDesc5]
     
     // Interface Related Views
     @IBOutlet var mainView: UIView!
@@ -60,6 +59,16 @@ class SpotSelectorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+    }
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setUpBackground()
+        
+        
         // Slide Panel Management
         slideController = CTBottomSlideController(topConstraint: slidingPanelTopConstraint,
             heightConstraint: slidingPanelHeightConstraint,
@@ -67,7 +76,7 @@ class SpotSelectorViewController: UIViewController {
             bottomView: slidePanelView,
             tabController: self.tabBarController,
             navController: self.navigationController,
-            visibleHeight: 0.48 * mainView.bounds.size.height
+            visibleHeight: 0.47 * mainView.bounds.size.height
         )
         slideController?.setSlideEnabled(true)
         
@@ -92,13 +101,9 @@ class SpotSelectorViewController: UIViewController {
         } else {
             labelValueDesc5.text = "no"
         }
-    }
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setUpBackground()
+        
+        
+        
         setUpElements()
 
         // Unformizes all text fonts to display
@@ -125,6 +130,30 @@ class SpotSelectorViewController: UIViewController {
         // Round corners on slide view
         titleView.layer.cornerRadius = titleView.frame.size.height / 2.5
         titleView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        
+        for label in displayedData {
+            label?.adjustsFontSizeToFitWidth = true
+            label?.minimumScaleFactor = 0.2
+        }
+        
+        labelTitle.adjustsFontSizeToFitWidth = true
+        labelSubtitle.adjustsFontSizeToFitWidth = true
+        labelSecret.adjustsFontSizeToFitWidth = true
+        
+        labelTitle.textAlignment = .center
+        labelTitle.minimumScaleFactor = 0.1
+        labelSubtitle.minimumScaleFactor = 0.2
+        labelSecret.minimumScaleFactor = 0.1
+        labelSecret.numberOfLines = 2
+        
+        labelTitle.numberOfLines = 2
+        labelTitle.lineBreakMode = .byClipping
+        labelTitle.baselineAdjustment = .none
+        
+        labelTitle.sizeToFit()
+        labelSecret.sizeToFit()
+        
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {

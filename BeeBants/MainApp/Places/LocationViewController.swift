@@ -25,11 +25,10 @@ class LocationViewController: UIViewController {
     
     @IBAction func tappedNextButton(_ sender: Any) {
         pageController.displaySpotFinalView()
-        
     }
     
     @IBAction func tappedBackButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        pageController.displaySpotInitialView()
     }
     
 }

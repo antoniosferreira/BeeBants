@@ -1,0 +1,15 @@
+{
+	"id": "9",
+	"displayName": "The Brewers",
+	"displaySecret": "Cabaret burlesque drag",
+	"displayDirections": "The Churchill, 37 Chorlton St., Manchester M1 3HN, UK",
+	"dressCode": "Dress to impress",
+	"ambiance": "Nightclub",
+	"speciality": "Cocktails",
+	"bestTimes": "Night",
+	"outsideArea": false,
+	"locationID": "6",
+	"latitude": "53.477750",
+	"longitude": "-2.236000",
+	"version": 0
+}
