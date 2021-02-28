@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class CreateProfileViewController: UIViewController {
 
@@ -17,8 +18,12 @@ class CreateProfileViewController: UIViewController {
     @IBOutlet weak var label2: UILabel!
     lazy var labels = [label1, label2]
     
+    private var fullAd : GADInterstitial?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        fullAd = createAd()
 
         Styling.styleRedFilledButton(button: buttonSure)
         Styling.styleRedUnfilledButton(button: buttonLater)
@@ -40,5 +45,13 @@ class CreateProfileViewController: UIViewController {
         let newViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
               newViewController.modalPresentationStyle = .fullScreen
         present(newViewController, animated: true, completion: nil)
+    }
+    
+    private func createAd() -> GADInterstitial {
+        let ad = GADInterstitial(adUnitID: Constants.profileAdId)
+        ad.delegate = self
+        ad.load(GADRequest())
+        
+        return ad
     }
 }

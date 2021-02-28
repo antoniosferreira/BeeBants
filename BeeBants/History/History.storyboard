@@ -36,9 +36,9 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Your last outings">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.78212654589999997" green="0.20894712209999999" blue="0.19212424759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="NSColor" red="0.84073513749999995" green="0.1228778884" blue="0.1489740014" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <font key="NSFont" size="64" name="Poppins-Medium"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.68000000000000005" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.78000000000000003" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>

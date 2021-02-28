@@ -6,12 +6,14 @@
 //  Copyright © 2020 BeeBants. All rights reserved.
 //
 
+import GoogleMobileAds
 import UIKit
 import CoreData
 import Firebase
 
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
@@ -80,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
 
 }
 

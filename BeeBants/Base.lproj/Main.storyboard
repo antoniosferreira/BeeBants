@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FYm-b6-LKC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,9 +18,37 @@
     </customFonts>
     <scenes>
         <!--Main View Controller-->
+        <scene sceneID="0Tm-8e-WmO">
+            <objects>
+                <viewController id="FYm-b6-LKC" customClass="MainViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MW9-zT-eGi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingbee" translatesAutoresizingMaskIntoConstraints="NO" id="4eM-tN-R6z">
+                                <rect key="frame" x="52" y="15.5" width="310.5" height="875"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Edx-0b-3FX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4eM-tN-R6z" firstAttribute="width" secondItem="Edx-0b-3FX" secondAttribute="width" multiplier="0.75" id="CDr-5b-QSt"/>
+                            <constraint firstItem="4eM-tN-R6z" firstAttribute="centerY" secondItem="Edx-0b-3FX" secondAttribute="centerY" id="JvP-7Q-ssS"/>
+                            <constraint firstItem="4eM-tN-R6z" firstAttribute="centerX" secondItem="Edx-0b-3FX" secondAttribute="centerX" id="OOr-HO-HOG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadingBee" destination="4eM-tN-R6z" id="gwd-qD-gQN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZF-uh-faI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1054" y="102"/>
+        </scene>
+        <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Main_SB" id="BYZ-38-t0r" customClass="MainViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main_SB" id="BYZ-38-t0r" customClass="AuthViewController" customModule="BeeBants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,6 +211,7 @@
     </scenes>
     <resources>
         <image name="Logo_black_small" width="653" height="881"/>
+        <image name="loadingbee" width="933" height="875"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

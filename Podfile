@@ -17,6 +17,9 @@ pod 'MMSProfileImagePicker'
 pod 'CTSlidingUpPanel'
 pod 'Firebase/Storage'
 pod 'Cosmos', '~> 23.0'
+pod 'Google-Mobile-Ads-SDK'
+pod 'Firebase/Messaging'
+
   # Pods for BeeBants
   
 end

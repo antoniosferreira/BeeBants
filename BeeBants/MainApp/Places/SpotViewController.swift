@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class SpotViewController: UIViewController {
 
@@ -18,9 +19,15 @@ class SpotViewController: UIViewController {
     
     var popupMenu : UIAlertController?
     
+    private var fullAd : GADInterstitial?
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fullAd = createAd()
+        
         labelName.text = pageController?.getPlace().spot.displayName
         labelDirections.text = pageController?.getPlace().spot.displayDirections
         
@@ -28,6 +35,9 @@ class SpotViewController: UIViewController {
         infoView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         setupOpenMaps()
+        
+        
+            
     }
     
     func setupOpenMaps() {
@@ -74,4 +84,12 @@ class SpotViewController: UIViewController {
         pageController.displayFeedbackView()
     }
     
+    private func createAd() -> GADInterstitial {
+        let ad = GADInterstitial(adUnitID: Constants.spotAdId)
+        ad.delegate = self
+        ad.load(GADRequest())
+        
+        return ad
+    }
 }
+

@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
+
 
 
 extension UIView {
@@ -47,6 +49,18 @@ extension UIView {
     }
 }
 
+extension UIViewController: GADInterstitialDelegate  {
+    
+    public func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+    
+    }
+    
+    public func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        ad.present(fromRootViewController: self)
+    }
+}
+
+
 class Constants {
     static var countries : [String?] {
         let countries = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
@@ -65,6 +79,13 @@ class Constants {
         }
         return ""
     }
+    
+    //static let spotAdId = "ca-app-pub-1688041325566506/1932656861"
+    static let spotAdId = "ca-app-pub-3940256099942544/4411468910"
+    //static let profileAdId = ""
+    static let profileAdId = "ca-app-pub-3940256099942544/4411468910"
+    //static let signupAdId = ""
+    static let signupAdId = "ca-app-pub-3940256099942544/4411468910"
 
     
 }

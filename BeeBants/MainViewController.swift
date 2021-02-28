@@ -2,79 +2,61 @@
 //  MainViewController.swift
 //  BeeBants
 //
-//  Created by António Ferreira on 30/03/2020.
-//  Copyright © 2020 BeeBants. All rights reserved.
+//  Created by António Ferreira on 27/02/2021.
+//  Copyright © 2021 BeeBants. All rights reserved.
 //
 
 import UIKit
 import FirebaseAuth
-import CoreLocation
 
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
-    
-    var locManager : CLLocationManager?
-
-    let defaults = UserDefaults.standard
+    @IBOutlet weak var loadingBee: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpBackground()
-        setUpElements()
-        
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
-            // continue
-        } else {
-            UserDefaults.standard.set(false, forKey: "LocationPermission")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
-        
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        guard let currentUser = Auth.auth().currentUser else { return }
-        currentUser.getIDTokenForcingRefresh(true, completion:  {
-            (idToken, error) in
-            if let error = error {
-                    print(error.localizedDescription)
+        rotation(imageView: loadingBee, aCircleTime: 2.0)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser == nil {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Main_SB") as! AuthViewController
+                nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+                self.present(nextViewController, animated: true, completion: nil)
             } else {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
                 self.present(nextViewController, animated: true, completion: nil)
             }
+        }
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        self.present(nextViewController, animated: true, completion: nil)
+       
+    }
+    
+    private func rotation(imageView: UIImageView, aCircleTime: Double) { //UIView
+        
+        UIView.animate(withDuration: aCircleTime/2, delay: 0.0, options: .curveLinear, animations: {
+            imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        }, completion: { finished in
+            UIView.animate(withDuration: aCircleTime/2, delay: 0.0, options: .curveLinear, animations: {
+                imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2))
+            }, completion: { finished in
+                self.rotation(imageView: imageView, aCircleTime: aCircleTime)
+            })
         })
     }
     
-    func setUpBackground() {
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Main_BG")
-        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        backgroundImage.alpha = 0.8
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        let gradientMaskLayer = CAGradientLayer()
-        gradientMaskLayer.frame = backgroundImage.bounds
-        gradientMaskLayer.bounds = backgroundImage.bounds
-        gradientMaskLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
-        gradientMaskLayer.locations = [0.4, 1]
         
-        backgroundImage.layer.mask = gradientMaskLayer
-        view.addSubview(backgroundImage)
-        
-        self.view.insertSubview(backgroundImage, at: 0)
     }
-    
-    func setUpElements() {
-        Styling.styleRedFilledButton(button: signUpButton)
-        Styling.styleRedUnfilledButton(button: loginButton)
-    }
+
+
 }

@@ -8,12 +8,17 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleMobileAds
+
 
 class ProfileViewController: UIViewController {
     
     var barProfile : BarProfile?
     var resProfile : ResProfile?
     var userName : String = ""
+    
+    private var fullAd : GADInterstitial?
+
     
     // Display Elements
     @IBOutlet weak var labelUserName: UILabel!
@@ -63,6 +68,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewDidLayoutSubviews()
+        
+        fullAd = createAd()
+
         
         setUpBackground()
         updateDisplayedData()
@@ -278,4 +286,11 @@ class ProfileViewController: UIViewController {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
+    private func createAd() -> GADInterstitial {
+        let ad = GADInterstitial(adUnitID: Constants.profileAdId)
+        ad.delegate = self
+        ad.load(GADRequest())
+        
+        return ad
+    }
 }
