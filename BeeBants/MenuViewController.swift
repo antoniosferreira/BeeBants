@@ -33,15 +33,19 @@ class MenuViewController: UIViewController {
         
         // Access to DB NAME
         let db = Firestore.firestore()
-        let userRef = db.collection("Users").document(Auth.auth().currentUser!.uid);
         
-        userRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let firstName = document.get("name") as! String
-                self.profileHi.text = firstName
-                Styling.styleHiTextLabel(label: self.profileHi)
+        if let uid = Auth.auth().currentUser?.uid {
+            let userRef = db.collection("Users").document(uid);
+            
+            userRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let firstName = document.get("name") as! String
+                    self.profileHi.text = firstName
+                    Styling.styleHiTextLabel(label: self.profileHi)
+                }
             }
         }
+        
     }
     
     func setUpElements() {

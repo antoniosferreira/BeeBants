@@ -47,7 +47,7 @@ class AuthViewController: UIViewController {
             if let error = error {
                     print(error.localizedDescription)
             } else {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
                 self.present(nextViewController, animated: true, completion: nil)

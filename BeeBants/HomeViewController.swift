@@ -28,6 +28,20 @@ class HomeViewController: SOContainerViewController, UIPickerViewDelegate, UIPic
     lazy var isBar = false
     
     override func viewDidLoad() {
+        let _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser != nil {
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//                nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+//                self.present(nextViewController, animated: true, completion: nil)
+            } else {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "AuthEntrance", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Main_SB") as! AuthViewController
+                nextViewController.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+                self.present(nextViewController, animated: true, completion: nil)
+            }
+        }
+        
         super.viewDidLoad()
         
         self.pickerView.delegate = self

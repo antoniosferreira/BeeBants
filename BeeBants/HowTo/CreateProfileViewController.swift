@@ -42,7 +42,7 @@ class CreateProfileViewController: UIViewController {
     }
     
     @IBAction func tappedLaterButton(_ sender: Any) {
-        let newViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
               newViewController.modalPresentationStyle = .fullScreen
         present(newViewController, animated: true, completion: nil)
     }

@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
                 
                 // SUCCESS LOGIN
                 } else {
-                    let home = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                     home.modalPresentationStyle = .fullScreen
                     self?.present(home, animated: true)
                 }

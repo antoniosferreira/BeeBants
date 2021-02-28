@@ -36,7 +36,7 @@ class ReportViewController: UIViewController, MFMailComposeViewControllerDelegat
     
 
     @IBAction func tap_goback(_ sender: Any) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func report_1(_ sender: Any) {
@@ -83,6 +83,16 @@ class ReportViewController: UIViewController, MFMailComposeViewControllerDelegat
         } else if let emailUrl = createEmailUrl(to: recipientEmail, subject: subject, body: body) {
             UIApplication.shared.open(emailUrl)
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Places", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "FinalViewSB") as! FinalThanksViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
+
     }
     
     private func createEmailUrl(to: String, subject: String, body: String) -> URL? {

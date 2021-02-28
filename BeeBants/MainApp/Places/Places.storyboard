@@ -1304,7 +1304,6 @@
                 <tapGestureRecognizer id="C1R-bE-cIq" userLabel="Tap_GoBack">
                     <connections>
                         <action selector="tap_goback:" destination="NnN-Ey-EZJ" id="bAW-pU-Ctc"/>
-                        <segue destination="GRi-yh-4a3" kind="presentation" modalPresentationStyle="fullScreen" id="s4h-a6-H4u"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1387,7 +1386,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="finish:" destination="GRi-yh-4a3" eventType="touchUpInside" id="enF-76-Kk4"/>
+                                            <segue destination="mbE-jM-VnM" kind="presentation" modalPresentationStyle="fullScreen" id="GwZ-LI-tje"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1480,6 +1479,7 @@
                             <constraint firstItem="Cfn-Wl-o2N" firstAttribute="leading" secondItem="LTX-nV-dB8" secondAttribute="leading" constant="40" id="zkl-SJ-2LD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="DOF-0s-CEb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vt3-qc-gCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="aDp-dh-R4m" userLabel="back_button">
