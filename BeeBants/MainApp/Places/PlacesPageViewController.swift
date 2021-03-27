@@ -84,8 +84,7 @@ class PlacesPageViewController: UIPageViewController {
                 // Download to the local filesystem
                 spotSuggestions.write(toFile: localURL) { (url, error) in
                     if let _ = error {
-                        // The app crashes
-                        exit(-1)
+                        self.dismiss(animated: true, completion: nil)
                     } else {
                         // File downloaded, ready to parse it
                         do {
@@ -112,7 +111,7 @@ class PlacesPageViewController: UIPageViewController {
                             return
                         } catch {
                             // Couldn't read the file
-                            exit(-1)
+                            self.dismiss(animated: true, completion: nil)
                         }
                     }
                 }
@@ -156,7 +155,6 @@ class PlacesPageViewController: UIPageViewController {
         
         self.setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
         
-        // FIX THIS
         gatherSpotsSuggestions(view: viewController)
     }
     
@@ -239,19 +237,15 @@ class PlacesPageViewController: UIPageViewController {
             }
         }
         
-        var counter = 0
         for x in ids {
-            for c in gatheredSpots {
+            for c in gatheredSpots.reversed() {
                 if c[0] == x {
                     let element = gatheredSpots.remove(at: gatheredSpots.firstIndex(of: c)!)
-                    gatheredSpots.insert(element, at: counter)
+                    gatheredSpots.insert(element, at: 0)
                 }
             }
         }
-        
-        print(gatheredSpots)
-        print("----")
-        print(spotSpecifics)
+
     }
     
     func sortLocationPhase() {
@@ -283,12 +277,12 @@ class PlacesPageViewController: UIPageViewController {
         
         let firstSlice = Int(round(Double(gatheredSpots.count / 4)))
         let secondSlice = Int(round(Double(gatheredSpots.count / 2)))
-        
-        gatheredSpots[..<firstSlice].sorted(by: { return Double($0[1])! < Double($1[1])! })
+    
+        _ = gatheredSpots[..<firstSlice].sorted(by: { return Double($0[1])! < Double($1[1])! })
         
         if firstSlice > 1 {
-            gatheredSpots[firstSlice..<secondSlice].sorted(by: { return Double($0[1])! < Double($1[1])! })
-            gatheredSpots[secondSlice...].sorted(by: { return Double($0[1])! < Double($1[1])! })
+            _ = gatheredSpots[firstSlice..<secondSlice].sorted(by: { return Double($0[1])! < Double($1[1])! })
+            _ = gatheredSpots[secondSlice...].sorted(by: { return Double($0[1])! < Double($1[1])! })
         }
     }
     

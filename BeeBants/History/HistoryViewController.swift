@@ -23,8 +23,5 @@ class HistoryViewController: UIViewController {
     
     @IBAction func tapped_goback(_ sender: Any) {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-    
     }
-    
-
 }

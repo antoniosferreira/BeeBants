@@ -13,11 +13,11 @@ import FirebaseAuth
 class SignupMainViewController: UIViewController {
 
     var pageController : SignupPageViewController?
+    
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var buttonNext: RoundButton!
-    
     
     var tapped = false
     
@@ -145,22 +145,23 @@ class SignupMainViewController: UIViewController {
                         
                     } else {
                         
-                        // Initializes new Profile from default
-                        db.collection("ProfilingBars").document(authResult!.user.uid).setData([
-                            "density1":true, "density2":true, "density3":true,
-                            "style1":true, "style2":true, "style3":true,
-                            "time1":true, "time2":true,
-                            "price":2, "name":name,
-                            "encodedProfile":"211111111",
-                            "uid":authResult!.user.uid, "version":0])
-                        
-                        
-                        db.collection("ProfilingRestaurants").document(authResult!.user.uid).setData([
-                            "amb1":true, "amb2":true, "amb3":true,
-                            "diet1":false, "diet2":false, "diet3":false, "diet4":false,
-                            "price":2, "name":name,
-                            "uid":authResult!.user.uid, "version":0])
-                        
+                        // This is done at firebase level, now
+//                        // Initializes new Profile from default
+//                        db.collection("ProfilingBars").document(authResult!.user.uid).setData([
+//                            "density1":true, "density2":true, "density3":true,
+//                            "style1":true, "style2":true, "style3":true,
+//                            "time1":true, "time2":true,
+//                            "price":2, "name":name,
+//                            "encodedProfile":"211111111",
+//                            "uid":authResult!.user.uid, "version":0])
+//
+//
+//                        db.collection("ProfilingRestaurants").document(authResult!.user.uid).setData([
+//                            "amb1":true, "amb2":true, "amb3":true,
+//                            "diet1":false, "diet2":false, "diet3":false, "diet4":false,
+//                            "price":2, "name":name,
+//                            "uid":authResult!.user.uid, "version":0])
+//
                         
                         // GOES TO NEXT VIEW CONTROLLER AFTER SIGN UP
                         let vc = UIStoryboard(name: "HowTo", bundle: nil).instantiateViewController(withIdentifier: "HowToViewController") as! HowToViewController

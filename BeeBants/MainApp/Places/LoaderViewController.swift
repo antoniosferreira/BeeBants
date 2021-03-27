@@ -31,6 +31,7 @@ class LoaderViewController: UIViewController {
         rotate(imageView: loadingBeeImg, aCircleTime: 2.0)
     }
     
+    
     func rotate(imageView: UIImageView, aCircleTime: Double) { //UIView
         UIView.animate(withDuration: aCircleTime/2, delay: 0.0, options: .curveLinear, animations: {
             imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
@@ -46,8 +47,6 @@ class LoaderViewController: UIViewController {
     
     
     func initSpot(_ isBar: Bool) {
-        
-        //if (!pageController.option) { docName = "Restaurants" }
         
         let spotId = pageController.gatheredSpots[pageController.indexDisplayedSpot][0]
         let spotFilename = spotId + ".json"

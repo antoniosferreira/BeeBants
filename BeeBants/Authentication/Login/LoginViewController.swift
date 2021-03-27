@@ -53,7 +53,6 @@ class LoginViewController: UIViewController {
         
         
         configureForgotSlide()
-        
     }
     
     func setUpBackground() {

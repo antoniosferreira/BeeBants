@@ -44,8 +44,11 @@ class ProfileLoaderViewController: UIViewController {
         
         // Loads profile data
         functions.httpsCallable("readProfilings").call() {
-            (result, _) in
+            (result, error) in
                         
+            if let error = error {
+                
+            }
             if let barData = (result?.data as? [String: Any])?["profileBar"] as? [String:Any],
                let resData = (result?.data as? [String: Any])?["profileRestaurant"] as? [String:Any],
                let username = (result?.data as? [String: Any])?["userName"] as? String {
@@ -57,9 +60,8 @@ class ProfileLoaderViewController: UIViewController {
                 self.loadProfileView(username, barProfile: barProfile, resProfile: resProfile)
             } else {
                 let alert = ProfileBadAlert(title: "Something went wrong", message: "Failed loading profile data", buttonTitle: "Try again", view: self)
-                self.present(alert.getAlert(), animated: true, completion: nil)
+                self.present(alert.getAlert(), animated: true, completion: {self.dismiss(animated: true, completion: nil);})
             }
-            
         }
     }
     

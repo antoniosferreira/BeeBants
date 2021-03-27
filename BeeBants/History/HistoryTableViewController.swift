@@ -45,6 +45,10 @@ class HistoryTableViewController: UITableViewController {
                 Firestore.firestore().collection("History").document(trip).getDocument {
                     (document, error) in
                     
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    
                     if let document = document, document.exists {
                         let imgPath = (document.get("cityName") as! String) + "/Locations/" + (document.get("locImg") as! String)
                         let storageRef = Storage.storage().reference(withPath: imgPath)
@@ -62,7 +66,14 @@ class HistoryTableViewController: UITableViewController {
                                     self.tableView.reloadData()
                                 }
                             } else {
-                                // this loc img not found
+                                let row = HistoryField(name: document.get("spotName") as! String, img: UIImage(named: "BG_place")!, timestamp: document.get("timestamp") as! Timestamp, review: document.get("review") as! Int, fileName: trip)
+                                self.history.append(row)
+                                
+                                
+                                if (x == results.count) {
+                                    self.history.sort(by: {$0.stamp > $1.stamp})
+                                    self.tableView.reloadData()
+                                }
                             }
                         }
                     } else {

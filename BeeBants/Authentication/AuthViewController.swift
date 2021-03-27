@@ -21,6 +21,8 @@ class AuthViewController: UIViewController {
 
     let defaults = UserDefaults.standard
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,13 +30,10 @@ class AuthViewController: UIViewController {
         setUpElements()
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
-            // continue
-        } else {
+        if (!launchedBefore)  {
             UserDefaults.standard.set(false, forKey: "LocationPermission")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
-        
         
     }
     
@@ -42,10 +41,14 @@ class AuthViewController: UIViewController {
         super.viewDidAppear(animated)
         
         guard let currentUser = Auth.auth().currentUser else { return }
+        
         currentUser.getIDTokenForcingRefresh(true, completion:  {
             (idToken, error) in
+            
+            // failed to refresh token
             if let error = error {
-                    print(error.localizedDescription)
+                print(error.localizedDescription)
+                
             } else {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController

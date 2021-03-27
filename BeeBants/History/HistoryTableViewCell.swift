@@ -30,6 +30,8 @@ class HistoryTableViewCell: UITableViewCell {
     lazy var stars = [star1, star2, star3, star4, star5]
     var ranking = 0
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

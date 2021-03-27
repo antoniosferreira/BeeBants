@@ -1629,35 +1629,11 @@
                                             <constraint firstItem="rWS-eT-aQo" firstAttribute="leading" secondItem="gX9-5V-nMH" secondAttribute="leading" id="vyx-Dv-5bg"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhg-vB-Ldf" userLabel="Notifications">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-NQ-FHM" userLabel="GPS">
                                         <rect key="frame" x="0.0" y="604.5" width="414" height="82"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PMn-7k-DdE" userLabel="Notification Label">
-                                                <rect key="frame" x="72.5" y="0.5" width="165.5" height="81.5"/>
-                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="58"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fM2-kE-ozr" userLabel="Notification Switch">
-                                                <rect key="frame" x="286" y="25.5" width="51" height="31"/>
-                                                <color key="onTintColor" red="0.78603655100000003" green="0.20895731449999999" blue="0.19212388990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </switch>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="PMn-7k-DdE" firstAttribute="width" secondItem="Uhg-vB-Ldf" secondAttribute="width" multiplier="0.4" id="800-FD-ReO"/>
-                                            <constraint firstItem="PMn-7k-DdE" firstAttribute="centerX" secondItem="Uhg-vB-Ldf" secondAttribute="centerX" multiplier="0.75" id="CaL-vD-8Ne"/>
-                                            <constraint firstItem="fM2-kE-ozr" firstAttribute="centerX" secondItem="Uhg-vB-Ldf" secondAttribute="centerX" multiplier="1.5" id="KJ9-sW-yTZ"/>
-                                            <constraint firstItem="PMn-7k-DdE" firstAttribute="centerY" secondItem="Uhg-vB-Ldf" secondAttribute="centerY" id="bZM-p2-3e4"/>
-                                            <constraint firstItem="fM2-kE-ozr" firstAttribute="centerY" secondItem="PMn-7k-DdE" secondAttribute="centerY" id="wK6-Rp-V4Y"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-NQ-FHM" userLabel="GPS">
-                                        <rect key="frame" x="0.0" y="686.5" width="414" height="82"/>
-                                        <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS data" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hwy-bk-Iuz" userLabel="GPS label">
-                                                <rect key="frame" x="72.5" y="0.0" width="165.5" height="81.5"/>
+                                                <rect key="frame" x="72.5" y="0.5" width="165.5" height="81.5"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="58"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1682,19 +1658,16 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="S3K-NQ-FHM" firstAttribute="top" secondItem="gX9-5V-nMH" secondAttribute="bottom" constant="20" id="0pB-I5-xUO"/>
                                     <constraint firstItem="gX9-5V-nMH" firstAttribute="leading" secondItem="qCT-d6-jvQ" secondAttribute="leading" id="50a-j6-2FH"/>
                                     <constraint firstItem="S3K-NQ-FHM" firstAttribute="trailing" secondItem="qCT-d6-jvQ" secondAttribute="trailing" id="C5D-x9-BRX"/>
                                     <constraint firstItem="qCT-d6-jvQ" firstAttribute="leading" secondItem="ctK-YD-t7Q" secondAttribute="leading" id="H5d-oY-nwB"/>
                                     <constraint firstItem="S3K-NQ-FHM" firstAttribute="leading" secondItem="qCT-d6-jvQ" secondAttribute="leading" id="M35-q6-s7P"/>
-                                    <constraint firstItem="Uhg-vB-Ldf" firstAttribute="leading" secondItem="qCT-d6-jvQ" secondAttribute="leading" id="OYk-ou-ah1"/>
                                     <constraint firstItem="ctK-YD-t7Q" firstAttribute="width" secondItem="lJB-Qc-IyD" secondAttribute="width" id="ObY-ez-J1D"/>
-                                    <constraint firstItem="qCT-d6-jvQ" firstAttribute="trailing" secondItem="Uhg-vB-Ldf" secondAttribute="trailing" id="Xzx-hd-uLw"/>
-                                    <constraint firstItem="Uhg-vB-Ldf" firstAttribute="bottom" secondItem="S3K-NQ-FHM" secondAttribute="top" id="Yjc-0D-dzd"/>
                                     <constraint firstItem="qCT-d6-jvQ" firstAttribute="top" secondItem="ctK-YD-t7Q" secondAttribute="top" id="ZV5-70-8OZ"/>
                                     <constraint firstItem="Ujg-e5-eca" firstAttribute="width" secondItem="QZo-bM-WPR" secondAttribute="width" id="bIe-aj-FSO"/>
                                     <constraint firstItem="qCT-d6-jvQ" firstAttribute="bottom" secondItem="S3K-NQ-FHM" secondAttribute="bottom" id="eKh-m9-un2"/>
                                     <constraint firstItem="Ujg-e5-eca" firstAttribute="height" secondItem="QZo-bM-WPR" secondAttribute="height" id="m2q-n0-2J8"/>
-                                    <constraint firstItem="gX9-5V-nMH" firstAttribute="bottom" secondItem="Uhg-vB-Ldf" secondAttribute="top" constant="-20" id="nOb-6e-Ht7"/>
                                     <constraint firstItem="ctK-YD-t7Q" firstAttribute="trailing" secondItem="qCT-d6-jvQ" secondAttribute="trailing" id="nnf-uS-Tnm"/>
                                     <constraint firstItem="gX9-5V-nMH" firstAttribute="trailing" secondItem="qCT-d6-jvQ" secondAttribute="trailing" id="p5t-Kd-Km5"/>
                                     <constraint firstItem="gX9-5V-nMH" firstAttribute="top" secondItem="ctK-YD-t7Q" secondAttribute="bottom" constant="20" id="xE7-SJ-cZp"/>
@@ -1765,7 +1738,6 @@
                             <constraint firstItem="Dyc-Mi-gR2" firstAttribute="width" secondItem="x9V-On-Dbq" secondAttribute="width" multiplier="0.65" id="AeH-f0-x6k"/>
                             <constraint firstItem="x9V-On-Dbq" firstAttribute="trailing" secondItem="vRj-Pk-eRD" secondAttribute="trailing" id="DYp-rZ-Hgz"/>
                             <constraint firstItem="8wd-Lf-4Xl" firstAttribute="height" secondItem="x9V-On-Dbq" secondAttribute="height" multiplier="0.25" id="FyE-xx-B8p"/>
-                            <constraint firstItem="Uhg-vB-Ldf" firstAttribute="height" secondItem="x9V-On-Dbq" secondAttribute="height" multiplier="0.1" id="GqP-gk-NRu"/>
                             <constraint firstItem="x9V-On-Dbq" firstAttribute="trailing" secondItem="q6f-LR-GW3" secondAttribute="trailing" id="IIg-R3-96g"/>
                             <constraint firstItem="u6R-Yd-PIl" firstAttribute="top" secondItem="q6f-LR-GW3" secondAttribute="bottom" id="J6K-e9-z0e"/>
                             <constraint firstItem="8wd-Lf-4Xl" firstAttribute="leading" secondItem="x9V-On-Dbq" secondAttribute="leading" id="PXj-1y-2Oo"/>
@@ -1789,7 +1761,6 @@
                         <outlet property="gpsSwitch" destination="Jtd-We-gP1" id="3HP-HW-67Z"/>
                         <outlet property="labelTitleEmail" destination="Vcb-7y-oAB" id="YPw-iz-BE4"/>
                         <outlet property="labelTitleGPS" destination="Hwy-bk-Iuz" id="APV-1l-goM"/>
-                        <outlet property="labelTitleNotification" destination="PMn-7k-DdE" id="dJE-ff-byN"/>
                         <outlet property="labelTitlePassword" destination="fiH-Ld-z3h" id="9xl-Z3-ORh"/>
                         <outlet property="viewEditEmail" destination="OsP-oO-GmT" id="Fon-Ih-eJM"/>
                         <outlet property="viewEditPassword" destination="DFR-1t-2Qg" id="1tQ-p9-nDu"/>

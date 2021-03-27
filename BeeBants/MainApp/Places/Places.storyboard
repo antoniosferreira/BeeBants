@@ -1438,8 +1438,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG_place" translatesAutoresizingMaskIntoConstraints="NO" id="hYd-27-00e">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThanksBG" translatesAutoresizingMaskIntoConstraints="NO" id="hYd-27-00e">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.01176506374" green="0.01176406164" blue="0.01176474057" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.01176506374" green="0.01176406164" blue="0.01176474057" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_b_red" translatesAutoresizingMaskIntoConstraints="NO" id="LTX-nV-dB8">
                                 <rect key="frame" x="-40" y="133" width="494" height="368"/>
@@ -1507,6 +1509,7 @@
         <image name="Location" width="569" height="802"/>
         <image name="Star_empty" width="76" height="73"/>
         <image name="Star_full" width="76" height="73"/>
+        <image name="ThanksBG" width="845" height="1125"/>
         <image name="arrows_white" width="98" height="116"/>
         <image name="back_arrow" width="980" height="1814"/>
         <image name="back_arrow_white" width="60" height="110"/>

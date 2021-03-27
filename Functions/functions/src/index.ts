@@ -127,19 +127,19 @@ export const updateBarProfile = functions.https.onCall( async (data, context) =>
 		
 		
 		// VALIDATES NEW PROFILE
-		if (!(data.price == 0 || data.price == 1 || data.price == 2)) {
+		if (!(data.price === 0 || data.price === 1 || data.price === 2)) {
 			throw new functions.https.HttpsError("cancelled", "Make sure you select at least one price option");
 		}
 		
-		if (data.style1 == 0 && data.style2 == 0 && data.style3 == 0) {
+		if (data.style1 === 0 && data.style2 === 0 && data.style3 === 0) {
 			throw new functions.https.HttpsError("cancelled", "Make sure you select at least one style option");
 		}
 		
-		if (data.density1 == 0 && data.density2 == 0 && data.density3 == 0) {
+		if (data.density1 === 0 && data.density2 === 0 && data.density3 === 0) {
 			throw new functions.https.HttpsError("cancelled", "Make sure you select at least one density option");
 		}
 		
-		if (data.time1 == 0 && data.time2 == 0) {
+		if (data.time1 === 0 && data.time2 === 0) {
 			throw new functions.https.HttpsError("cancelled", "Make sure you select at least one time option");
 		}
 		
@@ -191,11 +191,11 @@ export const updateResProfile = functions.https.onCall( async (data, context) =>
 		
 		
 		// VALIDATES NEW PROFILE
-		if (!(data.price == 0 || data.price == 1 || data.price == 2)) {
+		if (!(data.price === 0 || data.price === 1 || data.price === 2)) {
 			throw new functions.https.HttpsError("cancelled", "Make sure you select at least one price option");
 		}
 		
-		if (data.amb1 == 0 && data.amb2 == 0 && data.amb3 == 0) {
+		if (data.amb1 === 0 && data.amb2 === 0 && data.amb3 === 0) {
 			throw new functions.https.HttpsError("cancelled", "Make sure you select at least one ambiance option");
 		}
 				
@@ -247,7 +247,7 @@ export const loadHistory = functions.https.onCall( async (data, context) => {
 			
 		snapshot => {
 			
-			let history = (snapshot?.data()?.history).reverse()
+			const history = (snapshot?.data()?.history).reverse()
 			
 			
 			if (history.length < 5) {
@@ -279,7 +279,50 @@ export const loadHistory = functions.https.onCall( async (data, context) => {
 });
 
 
-
-
+// Create default profile when signing up
+exports.initProfile = functions.firestore
+		.document('Users/{userId}')
+		.onCreate(async (snap, context) => {
+			const username = snap.data().name;
+			
+			
+			const barProfileDefault = {
+				density1 : true,
+				density2: true,
+				density3: true,
+				style1: true,
+				style2: true,
+				style3: true,
+				time1: true, 
+				time2: true,
+				price: 2,
+				name: username,
+				encodedProfile: "211111111",
+				uid: context.params.userId,
+				version: 0
+			};
+			
+			await admin.firestore().doc(`/ProfilingBars/${context.params.userId}`).set(barProfileDefault);			
+			
+			
+			const resProfileDefault = {
+				amb1 : true,
+				amb2: true,
+				amb3: true,
+				diet1: false,
+				diet2: false,
+				diet3: false,
+				diet4: false, 
+				price: 2,
+				name: username,
+				encodedProfile: "21110000",
+				uid: context.params.userId,
+				version: 0
+			};
+			
+			await admin.firestore().doc(`/ProfilingRestaurants/${context.params.userId}`).set(resProfileDefault);	
 
 		
+		
+		});
+

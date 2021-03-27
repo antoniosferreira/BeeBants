@@ -27,7 +27,6 @@ class FeedbackViewController: UIViewController {
     lazy var feedbackButtons = [button_star_1, button_star_2, button_star_3, button_star_4, button_star_5]
 
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +72,7 @@ class FeedbackViewController: UIViewController {
     
     
     func updateRankingStars(_ ranking: Int) {
+        
         for r in 0...4 {
             feedbackButtons[r]?.image =
                 UIImage(named: "Star_empty")
@@ -91,11 +91,13 @@ class FeedbackViewController: UIViewController {
         if (ranking > 0) {
             
             // Updates feedback value on previosuly saved trip history
-            let _: Void = Firestore.firestore().collection("History").document(pageController.getPlace().historyFile).updateData(["review":ranking])
+            if pageController.getPlace().historyFile != "" {
+                let _: Void = Firestore.firestore().collection("History").document(pageController.getPlace().historyFile).updateData(["review":ranking])
 
-            pageController.displayFinal()
+                pageController.displayFinal()
+            }
+            
         }
-        
     }
     
     
