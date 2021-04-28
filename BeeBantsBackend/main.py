@@ -66,5 +66,5 @@ def sortBars():
 
 
 
-#updateBarsProfiling()
+updateBarsProfiling()
 updateResProfiling()
