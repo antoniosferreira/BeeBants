@@ -7,12 +7,13 @@ Aren't you fed up of spending hours deciding where to go? So are we! Which is wh
 Build your own profile and have us choose the perfect location for you! Get in touch with your adventurous side!
 
 ## Screenshots  
-![alt text](https://raw.githubusercontent.com/antoniosferreira/BeeBants/master/docs/signup.png?token=AIXSPX5Z5BQHEAFLKJH5HQDBFT342) {:height="50px"}
-![alt text](https://raw.githubusercontent.com/antoniosferreira/BeeBants/master/docs/choose.png?token=AIXSPX7BRFAU77Y3VESG4ADBFT3ZY) {:height="50px"}
-![alt text](https://github.com/antoniosferreira/BeeBants/blob/master/docs/location.png?raw=true) {:height="50px"}
-![alt text](https://github.com/antoniosferreira/BeeBants/blob/master/docs/info.png?raw=true) {:height="50px"}
-![alt text](https://github.com/antoniosferreira/BeeBants/blob/master/docs/spot.png?raw=true) {:height="50px"}
-![alt text](https://github.com/antoniosferreira/BeeBants/blob/master/docs/feeback.png?raw=true) {:height="50px"}
+<img src="https://github.com/antoniosferreira/BeeBants/blob/master/docs/signup.png?raw=true" width="150">
+<img src="https://github.com/antoniosferreira/BeeBants/blob/master/docs/choose.png?raw=true" width="150">
+<img src="https://github.com/antoniosferreira/BeeBants/blob/master/docs/location.png?raw=true" width="150">
+<img src="https://github.com/antoniosferreira/BeeBants/raw/master/docs/info.png?raw=true" width="150">
+<img src="https://github.com/antoniosferreira/BeeBants/blob/master/docs/spot.png?raw=true" width="150">
+<img src="https://github.com/antoniosferreira/BeeBants/blob/master/docs/feeback.png?raw=true" width="150">
+
 
 
 ## Technologies
